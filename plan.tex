@@ -1,0 +1,98 @@
+\documentclass[12pt]{article}
+
+\usepackage[right=20mm, left=20mm]{geometry}
+\usepackage{type1cm}
+\usepackage{amssymb}
+\usepackage[fleqn]{amsmath}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{makecell}
+\setlength{\columnsep}{1pt}
+\usepackage{pgfplots}
+\usepackage{float}
+
+\usepackage{indentfirst}
+\usepackage{lastpage}  
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
+ {hyperref}
+
+\makeatletter
+\newenvironment{myalign*}{\ifvmode\else\hfil\null\linebreak\fi
+  \hspace*{-\leftmargin}\minipage\textwidth
+  \setlength{\abovedisplayskip}{0pt}%
+  \setlength{\abovedisplayshortskip}{\abovedisplayskip}%
+  \start@align\@ne\st@rredtrue\m@ne}%
+{\endalign\endminipage\linebreak}
+
+% Paper size
+\topmargin -10mm
+\textwidth 170mm
+% \oddsidemargin -5mm
+% \evensidemargin -5mm
+\textheight 220mm
+
+% Font setting
+\usepackage{xeCJK}
+% \setCJKmainfont{Noto Sans TC}
+\setCJKmainfont{kaiu.ttf}
+
+
+\renewcommand{\footnotesize}{\normalsize} 
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\lhead{}
+\chead{整合式線上教學平台ProgLearn}
+\rhead{}
+
+\lfoot{}
+\cfoot{}
+\rfoot{ 共 \pageref{LastPage} 頁 第  \thepage   頁} 
+
+\makeatletter
+\begin{document}
+% \fontsize{14pt}{18pt}\selectfont
+% \author{}
+\date{}
+\usetikzlibrary{automata, positioning, arrows}
+% \maketitle
+\tikzset{every state, accepting/.style={double distance=2pt}}
+
+\begin{enumerate}
+  \setlength{\parindent}{2em}
+  \item 摘要 
+    \par 本計畫將建立一個專注於教師導向的教學工具，
+    名為ProgLearn，這個整合式教學平台將提供課堂和線上解題系統(Online Judge)。
+    課堂將包含影片、互動式講義以及課堂練習。
+    影片將提供同步和非同步教學，而互動式講義不再是傳統的圖像及文字，
+    將使用JS(JavaScript)技術製作，以增加學生和教師的互動。
+    Online Judge將包含傳統的題目撰寫外，還提供自動反饋的功能，
+    可以分析學生提交的程式碼，以提高學生的學習效果。
+    課堂練習平台將採用Online Judge模組，如果採用同步教學，
+    學生提交的程式碼可以即時在課堂練習上呈現，讓教師和學生可以即時互相評論與回饋。
+    除此之外，ProgLearn系統還將提供可自訂的測試案例，以方便教師進行練習的設計。
+    綜上所述，ProgLearn是一個結合教學與練習的完整教學平台，旨在提高學生的學習效率，
+    並改善教師的教學效率。
+  \item 研究動機與研究問題
+    \par 在台灣，資訊科技領域受到廣泛重視。
+    根據十二年國民基本教育課程綱要\cite{ref1}，
+    程式設計已被列為學校必修課程，每年有數百萬學生修習程式教育。
+    然而，在基層教育中卻存在許多問題：
+  \item 文獻回顧與探討
+  \item 研究方法及步驟
+  \item 預期結果
+  \item 參考文獻
+    \renewcommand{\section}[2]{}
+    \begin{thebibliography}{99}  
+      \bibitem{ref1} Text 代補
+    \end{thebibliography} 
+  \item 需要指導教授內容
+\end{enumerate}
+
+
+\end{document}
