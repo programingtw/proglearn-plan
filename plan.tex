@@ -90,7 +90,7 @@
         \par 比如準備線上課程的直播環境、準備課程教材、批改學生作業、上傳考題、課外時間回覆學生的各種問題等\cite{ref4}。由於專業教師與學生數量的比例失衡，也讓教師難以管理學生\cite{ref5}。
       \item 受技術限制的教學方式：
         \begin{enumerate}
-          \item 線下課程：資訊教室大多使用資訊教室的廣播與管理系統\cite{ref6}，讓教師能夠強制監控所有學生的電腦，並在課堂中分享自己的畫面。雖然這種方式能讓學生專注於教師的授課中，但因強制控制學生的電腦，學生就無法在上課過程中使用顯示畫面以外的電腦功能，如查詢資料、閱讀過往課程講義、實作程式碼等。大大限制學生的學習空間。
+          \item 線下課程：資訊教室大多使用資訊教室的廣播與管理系統\cite{ref6}，讓教師能夠強制監控所有學生的電腦，並在課堂中分享自己的畫面。雖然這種方式能讓學生專注於教師的授課中，但強制控制學生的電腦，學生就無法在上課過程中使用顯示畫面以外的電腦功能，如查詢資料、閱讀過往的課程講義、實作程式碼等。大大限制學生的學習空間。
           \item 線上課程：因設備品質影響學生學習情緒及上課意願\cite{ref7}。此外，線上自主學習，若有問題無法獲得即時解答，學習效果可能受限\cite{ref4}。
         \end{enumerate}
       \item 師生間缺乏互動性：
@@ -134,7 +134,7 @@
         \end{enumerate}
         \par 基於以上三點因素，本計畫將以整合式、互動式、自動回饋、實作，這四個需求面向設計Proglearn的功能與系統架構，使教師更容易運用工具輔助教學、使學生有較好的學習成效。
       \item 自動反饋與程式碼分析技術
-        \par 現在的程式設計課程多使用 Online Judge (OJ) 作為一個教學工具，教學者可以設計出題目與測試案例，就能簡單判斷學生的能力。但是往往學生在作答時，如果提交一份可執行的錯誤程式碼，OJ大多時只會回饋一個 "Wrong Answar"、"Runtime Error" 等簡單的錯誤資訊。學生看到這些錯誤資訊很難快速發現程式碼的錯誤，大大增加學生練習的時間。Krusche 和 Seitz 的論文中，對資訊科學的學生進行一個程式設計課程的調查，結果是自動反饋會增加學生參與學習的意願，並且可以降低教學者的工作量，讓教學者可以更快掌握學生的狀況。因此我們想要設計出一個錯誤程式碼預測模型，這是可以預測程式碼可能錯誤的地方，如"迴圈錯誤"、"變數溢位"等更為詳細錯誤資訊，讓學生能夠快速地掌握程式碼錯誤。在 Yu Dong 等作者的論文中，提到使用程式碼與測試案例作為模型輸入，錯誤反饋訊息作為模型輸出，訓練一個多標籤分類模型。
+        \par 現在的程式設計課程多使用 Online Judge (OJ) 作為一個教學工具，教學者可以設計出題目與測試案例，就能簡單判斷學生的能力。但是往往學生在作答時，如果提交一份可執行的錯誤程式碼，OJ大多時只會回饋一個 "Wrong Answar"、"Runtime Error" 等簡單的錯誤資訊。學生看到這些錯誤資訊很難快速發現程式碼的錯誤，大大增加學生練習的時間。Krusche 和 Seitz 的論文\cite{ref16}中，對資訊科學的學生進行一個程式設計課程的調查，結果是自動反饋會增加學生參與學習的意願，並且可以降低教學者的工作量，讓教學者可以更快掌握學生的狀況。因此我們想要設計出一個錯誤程式碼預測模型，這是可以預測程式碼可能錯誤的地方，如"迴圈錯誤"、"變數溢位"等更為詳細錯誤資訊，讓學生能夠快速地掌握程式碼錯誤。在 Dong 等作者的論文\cite{ref17}中，提到使用程式碼與測試案例作為模型輸入，錯誤反饋訊息作為模型輸出，訓練一個多標籤分類模型。
     \end{enumerate}
 
   \item 研究方法及步驟
@@ -158,46 +158,37 @@
         \begin{enumerate}
           \item [A.] 班級與課程功能
             \begin{enumerate}
-              \item [A-1.] 教師可新增自己的課程。
-              \item [A-2.] 教師可查詢自己的所有課程。
-              \item [A-3.] 教師可於特定課程中新增章節。
-              \item [A-4.] 教師可於特定章節中查看此章節的答題紀錄。
-              \item [A-5.] 教師可於特定章節中查看此章節的學生問答紀錄。
-              \item [A-6.] 教師可於特定章節中編輯此章節的投影片。
-              \item [A-7.] 教師可於特定章節中新增此章節的影片。
-              \item [A-8.] 教師可於特定章節中編輯與新增此章節的題目。
+              \item [A-1.] 教師可新增與查詢自己的課程，並於特定課程中新增章節。
+              \item [A-2.] 教師可於特定章節中查看此章節中，學生的答題統計、問答紀錄。
             \end{enumerate}
           \item [B.] 影音與直播功能
             \begin{enumerate}
               \item [B-1.] 教師可於章節中上傳影片。
-              \item [B-2.] 教師可於章節中開啟即時直播。
-              \item [B-3.] 學生可於教學頁面中觀看此章節的影片。
+              \item [B-2.] 教師可於章節中開啟即時直播，並且能預覽與調整直播設定。
+              \item [B-3.] 學生可於教學頁面中觀看此章節的教學影片。
             \end{enumerate}
           \item [C.] 投影片功能
             \begin{enumerate}
-              \item [C-1.] 教師可新增投影片的背景圖片。
-              \item [C-2.] 教師可新增與編輯文字。
-              \item [C-3.] 教師可新增與編輯圖形。
-              \item [C-4.] 教師可新增與編輯互動式元件。
-              \item [C-5.] 教師可儲存投影片。
-              \item [C-6.] 教師可開啟黑板模式，讓特定學生能在教學頁面中使用互動式的元件。
+              \item [C-1.] 教師可編輯章節的投影片，並於投影片中新增與編輯文字、圖形與互動式元件。
+              \item [C-2.] 教師可開啟黑板模式，讓特定學生能在投影片中繪圖寫字。
+              \item [C-3.] 學生可於教學頁面中觀看此章節的投影片，並與互動性元件互動，如勾選方框、按下按鈕等。
             \end{enumerate}
           \item [D.] 練習題功能
             \begin{enumerate}
               \item [D-1.] 教師可於特定章節中新增題目。
               \item [D-2.] 教師可於特定章節中查看各學生於特定作業的答題情況，內容包含繳交的程式碼、AI批改的紀錄與分數。
               \item [D-3.] 教師可針對答題情況，留下教師建議。
-              \item [D-4.] 教師可於特定章節中新增題目。
+              \item [D-4.] 學生可於特定章節中查看並解決此章節的課後練習題目，學生繳交程式碼後由AI自動批改、評分並提出建議。
             \end{enumerate}
           \item [E.] 教學頁面功能
             \begin{enumerate}
-              \item [E-1.] 學生可於投影片區觀看投影片。
-              \item [E-2.] 學生可於投影片區，切換上下頁，查看特定的投影片。
-              \item [E-3.] 學生可使用投影片的互動式元件
-              \item [E-4.] 學生可使影片與投影片交換顯示位置
-              \item [E-5.] 學生可於影片區觀看影片或直播。
-              \item [E-6.] 學生可於程式區編輯JS程式碼，並執行程式碼。
-              \item [E-7.] 學生可於章節描述區查看此章節的資訊。
+              \item [E-1.] 學生可於投影片區觀看並操作投影片。
+              \item [E-3.] 學生可透過切換按鈕，使影片與投影片交換顯示的位置。
+              \item [E-4.] 學生可於影片區觀看教學影片或直播。
+              \item [E-5.] 學生可於程式區編輯JS程式碼，並且能執行與查看結果。
+              \item [E-6.] 學生可於章節描述區查看此章節的資訊。
+              \item [E-7.] 教師可查看各學生執行的程式碼與結果。
+              \item [E-8.] 教師可控制黑板模式並使用互動性功能。
             \end{enumerate}
           \end{enumerate}
 
@@ -232,6 +223,8 @@
       \bibitem{ref13} Ouya, Samuel, et al. "WebRTC platform proposition as a support to the educational system of universities in a limited Internet connection context." 2015 5th World Congress on Information and Communication Technologies (WICT). IEEE, 2015.
       \bibitem{ref14} Ibrahim, Mohamed, and Osama Al-Shara. "Impact of interactive learning on knowledge retention." Lecture Notes in Computer Science 4558 (2007): 347.
       \bibitem{ref15} Akram, Huma, et al. "Technology integration in higher education during COVID-19: An assessment of online teaching competencies through technological pedagogical content knowledge model." Frontiers in psychology 12 (2021): 736522.
+      \bibitem{ref16} Krusche, Stephan, and Andreas Seitz. "Artemis: An automatic assessment management system for interactive learning." Proceedings of the 49th ACM technical symposium on computer science education. 2018.
+      \bibitem{ref17} Dong, Yu, Jingyang Hou, and Xuesong Lu. "An intelligent online judge system for programming training." Database Systems for Advanced Applications: 25th International Conference, DASFAA 2020, Jeju, South Korea, September 24–27, 2020, Proceedings, Part III 25. Springer International Publishing, 2020.
     \end{thebibliography} 
 
   \item 需要指導教授內容
