@@ -10,6 +10,8 @@
 \setlength{\columnsep}{1pt}
 \usepackage{pgfplots}
 \usepackage{float}
+\usepackage{caption}
+\usepackage{graphicx}
 
 \usepackage{indentfirst}
 \usepackage{lastpage}  
@@ -62,6 +64,7 @@
 \usetikzlibrary{automata, positioning, arrows}
 % \maketitle
 \tikzset{every state, accepting/.style={double distance=2pt}}
+\captionsetup[figure]{labelfont={bf},name={圖},labelsep=period}
 
 \begin{enumerate}
   \setlength{\parindent}{2em}
@@ -175,7 +178,7 @@
             \end{enumerate}
           \item [D.] 練習題功能
             \begin{enumerate}
-              \item [D-1.] 教師可於特定章節中新增題目。
+              \item [D-1.] 教師可於特定章節中新增題目，並且可以在現有題目系統(如:Atcoder)直接抓取題目。
               \item [D-2.] 教師可於特定章節中查看各學生於特定作業的答題情況，內容包含繳交的程式碼、AI批改的紀錄與分數。
               \item [D-3.] 教師可針對答題情況，留下教師建議。
               \item [D-4.] 學生可於特定章節中查看並解決此章節的課後練習題目，學生繳交程式碼後由AI自動批改、評分並提出建議。
@@ -193,6 +196,35 @@
           \end{enumerate}
 
       \item 系統架構設計
+        \par 根據需求擷取與分析所述，本研究將接續Proglearn的系統架構設計，系統架構如圖\ref{arc1}所示，
+        在 Proglearn 系統內(如圖\ref{arc1})，包括前端服務器(Web Application Server、Single Page Application)、
+        主要後端服務器(Business Backend)、課程管理服務器(Course Manage Server)、線上解題服務器(Online Judge Server)、資料庫(Database)等容器。
+        \par 主要後端服務器(如圖\ref{arc2})負責處理與管理使用者資料(User Module)、課程(Course Module)、題目(Online Judge)。
+        \begin{figure}[htbp]
+          \centering
+          \includegraphics[width=0.7\textwidth]{./img/arc1.jpg}
+          \caption{Proglearn 系統架構}
+          \label{arc1}
+        \end{figure}
+        \begin{figure}[htbp]
+          \centering
+          \includegraphics[width=0.7\textwidth]{./img/arc2.jpg}
+          \caption{主要後端服務器架構}
+          \label{arc2}
+        \end{figure}
+        \begin{figure}[htbp]
+          \centering
+          \includegraphics[width=0.7\textwidth]{./img/arc3.jpg}
+          \caption{課程管理服務器架構}
+          \label{arc3}
+        \end{figure}
+        \begin{figure}[htbp]
+          \centering
+          \includegraphics[width=0.7\textwidth]{./img/arc4.jpg}
+          \caption{線上解題服務器架構}
+          \label{arc4}
+        \end{figure}
+
 
       \item 核心技術設計
 
@@ -230,10 +262,12 @@
   \item 需要指導教授內容
     \begin{enumerate}
       \setlength{\parindent}{2em}
-      \item 資料收集
-      \item 技術分析
-      \item 研究方法及步驟
-      \item 系統測試與部署
+      \item 資料收集：學習資料與文獻收集、分析與整理之方法。
+      \item 技術分析：學習分析各個功能可能會使用到的相關技術。
+      \item 研究方法及步驟：學習利用物件導向軟體工程技術、機器學習技術、
+      Web技術來規劃軟體之架構與細部設計。
+      \item 系統測試與部署：學習設計不同的測試案例及運用不同的測試方法，以確保本系統之可用性與可靠度，
+      並學習如何運用持續整合/部署以及容器技術，進行系統自動化建置與發佈。
     \end{enumerate}
 \end{enumerate}
 \end{document}
