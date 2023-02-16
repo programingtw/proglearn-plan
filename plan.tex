@@ -124,7 +124,7 @@
         \par 此研究旨在開發一個低延遲的同步教學平台。這個平台將支持分享電腦螢幕和人像直播功能。市面上常見的視訊串流直播技術：RTMP (Real-Time Messaging Protocol)、HLS (HTTP Live Streaming)、DRM (Digital Rights Management)、WebRTC(Web Real-Time Communication)。RTMP 技術長用於線上遊戲和多人直播。HLS 是使用HTTP協議，在不同的網絡環境中提供高質量的實時串流。DRM 技術用於保護數位內容，通常用於付費串流平台中，以防止內容被盜。而WebRTC 是一個用於即時通信的方案，如解題直播等需要高互動性的情景。
         \par 在Ouya %Samuel Ouya
         等作者的論文中\cite{ref13}，作者探討了使用WebRTC技術來實現遠端教育的平台。WebRTC是 google 的一個開源項目，用於網絡瀏覽器之間的實時通信。它使用一個JavaScript API，直接在瀏覽器中實現視訊通話、文件傳輸、P2P訊息分享和其他功能，而不需要額外的插件或程式。憑藉其現代軟體技術，如資料通道和串流傳輸，WebRTC提供了一個高效、可靠和可擴展的即時通信解決方案。在我們的 Proglearn 所規劃的教學平台，我們是需要 WebRTC 此技術，解決高互動性的使用情境。
-        \par 本研究預計使用 WebRTC 結合 RTSP 的概念，來開發出超低延遲教學平台。
+        \par 本研究預計使用 WebRTC 結合 RTSP 的概念，來開發出超低延遲直播教學平台。
       \item 教學功能的需求與成效分析
         \par COVID-19的流行促使教學模式的改變，讓傳統的面授教育轉為線上教育(UN, 2020)\cite{ref8}，影響全球超過一半的學生(UNESCO, 2020)\cite{ref9}。Akram %Huma Akram
         等作者的論文\cite{ref15}指出，教學模式的變化使得教師更需要將科技與教學內容整合。然而，研究顯示，教師在科技知識(TK, Technological Knowledge, 指能夠運用各種科技的能力，如操作電腦、影印機、網路等。)\cite{ref10}領域的表現不如預期，意味著教師無法有效地將科技融入教學實踐中，原因是教師缺乏應用ICT (ICT, Information and Communication Technology, It refers to technologies that provide access to information through telecommunication)\cite{ref11}的能力和工具，導致他們在教學上遇到困難。
@@ -148,14 +148,14 @@
         \par 本計畫根據上述之研究動機與研究問題，擬定多項功能，以符合教師與學生的使用需求，因此我們考慮以下因素：
         \begin{enumerate}
           \setlength{\parindent}{2em}
-          \item 整合式：
-            \par 因市面上的在線教學軟件缺乏整合性，教學投影片、在線教學、程式實作和課後練習分別通過多個軟件和網站實現，導致教學過程中，用戶操作和數據傳輸效率不佳。為了解決這個問題，可以採用整合性的在線教學平台，使教師可以在同一個平台上，上傳投影片、發布直播、建立練習題目，同時用戶可以在同一個頁面上完成教學和練習，不需要過大的操作複雜度，就能實現更流暢的課堂教學環境。
-          \item 互動式：
-            \par 由於傳統投影片較為靜態的特性，使學生難以深入討論，且由於教師單向輸出內容，使其無法從學生的反饋中，快速檢視學生對於知識的掌握程度。為了改善這個問題，本計畫將重新設計投影片系統，以JS語法控制投影片上的各種物件，並加入黑板模式，讓特定學生能編輯投影片的內容，使投影片具有雙向反饋的互動性。
           \item 自動回饋：
             \par 透過自然語言AI輔助教學，協助分析學生的程式碼錯誤並給予回饋，以減少教師的工作量，讓教師能更好地關注每一位學生的進度。
-          \item 實作：
+          \item 實際操作：
             \par 為了增進學生的實際操作機會，本系統將程式實作劃分為課堂實作和課後練習。課堂實作已整合於教學頁面，使學生能在課堂中同步練習並加深記憶。課後練習則透過自然語言AI進行自動批改，學生可隨時提交作業並得到批改和建議，教師也可隨時關注學生的問答狀況。
+          \item 互動式：
+            \par 由於傳統投影片較為靜態的特性，使學生難以深入討論，且由於教師單向輸出內容，使其無法從學生的反饋中，快速檢視學生對於知識的掌握程度。為了改善這個問題，本計畫將重新設計投影片系統，以JS語法控制投影片上的各種物件，並加入黑板模式，讓特定學生能編輯投影片的內容，使投影片具有雙向反饋的互動性。
+          \item 整合式：
+            \par 因市面上的在線教學軟件缺乏整合性，教學投影片、在線教學、程式實作和課後練習分別通過多個軟件和網站實現，導致教學過程中，用戶操作和數據傳輸效率不佳。為了解決這個問題，可以採用整合性的在線教學平台，使教師可以在同一個平台上，上傳投影片、發布直播、建立練習題目，同時用戶可以在同一個頁面上完成教學和練習，不需要過大的操作複雜度，就能實現更流暢的課堂教學環境。
         \end{enumerate}
       \par 根據以上因素，統整出各項功能：
         \begin{enumerate}
@@ -199,7 +199,6 @@
         \par 根據需求擷取與分析所述，本研究將接續Proglearn的系統架構設計，系統架構如圖\ref{arc1}所示，
         在 Proglearn 系統內(如圖\ref{arc1})，包括前端服務器(Web Application Server、Single Page Application)、
         主要後端服務器(Business Backend)、課程管理服務器(Course Manage Server)、線上解題服務器(Online Judge Server)、資料庫(Database)等容器。
-        \par 主要後端服務器(如圖\ref{arc2})負責處理與管理使用者資料(User Module)、課程(Course Module)、題目(Online Judge)。
         \begin{figure}[htbp]
           \centering
           \includegraphics[width=0.7\textwidth]{./img/arc1.jpg}
@@ -208,7 +207,7 @@
         \end{figure}
         \begin{figure}[htbp]
           \centering
-          \includegraphics[width=0.7\textwidth]{./img/arc2.jpg}
+          \includegraphics[width=0.65\textwidth]{./img/arc2.jpg}
           \caption{主要後端服務器架構}
           \label{arc2}
         \end{figure}
@@ -224,17 +223,48 @@
           \caption{線上解題服務器架構}
           \label{arc4}
         \end{figure}
-
-
+        \par 主要後端服務器(如圖\ref{arc2})
+          負責處理與管理使用者資料(User Module)、課程模組(Course Module)、題目模組(Online Judge)。
+        \par 課程管理服務器(如圖\ref{arc3})
+          包括影片服務器(Video Server)、投影片模組(Code-Slides Module)、練習模組(Exercise Module)。
+          投影片模組將使用 CodeMirror 作為編輯器，並且提供使用 JavaScript 程式碼撰寫投影片。
+          % 接著使用
+        \par 線上解題服務器(如圖\ref{arc4})
+          包括線上題目抓取模組(Judge API-Client)、程式碼批改模組(Judger)、程式碼分析模組(Code Analysis)。
+          Judge API-Client 是使用開源專案 api-client \cite{apiclient} 作為線上題目抓取模組，方便教師可以使用現有的題目做修改。
+          Judger 是參考開源專案 go-judge \cite{judger1} 、JudgeServer \cite{judger2} 開發出沙盒程式碼執行環境及程式碼批改模組。
+          Code Analysis 將採用多標籤辨識模型實現，後續章節將針對此核心技術進行更詳細的說明。
       \item 核心技術設計
+        \begin{enumerate}
+            \setlength{\parindent}{2em}
+            \item Code Analysis 
+            \par 程式碼分析及自動回饋是本研究的核心技術，我們將使用多標籤辨識模型來實現。
+            \par 本研究規劃實驗步驟如圖\ref{ai}所示。我們採用 CodeForces 網站的題目作為訓練資料，
+            CodeForces 是俄羅斯的一個程式競賽網站，提供了大量的程式競賽題目，用戶在上面作答的程式碼都會公布，
+            並且還有大部分的題目都有明確的難度指標，難度指標在 800 到 3500 之間，難度指標數字越高，題目越難。
+            CodeForces 有提供 API 可以取得題目的資訊，
+            因此我們可以在 CodeForces 上取得題目的資訊及用戶的程式碼、輸出資料、正確答案，
+            並將用戶的程式碼刪除註解、非英文字元、程式碼無法解析成抽象語法樹的資料後，再進行分析。
+            我們最一開始會從難度 800 的題目作為初始訓練資料，並且人工標上錯誤類別後進行訓練模型，
+            之後提升難度到 1000 的題目，先以原本的模型進行預測，再進行人工審查。            
+            \begin{figure}[htbp]
+              \centering
+              \includegraphics[width=1\textwidth]{./img/ai.jpg}
+              \caption{AI}
+              \label{ai}
+            \end{figure}
+        \end{enumerate}
 
     \end{enumerate}
 
   \item 預期結果
+    \par 最後我們開發出一個整合式教學系統，
+    將解決以下四個問題:
     \begin{enumerate}
-      \setlength{\parindent}{2em}
-      \item 教師端
-      \item 學生端
+      \item 教師在教學與備課的工作量大: 自動回饋系統能夠節省教師的時間。教師可以快速了解學生的學習進度和弱點，有更多的時間去創造更好的學習環境和教學資源。
+      \item 受技術限制的教學方式: 透過同步練習與課後練習並輔以AI自動批改，讓教師能夠快速掌握學生的學習狀況，提高了教學效率。
+      \item 師生間缺乏互動性: 互動式簡報模組，可以讓教師與學生之前有更多的互動，讓學生能夠更加主動地參與學習，並且能夠得到及時的回饋和指導。
+      \item 教學工具種類繁多且功能單一: 整合式系統可以讓教師在同一個平台上創建和管理課程、學生，並能夠快速分析學生的學習狀況，提高了教學效率。
     \end{enumerate}
 
   \item 參考文獻
@@ -257,6 +287,9 @@
       \bibitem{ref15} Akram, Huma, et al. "Technology integration in higher education during COVID-19: An assessment of online teaching competencies through technological pedagogical content knowledge model." Frontiers in psychology 12 (2021): 736522.
       \bibitem{ref16} Krusche, Stephan, and Andreas Seitz. "Artemis: An automatic assessment management system for interactive learning." Proceedings of the 49th ACM technical symposium on computer science education. 2018.
       \bibitem{ref17} Dong, Yu, Jingyang Hou, and Xuesong Lu. "An intelligent online judge system for programming training." Database Systems for Advanced Applications: 25th International Conference, DASFAA 2020, Jeju, South Korea, September 24–27, 2020, Proceedings, Part III 25. Springer International Publishing, 2020.
+      \bibitem{apiclient} api-client. Available from: https://github.com/online-judge-tools/api-client
+      \bibitem{judger1} go-judge. Available from: https://github.com/criyle/go-judge
+      \bibitem{judger2} JudgeServer. Available from: https://github.com/helsonxiao/JudgeServer
     \end{thebibliography} 
 
   \item 需要指導教授內容
