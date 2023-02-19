@@ -12,6 +12,8 @@
 \usepackage{pgfplots}
 \usepackage{float}
 \usepackage{caption}
+\usepackage{subcaption}
+% \usepackage{subfig}
 \usepackage{graphicx}
 
 \usepackage{indentfirst}
@@ -156,7 +158,7 @@
     \par 此外，當專業教師缺乏時，教師無法完全關注學生的學習情況。
     透過自然語言 AI 的協助，學生可以隨時提出問題並得到回覆與建議。將其運用於課堂和作業批改中，可以大幅減低教師的教學壓力。
     
-    \par 該計畫預計將開發一個名為 Proglearn 的 Web 應用系統，教師將是主要使用者。該平台提供兩個模組，教學模組和題目練習模組。
+    \par 本計畫預計將開發一個名為 Proglearn 的 Web 應用系統，教師將是主要使用者。該平台提供兩個模組，教學模組和題目練習模組。
     教學模組將允許教師創建多個班級，每個班級也可以有多個教師。
     教師可以在一個班級中創建多個課程，這些課程將包含影片、投影片、課堂練習、作業等。影片將會有同步的和非同步兩種形式。
     同步影片將使用低延遲直播技術，可以是電腦螢幕直播，也可以是人像直播或同時進行。
@@ -166,7 +168,7 @@
     在同步影片教學過程中，學生的程式碼或答案可以被分析，並將結果同步給教師，以便對學生的學習進度進行更及時的評估。
     而作業類似於課堂練習，允許學生在課後進行練習。這些作業的結果也可以被分析出來，並且可以讓教師更快速的追蹤學生的練習情況。
     題目練習模組是一個線上練習題系統，教師可以在這裡添加問題，並支持使用 ICPC problem package$\footnote{https://icpc.io/problem-package-format/}$ 添加新問題。
-    該系統超越了傳統的 OJ ，增加了程式碼分析等功能。
+    本系統超越了傳統的 OJ ，增加了程式碼分析等功能。
     如果學生提交的程式碼有錯誤，人工智慧會及時向學生提供反饋。
     \par 通過這種方式， Proglearn 為教師提供了一個全面的教學平台，以改善學生的學習體驗和表現。
 
@@ -243,6 +245,8 @@
         因此我們想要設計出一個錯誤程式碼預測模型，這是可以預測程式碼可能錯誤的地方，
         如"迴圈錯誤"、"變數溢位"等更為詳細錯誤資訊，讓學生能夠快速地掌握程式碼錯誤。
         在 Dong 等作者的論文\cite{ref17}中，提到使用程式碼與測試案例作為模型輸入，錯誤反饋訊息作為模型輸出，訓練一個多標籤分類模型。
+        % TODO: 要補 CodeBERT 
+
     \end{enumerate}
 
   \item 研究方法及步驟
@@ -294,14 +298,11 @@
               \item [D-4.] 學生可於特定章節中查看並解決此章節的課後練習題目，學生繳交程式碼後由 AI 自動批改、評分並提出建議。
             \end{enumerate}
           \item [E.] 教學頁面功能
-            \begin{enumerate}[itemindent=24pt]
-              \item [E-1.] 學生可於投影片區觀看並操作投影片。
-              \item [E-3.] 學生可透過切換按鈕，使影片與投影片交換顯示的位置。
-              \item [E-4.] 學生可於影片區觀看教學影片或直播。
-              \item [E-5.] 學生可於程式區編輯 JS 程式碼，並且能執行與查看結果。
-              \item [E-6.] 學生可於章節描述區查看此章節的資訊。
-              \item [E-7.] 教師可查看各學生執行的程式碼與結果。
-              \item [E-8.] 教師可控制黑板模式並使用互動性功能。
+            \begin{enumerate}[itemindent=24pt, label=E-\arabic*.]
+              \item 學生可於投影片區觀看並操作投影片。
+              \item 學生可於程式區編輯 JS 程式碼，並且能執行與查看結果。
+              \item 教師可查看各學生執行的程式碼與結果。
+              \item 教師可控制黑板模式並使用互動性功能。
             \end{enumerate}
           \end{enumerate}
 
@@ -313,29 +314,41 @@
         課程管理服務器(Course Manage Server)、
         線上解題服務器(Online Judge Server)、
         資料庫(Database)等容器。
-        \begin{figure}[htbp]
+        \begin{figure}[htb]
           \centering
-          \includegraphics[width=0.7\textwidth]{./img/arc1.jpg}
-          \caption{ Proglearn 系統架構}
-          \label{arc1}
-        \end{figure}
-        \begin{figure}[htbp]
-          \centering
-          \includegraphics[width=0.65\textwidth]{./img/arc2.jpg}
-          \caption{主要後端服務器架構}
-          \label{arc2}
-        \end{figure}
-        \begin{figure}[htbp]
-          \centering
-          \includegraphics[width=0.7\textwidth]{./img/arc3.jpg}
-          \caption{課程管理服務器架構}
-          \label{arc3}
-        \end{figure}
-        \begin{figure}[htbp]
-          \centering
-          \includegraphics[width=0.7\textwidth]{./img/arc4.jpg}
-          \caption{線上解題服務器架構}
-          \label{arc4}
+          \begin{subfigure}{0.45\linewidth}
+            \centering
+            \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/arc1.jpg}{
+              \includegraphics[width=\textwidth]{./img/arc1.jpg}
+            }
+            \caption{Proglearn 系統架構}
+            \label{arc1}            
+          \end{subfigure}
+          \begin{subfigure}{0.45\linewidth}
+            \centering
+            \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/arc2.jpg}{
+              \includegraphics[width=\textwidth]{./img/arc2.jpg}
+            }
+            \caption{主要後端服務器架構}
+            \label{arc2}
+          \end{subfigure}
+          \begin{subfigure}{0.45\linewidth}
+            \centering
+            \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/arc3.jpg}{
+              \includegraphics[width=\textwidth]{./img/arc3.jpg}
+            }
+            \caption{課程管理服務器架構}
+            \label{arc3}
+          \end{subfigure}
+          \begin{subfigure}{0.45\linewidth}
+            \centering
+            \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/arc4.jpg}{
+              \includegraphics[width=\textwidth]{./img/arc4.jpg}
+            }
+            \caption{線上解題服務器架構}
+            \label{arc4}            
+          \end{subfigure}
+          \caption{系統架構設計 (點擊可看大圖)}
         \end{figure}
     
         \par 主要後端服務器(如圖\ref{arc2})
@@ -350,37 +363,76 @@
            Judge API-Client 是使用開源專案 api-client \cite{apiclient} 作為線上題目抓取模組，方便教師可以使用現有的題目做修改。
            Judger 是參考開源專案 go-judge \cite{judger1} 、JudgeServer \cite{judger2} 開發出沙盒程式碼執行環境及程式碼批改模組。
            Code Analysis 將採用多標籤辨識模型實現，後續章節將針對此核心技術進行更詳細的說明。
-      \item 核心技術設計
+      \item Code Analysis 技術設計
         \begin{enumerate}[label=(\arabic*)]
             \setlength{\parindent}{2em}
-            \item Code Analysis 
-            \par 程式碼分析及自動回饋是本研究的核心技術，我們將使用多標籤辨識模型來實現。
-            \par 本研究規劃實驗步驟如圖\ref{ai}所示。我們採用 CodeForces 網站的題目作為訓練資料，
-            CodeForces 是俄羅斯的一個程式競賽網站，提供了大量的程式競賽題目，使用者在上面作答的程式碼都會公布，
-            並且還有大部分的題目都有明確的難度指標，難度指標在 800 到 3500 之間，難度指標數字越高，題目越難。
-            CodeForces 有提供 API 可以取得題目的資訊，
-            因此我們可以在 CodeForces 上取得題目的資訊及使用者的程式碼、輸出資料、正確答案，
-            並將使用者的程式碼刪除註解、非英文字元、程式碼無法解析成抽象語法樹的資料後，再進行分析。
-            我們最一開始會從難度 800 的題目作為初始訓練資料，並且人工標上錯誤類別後進行訓練模型，
-            之後提升難度到 1000 的題目，先以原本的模型進行預測，再進行人工審查。            
-            \begin{figure}[htbp]
-              \centering
-              \includegraphics[width=1\textwidth]{./img/ai.jpg}
-              \caption{AI}
-              \label{ai}
-            \end{figure}
+            \item 資料準備
+              \par 資料來源於 deepmind \footnote{https://www.deepmind.com/} 開發 AlphaCode 所使用的資料集 code\_contests。
+              資料集中包含超過 10,000 個題目和程式碼，包含了 AOJ \footnote{Aizu Online Judge, https://judge.u-aizu.ac.jp}
+              、Codeforces\footnote{https://codeforces.com}
+              、CodeChef\footnote{https://www.codechef.com}
+              、HackerEarth\footnote{https://www.hackerearth.com}
+              、AtCoder。
+              資料集中會包含題目和使用者的程式碼，並且將使用 C++、Python、Java 三個常用競賽程式語言作為訓練資料。
+              首先我們會先將資料集中的題目依照難度進行分類，將題目分為 5 個等級，分別為 A、B、C、D、E。
+              我們計劃整理大約 100 個題目(題目難度分布為 $A:B:C:D:E$ = $4:2:2:1:1$)，每個題目都會準備約 100 筆程式碼。
+              我們會把這些程式碼分為正確的和錯誤的兩類，比例為 1:9。
+            \item 實驗過程
+              \par 本研究規劃實驗步驟如圖\ref{ai2}所示。
+              首先，我們會將訓練資料集中篩選出 10 題難度為 A 的題目作為初始訓練資料，這些初始訓練資料我們
+              會先標記多的錯誤標籤，錯誤標籤包含: 「變數輸入錯誤」(VIE)、「輸出格式錯誤」(OFE)、「演算法時間複雜度過高」(ATH)、
+              「變數未初始化」(VAI)、「變數型態錯誤」(VTE)、「演算法錯誤」(AE)、「題意誤解」(PM) 等。
+              接著，將這些初始資料切割成 8:2 的比例，其中 8 批資料作為訓練資料，2 批資料作為驗證資料。
+              而如圖\ref{ai}所示，會將 題目資訊、程式碼、錯誤標籤 作為輸入，並交給 CodeBERT \footnote{https://github.com/microsoft/CodeBERT} 訓練。
+              接著訓練完的模型會把剩餘的訓練資料進行預測，而我們會排序信心分數最低的 20 筆資料進行人工審查與標記，
+              並將這些資料加入訓練資料中，並重複上述步驟，直到訓練資料中已審查過的資料都被標記為正確。
+              \begin{figure}[htb]
+                \centering
+                \begin{subfigure}{0.45\linewidth}
+                  \centering
+                  \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/ai2.jpg}{
+                    \includegraphics[width=\textwidth]{./img/ai2.jpg}
+                  }
+                  \caption{主動學習}
+                  \label{ai2}
+                \end{subfigure}
+                \begin{subfigure}{0.45\linewidth}
+                  \centering
+                  \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/ai.jpg}{
+                    \includegraphics[width=\textwidth]{./img/ai.jpg}
+                  }
+                  \caption{模型訓練}
+                  \label{ai}
+                \end{subfigure}
+                \caption{AI 訓練實驗步驟 (點擊可看大圖)}
+              \end{figure}
+            \item 自動反饋使用流程
+              \par 本研究規劃的自動反饋使用流程如圖\ref{ai3}所示。
+              當學生 (StudentA) 在課堂練習或作業提交程式碼時，會將程式碼交給 Judger 進行批改，
+              若是所有的測試資料都通過驗證，Judger 會回傳一個 Accpeted 資訊給結果統計 (Result Statistics)，
+              若沒有通過驗證，Judger 會回傳一個 Rejected 資訊，並且將程式碼交給 Code Analysis 做錯誤分析。
+              接著， Code Analysis 分析後將錯誤標籤給結果統計。
+              結果統計會將資訊傳給 StudentA，並且會將資料統整後傳給教師(Teacher)。
+              \begin{figure}[htbp]
+                \centering
+                \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/ai3.jpg}{
+                  \includegraphics[width=1\textwidth]{./img/ai3.jpg}
+                }
+                \caption{自動反饋使用流程 (點擊可看大圖)}
+                \label{ai3}
+              \end{figure}
         \end{enumerate}
 
     \end{enumerate}
 
   \item 預期結果
     \par 最後我們開發出一個整合式教學系統，
-    將解決以下四個問題:
+    將有以下四點特色:
     \begin{enumerate}
-      \item 教師在教學與備課的工作量大: 自動回饋系統能夠節省教師的時間。教師可以快速了解學生的學習進度和弱點，有更多的時間去創造更好的學習環境和教學資源。
-      \item 受技術限制的教學方式: 透過同步練習與課後練習並輔以 AI 自動批改，讓教師能夠快速掌握學生的學習狀況，提高了教學效率。
-      \item 師生間缺乏互動性: 互動式簡報模組，可以讓教師與學生之前有更多的互動，讓學生能夠更加主動地參與學習，並且能夠得到及時的回饋和指導。
-      \item 教學工具種類繁多且功能單一: 整合式系統可以讓教師在同一個平台上創建和管理課程、學生，並能夠快速分析學生的學習狀況，提高了教學效率。
+      \item 自動回饋系統能夠節省教師的時間，教師可以快速了解學生的學習進度和弱點，有更多的時間去創造更好的學習環境和教學資源，解決教師在教學與備課的工作量大。
+      \item 透過同步練習與課後練習並輔以 AI 自動批改，讓教師能夠快速掌握學生的學習狀況，提高了教學效率。
+      \item 互動式簡報模組，可以讓教師與學生之前有更多的互動，讓學生能夠更加主動地參與學習，並且能夠得到及時的回饋和指導。
+      \item 整合式系統可以讓教師在同一個平台上創建和管理課程、學生，並能夠快速分析學生的學習狀況，提高了教學效率。
     \end{enumerate}
 
   \item 參考文獻
