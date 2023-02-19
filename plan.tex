@@ -101,7 +101,7 @@
       \item 受技術限制的教學方式：
         \begin{itemize}
           \item 線下課程：資訊教室大多使用資訊教室的廣播與管理系統
-          $\footnote{資訊教室的廣播與管理系統：針對資訊教室的廣播與管理系統，可將電腦畫面傳送給特定或所有用戶端，並且能監控用戶端的電腦畫面。}$
+          $\footnote{資訊教室的廣播與管理系統：針對資訊教室的廣播與管理系統，可將電腦畫面傳送給特定或所有使用者端，並且能監控使用者端的電腦畫面。}$
           ，讓教師能夠強制監控所有學生的電腦，並在課堂中分享自己的畫面。
           雖然這種方式能讓學生專注於教師的授課中，但強制控制學生的電腦，
           學生就無法在上課過程中使用顯示畫面以外的電腦功能，如查詢資料、閱讀過往的課程講義、實作程式碼等，
@@ -156,7 +156,7 @@
     \par 此外，當專業教師缺乏時，教師無法完全關注學生的學習情況。
     透過自然語言 AI 的協助，學生可以隨時提出問題並得到回覆與建議。將其運用於課堂和作業批改中，可以大幅減低教師的教學壓力。
     
-    \par 該計畫預計將開發一個名為 Proglearn 的 Web 應用系統，教師將是主要用戶。該平台提供兩個模組，教學模組和題目練習模組。
+    \par 該計畫預計將開發一個名為 Proglearn 的 Web 應用系統，教師將是主要使用者。該平台提供兩個模組，教學模組和題目練習模組。
     教學模組將允許教師創建多個班級，每個班級也可以有多個教師。
     教師可以在一個班級中創建多個課程，這些課程將包含影片、投影片、課堂練習、作業等。影片將會有同步的和非同步兩種形式。
     同步影片將使用低延遲直播技術，可以是電腦螢幕直播，也可以是人像直播或同時進行。
@@ -164,7 +164,7 @@
     教學簡報將使用 JS 生成，允許教師直接控制簡報並與影片互動。
     課程練習的題目將由教師從題目練習模組中選擇。
     在同步影片教學過程中，學生的程式碼或答案可以被分析，並將結果同步給教師，以便對學生的學習進度進行更及時的評估。
-    而作業類似於課堂練習，允許學生在課後進行練習。這些作業的結果也可以被分析出來，並且可以讓老師更快速的追蹤學生的練習情況。
+    而作業類似於課堂練習，允許學生在課後進行練習。這些作業的結果也可以被分析出來，並且可以讓教師更快速的追蹤學生的練習情況。
     題目練習模組是一個線上練習題系統，教師可以在這裡添加問題，並支持使用 ICPC problem package$\footnote{https://icpc.io/problem-package-format/}$ 添加新問題。
     該系統超越了傳統的 OJ ，增加了程式碼分析等功能。
     如果學生提交的程式碼有錯誤，人工智慧會及時向學生提供反饋。
@@ -205,18 +205,30 @@
         \par Ibrahim %Mohamed Ibrahim
         等作者的論文\cite{ref14}指出：線上教學的成效取決於師生間互動的方式。
         教學工具應改善學習，而非單純作為提供內容的工具。
-        舉例來說，實際操作與互動式學習，比起傳統的課堂教授，能讓學生保有更持久的記憶力，比如美國空軍的模擬訓練。
-        根據美國學者研究，傳統教學的記憶經過三週後只有 15\% 的知識內容被保留下來。
+        舉例來說，實際操作與互動式學習，比起傳統的課堂教授，能讓學生保有更持久的記憶力。
+        傳統教學的記憶經過三週後只有 15\% 的知識內容被保留下來。
         也能讓學生以自己的步調吸收知識，並加深對知識內容的記憶。
         在同樣的教學內容下，學生能節省 40\% 至 60\% 的學習時間，或是在同樣的學習時間內，讓學生增加 30\% 的知識內容與技能。
         說明更多的實際操作以及互動式學習對學生的學習有顯著提升。
-        此外，關於使用與工具間的交互方式，學生傾向於簡單、快速，老師傾向於能隨時掌握學生的學習動態。
+        並且文中也提及教學工具的使用需求，學生傾向於簡單、快速，教師傾向於能隨時掌握學生的學習動態。
         
+        \par 學生於線上觀看影片的學習方式，如果能使用嵌入式的交互工具會對學生的學習成效有明顯提升。
+        根據 Delen 等人所設計的實驗\cite{ref18}，他們將學生分為普通影片組與增強影片環境組。
+        普通影片組只具有播放、暫停、倒轉、快進等功能，而增強影片環境組，在教學頁面上嵌入筆記、補充資料和練習題，
+        用以比較互動式工具對學生學習的效果。
+        以下為實驗的成效與結果：
+        \begin{itemize}
+          \item 學生在教學教材上的平均花費時間，增強影片環境組比普通影片組高出近 50\%。學生在學習過程中花費的時間，增強影片環境組多於普通影片組的學生平均7.4分鐘，顯示交互式工具有助於讓學生更積極參與學習。 
+          \item 每位學生在觀看教學影片時，平均創建了 12 個交互式筆記，而記筆記的⾏為會為學生提供主動深入學習與整理自身學習內容的機會。 
+          \item 當為學生提供有目的的互動功能時，他們可以在基於線上影片的教學中扮演更積極的角色。因此，學生可以在整個學習過程中保持自律，並相應地提高他們的學習成績。
+        \end{itemize}
+
         \par 根據以上的論文回顧，教學需求應符合以下三點因素：
         \begin{enumerate}[label=(\arabic*), itemindent=24pt] %使用(1),(2)...標號 並且調整兩個字的縮排
           \item 教師缺乏應用 ICT 技術和工具。
           \item 互動性與實際操作有助於提升教師的教學成效並減少學生的學習時間。
-          \item 學生傾向於簡單、快速，老師傾向於能隨時掌握學生的學習動態。
+          \item 學生傾向於簡單、快速，教師傾向於能隨時掌握學生的學習動態。
+          \item 嵌入式的互動工具，能夠讓線上學習的學生，在學習上更為主動且自律。
         \end{enumerate}
 
         \par 基於以上因素，本計畫將以整合式、互動式、自動回饋、實際操作，
@@ -251,9 +263,9 @@
             \par 由於傳統投影片較為靜態的特性，使學生難以深入討論，且由於教師單向輸出內容，使其無法從學生的反饋中，快速檢視學生對於知識的掌握程度。
             為了改善這個問題，本計畫將重新設計投影片系統，以 JS 語法控制投影片上的各種物件，並加入黑板模式，讓特定學生能編輯投影片的內容，使投影片具有雙向反饋的互動性。
           \item 具整合式：
-            \par 因市面上的在線教學軟件缺乏整合性，教學投影片、在線教學、程式實作和課後練習分別通過多個軟件和網站實現，導致教學過程中，用戶操作和數據傳輸效率不佳。
+            \par 因市面上的在線教學軟件缺乏整合性，教學投影片、在線教學、程式實作和課後練習分別通過多個軟件和網站實現，導致教學過程中，使用者操作和數據傳輸效率不佳。
             為了解決這個問題，可以採用整合性的在線教學平台，使教師可以在同一個平台上，上傳投影片、發布直播、建立練習題目，
-            同時用戶可以在同一個頁面上完成教學和練習，不需要過大的操作複雜度，就能實現更流暢的課堂教學環境。
+            同時使用者可以在同一個頁面上完成教學和練習，不需要過大的操作複雜度，就能實現更流暢的課堂教學環境，並且嵌入式的互動式工具，也能提升學生對於學習的積極度\cite{ref18}。
         \end{enumerate}
       \par 根據以上因素，統整出各項功能：%以itemindent調整縮排，但應該有更好的做法能一同縮排。
         \begin{enumerate}[itemindent=24pt]
@@ -344,11 +356,11 @@
             \item Code Analysis 
             \par 程式碼分析及自動回饋是本研究的核心技術，我們將使用多標籤辨識模型來實現。
             \par 本研究規劃實驗步驟如圖\ref{ai}所示。我們採用 CodeForces 網站的題目作為訓練資料，
-            CodeForces 是俄羅斯的一個程式競賽網站，提供了大量的程式競賽題目，用戶在上面作答的程式碼都會公布，
+            CodeForces 是俄羅斯的一個程式競賽網站，提供了大量的程式競賽題目，使用者在上面作答的程式碼都會公布，
             並且還有大部分的題目都有明確的難度指標，難度指標在 800 到 3500 之間，難度指標數字越高，題目越難。
             CodeForces 有提供 API 可以取得題目的資訊，
-            因此我們可以在 CodeForces 上取得題目的資訊及用戶的程式碼、輸出資料、正確答案，
-            並將用戶的程式碼刪除註解、非英文字元、程式碼無法解析成抽象語法樹的資料後，再進行分析。
+            因此我們可以在 CodeForces 上取得題目的資訊及使用者的程式碼、輸出資料、正確答案，
+            並將使用者的程式碼刪除註解、非英文字元、程式碼無法解析成抽象語法樹的資料後，再進行分析。
             我們最一開始會從難度 800 的題目作為初始訓練資料，並且人工標上錯誤類別後進行訓練模型，
             之後提升難度到 1000 的題目，先以原本的模型進行預測，再進行人工審查。            
             \begin{figure}[htbp]
@@ -388,6 +400,7 @@
       \bibitem{ref15} Akram, Huma, et al. "Technology integration in higher education during COVID-19: An assessment of online teaching competencies through technological pedagogical content knowledge model." Frontiers in psychology 12 (2021): 736522.
       \bibitem{ref16} Krusche, Stephan, and Andreas Seitz. "Artemis: An automatic assessment management system for interactive learning." Proceedings of the 49th ACM technical symposium on computer science education. 2018.
       \bibitem{ref17} Dong, Yu, Jingyang Hou, and Xuesong Lu. "An intelligent online judge system for programming training." Database Systems for Advanced Applications: 25th International Conference, DASFAA 2020, Jeju, South Korea, September 24–27, 2020, Proceedings, Part III 25. Springer International Publishing, 2020.
+      \bibitem{ref18} Delen, Erhan, Jeffrey Liew, and Victor Willson. "Effects of interactivity and instructional scaffolding on learning: Self-regulation in online video-based environments." Computers \& Education 78 (2014): 312-320.
       \bibitem{apiclient} api-client. Available from: https://github.com/online-judge-tools/api-client
       \bibitem{judger1} go-judge. Available from: https://github.com/criyle/go-judge
       \bibitem{judger2} JudgeServer. Available from: https://github.com/helsonxiao/JudgeServer
