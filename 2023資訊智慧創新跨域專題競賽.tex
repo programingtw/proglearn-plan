@@ -78,108 +78,70 @@
   \item 作品簡介
   \begin{enumerate}
     \setlength{\parindent}{2em}
-    \item 作品目的
-    \par 本計畫將建立一個名為 ProgLearn 的教學工具，專注於教師導向的教學。
-    該工具將提供課堂教學系統和線上解題系統(OJ, Online Judge)，
-    %$\footnote{線上解題系統：演算法競賽中，用以評測程式碼正確性的系統，可用於練習、求職面試以及競賽。}$
-    前者包含課程影音、互動式講義和課堂練習。
-
-    % 影音將提供同步和非同步教學，而互動式講義不再是傳統的圖像及文字，
-    % 將使用 JS (JavaScript) 技術製作，透過互動式的元件增加學生和教師的互動。
-    % OJ 將包含傳統的題目撰寫外，還提供自動反饋錯誤訊息的功能，
-    % 並且可以分析學生提交的程式碼，以提高學生的學習效果。
-
-    % 課堂練習平台將採用 OJ 模組，如果採用同步教學，
-    % 學生提交的程式碼可以即時在課堂練習上呈現，讓教師和學生可以即時互相評論與回饋。
-
-    % 除此之外， ProgLearn 系統還將提供可自訂的測試案例，以方便教師進行練習的設計。
-    % 綜上所述， ProgLearn 是一個結合教學與練習的完整教學平台，旨在提高學生的學習品質，
-    % 並改善教師的教學效率。
-
-    \item 作品動機與研究問題
+    \item 創作動機與背景
     \par 在台灣，資訊科技領域受廣泛重視，且程式設計已被列為學校必修課程\cite{ref2}。
-    儘管每年有數百萬學生修習程式課程\cite{ref3}，但是在基層教育中卻存在許多問題：
+    儘管每年有數百萬學生修習程式課程\cite{ref3}，但是在基層教育中卻存在許多問題。
+    \item 作品目的
+    \par 本計畫將建立一個名為 ProgLearn 的教學工具，專注於教師導向的教學工具，讓所有人都能做程式教學。
+    \item 研究問題與專業領域
+    \par 根據教師的教學需求，整理出四個主要問題：
     \begin{enumerate}[label=(\arabic*)]
       \setlength{\parindent}{2em}
-      \item 教師在教學與備課上的工作量大：
-        \par 比如準備線上課程的直播環境、準備課程教材、批改學生作業、
-        上傳考題、課外時間回覆學生的各種問題等\cite{ref4}。
-        由於專業教師與學生數量的比例失衡，也讓教師難以管理學生\cite{ref5}。
-      \item 受技術限制的教學方式：
+      \item 教師的教學有諸多限制：
+        \par 程式設計是實作很重要的課程，常見的線下教學方式需要使用廣播與管理系統，因為這些系統無法在授課時即時讓學生練習，導致老師不得暫停授課，給學生練習時間。
+        這種情況可能使教師無法流暢教學，同時學生也難以吸收所學知識。
+      \item 教師需要花多時間備課：
+        \par 教師需要在上課前，準備線上課程的直播環境、準備課程教材、批改學生作業、上傳考題、課外時間回覆學生的各種問題等\cite{ref4}。
+      \item 教師無法即時得知學生的狀況：
+        \par 由於師生間缺乏互動的方式，讓學生難以保持學習熱忱，同時教師也無法即時注意學生的學習狀況，而影響教學成效\cite{ref7}。
+      \item 教學工具零散：
+        \par 在遠程教學中，教師需要使用多種不同的工具和平台：
         \begin{itemize}
-          \item 線下課程：資訊教室大多使用資訊教室的廣播與管理系統
-          %$\footnote{資訊教室的廣播與管理系統：針對資訊教室的廣播與管理系統，可將管理者的電腦畫面傳送給特定或所有使用者端，並且能監控使用者端的電腦畫面。}$
-          ，讓教師能夠強制監控所有學生的電腦，並在課堂中分享自己的畫面。
-          雖然這種方式能讓學生專注於教師的授課中，但強制控制學生的電腦，
-          學生就無法在上課過程中使用顯示畫面以外的電腦功能，如查詢資料、閱讀過往的課程講義、實作程式碼等，
-          大大限制學生的學習空間。
-          \item 線上課程：教師的教學設備品質，會影響學生學習情緒及上課意願\cite{ref7}。
-          此外，線上自主學習，學生若有問題無法獲得即時解答，學習效果可能受限\cite{ref4}。
-        \end{itemize}
-      \item 師生間缺乏互動性：
-        \begin{itemize}
-          \item 線下課程：資訊教室要實現師生間的雙向互動，大多以麥克風作為訊息傳遞的媒介，
-          但對於有限的麥克風數量、有限的教室空間，增加教師教學的難度。
-          \item 線上課程：教師大多以直播軟體搭配投影片簡報軟體教學，由於缺乏實際互動，
-          難以保持學生的學習熱忱，教師也無法即時注意學生的反應而影響其教學成效\cite{ref7}。
-          此外，透過軟體建置的網路平台，並非只能以影音、圖文作為訊息的傳遞方式，
-          比如 youtube 的 Crowd Choice 功能%$\footnote{https://support.google.com/youtube/answer/9955116?hl=zh-Hant}$
-           、 youtube 直播時的即時問答功能%$\footnote{https://youtu.be/XdfdwqPgL3I}$
-           、 HackMD%$\footnote{https://hackmd.io}$
-           的線上共筆功能、 Twitch 實況互動元件%$\footnote{https://www.twitch.tv/p/zh-tw/extensions/}$
-           等，都是可以被利用的互動性功能。教師應提供好的遠距教學平台與工具，增進師生互動\cite{ref4}。
-        \end{itemize}
-      \item 教學工具種類繁多且功能單一：
-        \begin{itemize}
-          \item 線下課程：教師在課堂中常使用資訊教室的廣播與管理系統搭配投影片。
-          課後作業則以紙本與程式解題系統，如高中生程式解題系統%$\footnote{https://zerojudge.tw/}$
-          、 ITSA 程式自學平臺%$\footnote{https://e-tutor.itsa.org.tw/e-Tutor/}$
-          等。同一堂課，師生必須同時使用多種軟體與網站。
-          \item 線上課程：為因應 COVID-19 的疫情，教師常以網路同步直播教學為主，
-          許多基層教師利用 Google Meet %$\footnote{https://meet.google.com/}$
-          或 Microsoft Teams %$\footnote{https://www.microsoft.com/zh-tw/microsoft-teams/}$
-          等軟體進行線上同步直播教學，然而，這些軟體並不是針對教學而設計的，
-          如作業的批改、實作、課程內容的簡報、回顧等，仍需要使用其他軟體。
-          \item 共同問題：缺乏整合的教學空間，導致學生和教師因教學系統過於複雜而不易使用。
+          \item 準備教學教材的工具：投影片、 HackMD 等。
+          \item 準備課堂教學的環境：
+            \begin{itemize}
+              \item 直播工具：Google Meet 、 Microsoft Team 等。
+              \item 教學工具：投影片。
+            \end{itemize}
+          \item 繳交作業與練習的系統：高中生程式解題系統、 ITSA 程式自學平臺、TronClass 等。
+          由於這些軟體，並非針對教師的教學所設計，導致如批改、實作、教材、直播、上課，仍需要使用其他軟體或平台來實現，缺乏整合的教學環境，增加教師的教學難度。
         \end{itemize}
     \end{enumerate}
-    \par 基於以上問題，本計畫旨在通過改進教學方式，幫助教師以最小的成本實現預期的教學效果，從而提高學生的學習體驗和效果。
-    
-    % \item 比較
-    % \par 市面上的線上教學平台，如均一教育平台$\footnote{https://www.junyiacademy.org/}$
-    % 、 Microsoft Learn $\footnote{https://learn.microsoft.com/zh-tw/}$
-    % 、 Hahow好學校 $\footnote{https://hahow.in/}$，
-    % 主要通過靜態圖文與非同步影音的方式提供教學內容，缺乏學生和教師之間的互動。
-    % 然而，這種教學模式存在許多問題，例如：教師只負責提供教學內容，學生需自主完成課題；
-    % 缺乏教師的即時指導和回饋，導致學生的學習動機不高；
-    % 教師無法從學生的學習過程中得到反饋，無法衡量教學效果\cite{ref4}。
-
+    \par 基於以上問題，本系統跨足教育領域，通過改進教師的教學方式，幫助教師以最小的成本實現預期的教學效果，從而提高學生的學習體驗和效果。
+    \item 創新創意
+      \par 互動式講義：讓學生能夠透過互動式元件與老師互動。
+      \par 使用情境：演算法課程中，老師剛上完搜尋演算法並出了一個習題，此習題是搜尋程式碼的片段並挖了幾個空格，學生填答空格後，老師能即時取得學生的填答狀況。
+      （同步回答圖）
+    \item 主要功能
+    \par 該系統將提供課堂教學系統和課堂作業系統。前者包含課程影音、互動式講義。
+    \item 實用性與預期貢獻
+    \par 協助教師提高教學效率，並且提高學生的學習效果。在未來能將此系統提供給如學校、補習班、講座等老師使用。
   \end{enumerate}
 
   \item 需求分析與設計
-    \par 本研究將依循軟體工程流程與方法進行需求擷取與分析、架構與介面設計、系統實作、單元測試、系統功能與效能測試。
+    \par 本計畫將依循軟體工程流程與方法進行需求擷取與分析、架構與介面設計。
     \begin{enumerate}
       \setlength{\parindent}{2em}
-      \item 需求分析：
-        \par 本計畫根據上述之動機與研究問題，擬定多項功能，以符合教師與學生的使用需求，因此我們考慮以下因素：
-        \begin{enumerate}[label=(\arabic*)]
-          \setlength{\parindent}{2em}
-          \item 自動回饋：
-            \par 透過自然語言 AI 輔助教學，協助分析學生的程式碼錯誤並給予回饋，以減少教師的工作量，讓教師能更好地關注每一位學生的進度。
-          \item 實際操作：
-            \par 為了增進學生的實際操作機會，本系統將程式實作劃分為課堂實作和課後練習。
-            課堂實作已整合於教學頁面，使學生能在課堂中同步練習並加深記憶。
-            課後練習則透過自然語言 AI 進行自動批改，學生可隨時提交作業並得到批改和建議，教師也可隨時關注學生的問答狀況。
-          \item 具互動式：
-            \par 由於傳統投影片較為靜態的特性，使學生難以深入討論，且由於教師單向輸出內容，使其無法從學生的反饋中，快速檢視學生對於知識的掌握程度。
-            為了改善這個問題，本計畫將重新設計投影片系統，以 JS 語法控制投影片上的各種物件，並加入黑板模式，讓特定學生能編輯投影片的內容，使投影片具有雙向反饋的互動性。
-          \item 具整合式：
-            \par 因市面上的在線教學軟件缺乏整合性，教學投影片、在線教學、程式實作和課後練習分別通過多個軟件和網站實現，導致教學過程中，使用者操作和數據傳輸效率不佳。
-            為了解決這個問題，可以採用整合性的在線教學平台，使教師可以在同一個平台上，上傳投影片、發布直播、建立練習題目，
-            同時使用者可以在同一個頁面上完成教學和練習，不需要過大的操作複雜度，就能實現更流暢的課堂教學環境，並且嵌入式的互動式工具，也能提升學生對於學習的積極度\cite{ref18}。
-        \end{enumerate}
-      \par 根據以上因素，統整出各項功能：%以itemindent調整縮排，但應該有更好的做法能一同縮排。
-        \begin{enumerate}[itemindent=24pt]
+      % \item 需求分析：
+      %   \par 本計畫根據上述之動機與研究問題，擬定多項功能，以符合教師與學生的使用需求，因此我們考慮以下因素：
+      %   \begin{enumerate}[label=(\arabic*)]
+      %     \setlength{\parindent}{2em}
+      %     \item 自動回饋：
+      %       \par 透過自然語言 AI 輔助教學，協助分析學生的程式碼錯誤並給予回饋，以減少教師的工作量，讓教師能更好地關注每一位學生的進度。
+      %     \item 實際操作：
+      %       \par 為了增進學生的實際操作機會，本系統將程式實作劃分為課堂實作和課後練習。
+      %       課堂實作已整合於教學頁面，使學生能在課堂中同步練習並加深記憶。
+      %       課後練習則透過自然語言 AI 進行自動批改，學生可隨時提交作業並得到批改和建議，教師也可隨時關注學生的問答狀況。
+      %     \item 具互動式：
+      %       \par 由於傳統投影片較為靜態的特性，使學生難以深入討論，且由於教師單向輸出內容，使其無法從學生的反饋中，快速檢視學生對於知識的掌握程度。
+      %       為了改善這個問題，本計畫將重新設計投影片系統，以 JS 語法控制投影片上的各種物件，並加入黑板模式，讓特定學生能編輯投影片的內容，使投影片具有雙向反饋的互動性。
+      %     \item 具整合式：
+      %       \par 因市面上的在線教學軟件缺乏整合性，教學投影片、在線教學、程式實作和課後練習分別通過多個軟件和網站實現，導致教學過程中，使用者操作和數據傳輸效率不佳。
+      %       為了解決這個問題，可以採用整合性的在線教學平台，使教師可以在同一個平台上，上傳投影片、發布直播、建立練習題目，
+      %       同時使用者可以在同一個頁面上完成教學和練習，不需要過大的操作複雜度，就能實現更流暢的課堂教學環境，並且嵌入式的互動式工具，也能提升學生對於學習的積極度\cite{ref18}。
+      %   \end{enumerate}
+      \item 功能性需求：%以itemindent調整縮排，但應該有更好的做法能一同縮排。
+        \begin{enumerate}[itemindent=12pt]
           \item [A.] 班級與課程功能
             \begin{enumerate}[itemindent=24pt]
               \item [A-1.] 教師可新增與查詢自己的課程，並於特定課程中新增章節。
@@ -201,9 +163,9 @@
             \begin{enumerate}[itemindent=24pt]
               \item [D-1.] 教師可於特定章節中新增題目，並且可以在現有題目系統(如: AtCoder%$\footnote{https://atcoder.jp/}$
               )直接抓取題目。
-              \item [D-2.] 教師可於特定章節中查看各學生於特定作業的答題情況，內容包含繳交的程式碼、 AI 批改的紀錄與分數。
+              \item [D-2.] 教師可於特定章節中查看各學生於特定作業的答題情況，內容包含繳交的程式碼與分數。
               \item [D-3.] 教師可針對答題情況，留下教師建議。
-              \item [D-4.] 學生可於特定章節中查看並解決此章節的課後練習題目，學生繳交程式碼後由 AI 自動批改、評分並提出建議。
+              \item [D-4.] 學生可於特定章節中查看並解決此章節的課後練習題目。
             \end{enumerate}
           \item [E.] 教學頁面功能
             \begin{enumerate}[itemindent=24pt, label=E-\arabic*.]
@@ -213,7 +175,32 @@
               \item 教師可控制黑板模式並使用互動性功能。
             \end{enumerate}
           \end{enumerate}
-
+      \item 非功能性需求
+        \begin{enumerate}[itemindent=12pt]
+          \item [A.] 使用者介面與人為因素
+          \begin{enumerate}[itemindent=24pt]
+            \item [A-1.] 使用者：程式設計課程的老師、學生
+            \item [A-2.] 使用者的介面設計：簡單並且易上手、高度的功能整合、即時獲得使用者的反饋與資訊。
+            \item [A-3.] 使用者的引導與教學：直觀的UI設計並且對所有老師做系統的使用培訓。
+            \item [A-4.] 確保使用者能排除問題：若系統發現使用者不當使用，如不當的權限操作、連結到錯誤的網址、使用者在短時間傳入大量的封包，會立即彈跳出警告視窗。
+          \end{enumerate}
+          \item [B.] 硬體
+            \begin{enumerate}[itemindent=24pt]
+              \item [B-1.] 使用者的使用設備：使用設備以電腦為主、手持設備為輔，並針對電腦使用最佳化。
+              \item [B-2.] 使用者的設備限制：所有能瀏覽網頁的設備皆可使用。
+            \end{enumerate}
+          \item [C.] 效能
+            \begin{enumerate}[itemindent=24pt]
+              \item [C-1.] 反應時間：同一課程能讓100人同時使用，並在0.1秒內回應使用者，以保障使用者的課程體驗。
+              \item [C-2.] 最高的同時上線人數：能使一萬人同時使用該系統。
+              \item [C-3.] 容量限制：系統儲存資料的最大容量為100TB。
+            \end{enumerate}      
+          \item [D.]錯誤處理：
+            \begin{enumerate}[itemindent=24pt]
+              \item [D-1.] 系統遇到不正常的負載：針對大量請求的用戶限制封包的流量。
+              \item [D-2.] 系統遇到高負載：使用排隊來限制同時登入人數。
+            \end{enumerate}
+        \end{enumerate}
       \item 系統設計
         % \par 本計畫預計將開發一個名為 Proglearn 的 Web 應用系統，教師將是主要使用者。該平台提供兩個模組，教學模組和題目練習模組。
         % 教學模組將允許教師創建多個班級，每個班級也可以有多個教師。
@@ -297,72 +284,72 @@
       \end{enumerate}
       \item 開發技術介紹
       \begin{enumerate}
-        \item Code Analysis 技術設計
-        \begin{enumerate}[label=(\arabic*)]
-            \setlength{\parindent}{2em}
-            \item 資料準備
-              \par 資料來源於 deepmind% \footnote{https://www.deepmind.com/}
-               開發 AlphaCode 所使用的資料集 code\_contests。
-              資料集中包含超過 10,000 個題目和程式碼，包含了 AOJ \footnote{Aizu Online Judge, https://judge.u-aizu.ac.jp}
-              、Codeforces%\footnote{https://codeforces.com}
-              、AtCoder 等。
-              資料集中會包含題目和使用者的程式碼，並且將使用 C++、Python、Java 三個常用競賽程式語言作為訓練資料。
-              首先我們會先將資料集中的題目依照難度進行分類，將題目分為 5 個等級，分別為 A、B、C、D、E。
-              我們計劃整理大約 100 個題目(題目難度分布為 $A:B:C:D:E$ = $4:2:2:1:1$)，每個題目都會準備約 100 筆程式碼。
-              我們會把這些程式碼分為正確的和錯誤的兩類，比例為 1:9。
-            \item 實驗過程
-              \par 本研究規劃實驗步驟如圖\ref{ai2}所示。
-              首先，我們會將訓練資料集中篩選出 10 題難度為 A 的題目作為初始訓練資料，這些初始訓練資料我們
-              會先標記多個錯誤標籤，錯誤標籤包含: 「變數輸入錯誤」(VIE)、「輸出格式錯誤」(OFE)、「演算法時間複雜度過高」(ATH)、
-              「變數未初始化」(VAI)、「變數型態錯誤」(VTE)、「演算法錯誤」(AE)、「題意誤解」(PM) 等。
-              接著，將這些初始資料切割成 8:2 的比例，其中 8 批資料作為訓練資料，2 批資料作為驗證資料。
-              而如圖\ref{ai}所示，會將 題目資訊、程式碼、錯誤標籤 作為輸入，並交給 CodeBERT \footnote{https://github.com/microsoft/CodeBERT} 訓練。
-              接著訓練完的模型會把剩餘的訓練資料進行預測，而我們會排序信心分數最低的 20 筆資料進行人工審查與標記，
-              並將這些資料加入訓練資料中，並重複上述步驟，直到訓練資料中已審查過的資料都被標記為正確。
-              \begin{figure}[H]
-                \centering
-                \begin{subfigure}{0.3\linewidth}
-                  \centering
-                  \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/ai2.jpg}{
-                    \includegraphics[width=\textwidth]{./img/ai2.jpg}
-                  }
-                  \caption{主動學習}
-                  \label{ai2}
-                \end{subfigure}
-                \begin{subfigure}{0.3\linewidth}
-                  \centering
-                  \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/ai.jpg}{
-                    \includegraphics[width=\textwidth]{./img/ai.jpg}
-                  }
-                  \caption{模型訓練}
-                  \label{ai}
-                \end{subfigure}
-                \caption{AI 訓練實驗步驟 (點擊可看大圖)}
-              \end{figure}
-            \item 自動反饋使用流程
-              \par 本研究規劃的自動反饋參考了 Dong 等作者的論文\cite{ref17}，使用流程如圖\ref{ai3}所示。
-              當學生 (StudentA) 在課堂練習或作業提交程式碼時，會將程式碼交給 Judger 進行批改，
-              若是所有的測試資料都通過驗證，Judger 會回傳一個 Accpeted 資訊給結果統計 (Result Statistics)，
-              若沒有通過驗證，Judger 會回傳一個 Rejected 資訊，並且將程式碼交給 Code Analysis 做錯誤分析。
-              接著， Code Analysis 分析後將錯誤標籤給結果統計。
-              結果統計會將資訊傳給 StudentA ，並且會將資料統整後傳給教師(Teacher)。
-              前端呈現如圖\ref{feedback}所示，教師可以看到某題所有學生的答題情況，掌握學生的學習狀況。
-              \begin{figure}[H]
-                \centering
-                \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/ai3.jpg}{
-                  \includegraphics[width=0.75\textwidth]{./img/ai3.jpg}
-                }
-                \caption{自動反饋使用流程 (點擊可看大圖)}
-                \label{ai3}
-              \end{figure}
-              \begin{figure}[H]
-                \centering
-                \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/feedback.png}{
-                  \includegraphics[width=0.75\textwidth]{./img/feedback.png}
-                }
-                \caption{前端自動反饋介面 (點擊可看大圖)}  
-                \label{feedback}
-              \end{figure}
+        % \item Code Analysis 技術設計
+        % \begin{enumerate}[label=(\arabic*)]
+            % \setlength{\parindent}{2em}
+            % \item 資料準備
+            %   \par 資料來源於 deepmind% \footnote{https://www.deepmind.com/}
+            %    開發 AlphaCode 所使用的資料集 code\_contests。
+            %   資料集中包含超過 10,000 個題目和程式碼，包含了 AOJ \footnote{Aizu Online Judge, https://judge.u-aizu.ac.jp}
+            %   、Codeforces%\footnote{https://codeforces.com}
+            %   、AtCoder 等。
+            %   資料集中會包含題目和使用者的程式碼，並且將使用 C++、Python、Java 三個常用競賽程式語言作為訓練資料。
+            %   首先我們會先將資料集中的題目依照難度進行分類，將題目分為 5 個等級，分別為 A、B、C、D、E。
+            %   我們計劃整理大約 100 個題目(題目難度分布為 $A:B:C:D:E$ = $4:2:2:1:1$)，每個題目都會準備約 100 筆程式碼。
+            %   我們會把這些程式碼分為正確的和錯誤的兩類，比例為 1:9。
+            % \item 實驗過程
+            %   \par 本研究規劃實驗步驟如圖\ref{ai2}所示。
+            %   首先，我們會將訓練資料集中篩選出 10 題難度為 A 的題目作為初始訓練資料，這些初始訓練資料我們
+            %   會先標記多個錯誤標籤，錯誤標籤包含: 「變數輸入錯誤」(VIE)、「輸出格式錯誤」(OFE)、「演算法時間複雜度過高」(ATH)、
+            %   「變數未初始化」(VAI)、「變數型態錯誤」(VTE)、「演算法錯誤」(AE)、「題意誤解」(PM) 等。
+            %   接著，將這些初始資料切割成 8:2 的比例，其中 8 批資料作為訓練資料，2 批資料作為驗證資料。
+            %   而如圖\ref{ai}所示，會將 題目資訊、程式碼、錯誤標籤 作為輸入，並交給 CodeBERT \footnote{https://github.com/microsoft/CodeBERT} 訓練。
+            %   接著訓練完的模型會把剩餘的訓練資料進行預測，而我們會排序信心分數最低的 20 筆資料進行人工審查與標記，
+            %   並將這些資料加入訓練資料中，並重複上述步驟，直到訓練資料中已審查過的資料都被標記為正確。
+            %   \begin{figure}[H]
+            %     \centering
+            %     \begin{subfigure}{0.3\linewidth}
+            %       \centering
+            %       \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/ai2.jpg}{
+            %         \includegraphics[width=\textwidth]{./img/ai2.jpg}
+            %       }
+            %       \caption{主動學習}
+            %       \label{ai2}
+            %     \end{subfigure}
+            %     \begin{subfigure}{0.3\linewidth}
+            %       \centering
+            %       \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/ai.jpg}{
+            %         \includegraphics[width=\textwidth]{./img/ai.jpg}
+            %       }
+            %       \caption{模型訓練}
+            %       \label{ai}
+            %     \end{subfigure}
+            %     \caption{AI 訓練實驗步驟 (點擊可看大圖)}
+            %   \end{figure}
+            % \item 自動反饋使用流程
+            %   \par 本研究規劃的自動反饋參考了 Dong 等作者的論文\cite{ref17}，使用流程如圖\ref{ai3}所示。
+            %   當學生 (StudentA) 在課堂練習或作業提交程式碼時，會將程式碼交給 Judger 進行批改，
+            %   若是所有的測試資料都通過驗證，Judger 會回傳一個 Accpeted 資訊給結果統計 (Result Statistics)，
+            %   若沒有通過驗證，Judger 會回傳一個 Rejected 資訊，並且將程式碼交給 Code Analysis 做錯誤分析。
+            %   接著， Code Analysis 分析後將錯誤標籤給結果統計。
+            %   結果統計會將資訊傳給 StudentA ，並且會將資料統整後傳給教師(Teacher)。
+            %   前端呈現如圖\ref{feedback}所示，教師可以看到某題所有學生的答題情況，掌握學生的學習狀況。
+            %   \begin{figure}[H]
+            %     \centering
+            %     \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/ai3.jpg}{
+            %       \includegraphics[width=0.75\textwidth]{./img/ai3.jpg}
+            %     }
+            %     \caption{自動反饋使用流程 (點擊可看大圖)}
+            %     \label{ai3}
+            %   \end{figure}
+            %   \begin{figure}[H]
+            %     \centering
+            %     \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/feedback.png}{
+            %       \includegraphics[width=0.75\textwidth]{./img/feedback.png}
+            %     }
+            %     \caption{前端自動反饋介面 (點擊可看大圖)}  
+            %     \label{feedback}
+            %   \end{figure}
         \item 低延遲直播技術
           \par 此研究旨在開發一個低延遲的同步教學平台。
           這個平台將支持分享電腦螢幕和人像直播功能。
@@ -391,20 +378,20 @@
         %   如"迴圈錯誤"、"變數溢位"等更為詳細錯誤資訊，讓學生能夠快速地掌握程式碼錯誤。
         %   在 Dong 等作者的論文\cite{ref17}中，提到使用程式碼與測試案例作為模型輸入，錯誤反饋訊息作為模型輸出，訓練一個多標籤分類模型。
         %   % TODO: 要補 CodeBERT 
-      \end{enumerate}  
+      %\end{enumerate}  
     \end{enumerate}
   
   \item 作品展示
     
   \item 未來與展望
-  
-    \par 最後我們開發出一個整合式教學系統，將有以下四點特色:
+    \par 未來將增加與改善以下四種功能：
     \begin{enumerate}
-      \item 自動回饋系統能夠節省教師的時間，教師可以快速了解學生的學習進度和弱點，有更多的時間去創造更好的學習環境和教學資源，解決教師在教學與備課的工作量大。
-      \item 透過同步練習與課後練習並輔以 AI 自動批改，讓教師能夠快速掌握學生的學習狀況，提高了教學效率。
-      \item 互動式簡報模組，可以讓教師與學生之前有更多的互動，讓學生能夠更加主動地參與學習，並且能夠得到及時的回饋和指導。
-      \item 整合式系統可以讓教師在同一個平台上創建和管理課程、學生，並能夠快速分析學生的學習狀況，提高了教學效率。
+      \item 增加自動回饋系統，讓教師可以快速了解學生的學習進度和弱點，減少教師在教學與備課的工作量。
+      \item 增加智能助教系統，自動批改學生作業並提出建議，讓教師能夠快速掌握學生的學習狀況。
+      \item 增加互動式講義的功能，讓教師與學生之間有更多互動，將抽象的概念視覺化，讓學生更容易理解並加深印象。
+      \item 增加教材的輔助 AI，能夠根據教師的教學內容，提供文字補全與編寫建議，以提高教師編寫教材的效率。
     \end{enumerate}
+    \par 並且以創業與經營為目標，提供教學系統服務給程式教育的教師，
 
   \item 參考文獻
     \renewcommand{\section}[2]{}
