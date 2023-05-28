@@ -95,17 +95,8 @@
       \item 教師無法即時得知學生的狀況：
         \par 由於師生間缺乏互動的方式，讓學生難以保持學習熱忱，同時教師也無法即時注意學生的學習狀況，而影響教學成效\cite{ref7}。
       \item 教學工具零散：
-        \par 在程式教學中，教師需要使用多種不同的工具和平台：
-        \begin{itemize}
-          \item 準備教學教材的工具：投影片、 HackMD 等。
-          \item 準備課堂教學的環境：
-            \begin{itemize}
-              \item 直播工具：Google Meet 、 Microsoft Team 等。
-              \item 教學工具：投影片。
-            \end{itemize}
-          \item 繳交作業與練習的系統：高中生程式解題系統、 ITSA 程式自學平臺、TronClass 等。
-        \end{itemize}
-        \par 由於這些軟體，並非針對教師的教學所設計，導致如批改、實作、教材、直播、上課，仍需要使用其他軟體或平台來實現，缺乏整合的教學環境，增加教師的教學難度。
+        \par 在程式教學中，教師需要使用多種不同的工具和平台：準備教學教材的工具，如 PowerPoint 、 HackMD 等。準備課堂教學的環境，如 Google Meet 。以及繳交程式作業的系統，如 ITSA 程式自學平臺、TronClass 等。
+        \par 由於這些軟體，並非針對教師的教學所設計，導致如批改、實作、設計教材、直播、上課，仍需要透過其他軟體或平台來實現。缺乏整合的教學工具，不但增加了環境的建置難度，也提高教師的教學負擔。
     \end{enumerate}
     \par 基於以上問題，本系統跨足教育領域，通過改進教師的教學方式，幫助教師以最小的成本實現預期的教學效果，從而提高學生的學習體驗和效果。
     \item 創新創意
@@ -185,7 +176,6 @@
             \item [A-1.] 使用者：程式設計課程的老師、學生
             \item [A-2.] 使用者的介面設計：簡單並且易上手、高度的功能整合、即時獲得使用者的反饋與資訊。
             \item [A-3.] 使用者的引導與教學：直觀的UI設計並且對所有老師做系統的使用培訓。
-            \item [A-4.] 確保使用者能排除問題：若系統發現使用者不當使用，如不當的權限操作、連結到錯誤的網址、使用者在短時間傳入大量的封包，會立即彈跳出警告視窗。
           \end{enumerate}
           \item [B.] 硬體
             \begin{enumerate}[itemindent=24pt]
@@ -194,9 +184,10 @@
             \end{enumerate}
           \item [C.] 效能
             \begin{enumerate}[itemindent=24pt]
-              \item [C-1.] 反應時間：同一課程能讓100人同時使用，並在0.1秒內回應使用者，以保障使用者的課程體驗。
-              \item [C-2.] 最高的同時上線人數：能使一萬人同時使用該系統。
-              \item [C-3.] 容量限制：系統儲存資料的最大容量為100TB。
+              \item [C-1.] 反應時間：同一課程能讓100人同時使用，並在0.5秒內回應使用者，以保障使用者的上課體驗。
+              \item [C-2.] 容量限制：限制每位教師在單一章節中，只能上傳20MB以下的投影片。
+              \item [C-3.] 課堂限制：每位教師的課程需要經過管理員審核後才能開課，並且每位教師以開設5門課為限。
+              \item [C-4.] 課堂人數：同一課程最多只能有100位學生。
             \end{enumerate}      
           \item [D.]錯誤處理：
             \begin{enumerate}[itemindent=24pt]
@@ -208,7 +199,7 @@
       \par 本系統是架設於網路上的 Web 應用系統，以下將針對系統的設計分為系統架構、系統介面說明：
         \begin{enumerate}[label=(\arabic*)]
         \setlength{\parindent}{2em}
-          \item 系統架構架構
+          \item 系統架構
           \par 根據需求擷取與分析所述，系統架構如圖\ref{arc1}所示，
           在 Proglearn 系統內(如圖\ref{arc1})，
           包括前端服務器(Web Application Server、Single Page Application)、
@@ -295,7 +286,42 @@
     \end{enumerate}
   
   \item 作品展示
-    
+    \begin{figure}[H]
+      \centering
+      \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/list.png}{ 
+        \includegraphics[width=0.5\textwidth]{./img/list.png}
+      }
+      \caption{課程清單頁面 (點擊可看大圖)}
+      \label{arc6}
+    \end{figure}
+
+    \begin{figure}[H]
+      \centering
+      \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/course.png}{ 
+        \includegraphics[width=0.5\textwidth]{./img/course.png}
+      }
+      \caption{課程資訊頁面 (點擊可看大圖)}
+      \label{arc7}
+    \end{figure}
+
+    \begin{figure}[H]
+      \centering
+      \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/testcode.png}{ 
+        \includegraphics[width=0.5\textwidth]{./img/testcode.png}
+      }
+      \caption{課程作業頁面 (點擊可看大圖)}
+      \label{arc8}
+    \end{figure}
+
+    \begin{figure}[H]
+      \centering
+      \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/feedback.png}{ 
+        \includegraphics[width=0.5\textwidth]{./img/feedback.png}
+      }
+      \caption{課程作業回饋 (點擊可看大圖)}
+      \label{arc9}
+    \end{figure}
+
   \item 未來與展望
     \par 未來將增加與改善以下四種功能：
     \begin{enumerate}
@@ -311,19 +337,19 @@
     \begin{thebibliography}{99}
       \bibitem{ref2} 十二年國民基本教育課程綱要。民112年2月14日，取自：https://www.naer.edu.tw/PageSyllabus?fid=52。
       \bibitem{ref3} 政府資料公開平台（民111年6月29日）。全臺灣各級學校之學生數及畢業生數資料。民112年2月14日，取自：https://data.gov.tw/dataset/31436。
-      \bibitem{ref5} 聯合新聞網（民110年3月8日）。中小學資訊教師荒！ 多校找自然師兼任遭批不專業。民112年2月14日，取自：https://udn.com/news/story/6885/5303319。
+      %\bibitem{ref5} 聯合新聞網（民110年3月8日）。中小學資訊教師荒！ 多校找自然師兼任遭批不專業。民112年2月14日，取自：https://udn.com/news/story/6885/5303319。
       \bibitem{ref4} 張瑞賓、李建華。"遠距教學常態化問題之探討與建議。" 臺灣教育評論月刊 10.6 (2021): 27-34。
       \bibitem{ref7} 岳修平、梁朝雲。 "綜整學生，教師與教學情境考量的遠距教學預測模型。" 教育資料與圖書館學 52.1 (2015): 33-57+。
-      \bibitem{ref8} De Giusti, Armando. "Book review: Policy brief: Education during COVID-19 and beyond." Revista Iberoamericana de Tecnología En Educación y Educación En Tecnología 26 (2020): 110-111.
-      \bibitem{ref9} Tumwesige, Josephine. "COVID-19 Educational disruption and response: Rethinking e-Learning in Uganda." University of Cambridge (2020).
-      \bibitem{ref10} Santos, Joseline M., and Rowell DR Castro. "Technological Pedagogical content knowledge (TPACK) in action: Application of learning in the classroom by pre-service teachers (PST)." Social Sciences \& Humanities Open 3.1 (2021): 100110.
-      \bibitem{ref11} Ratheeswari, K. "Information communication technology in education." Journal of Applied and Advanced research 3.1 (2018): 45-47.
-      \bibitem{ref13} Ouya, Samuel, et al. "WebRTC platform proposition as a support to the educational system of universities in a limited Internet connection context." 2015 5th World Congress on Information and Communication Technologies (WICT). IEEE, 2015.
-      \bibitem{ref14} Ibrahim, Mohamed, and Osama Al-Shara. "Impact of interactive learning on knowledge retention." Lecture Notes in Computer Science 4558 (2007): 347.
-      \bibitem{ref15} Akram, Huma, et al. "Technology integration in higher education during COVID-19: An assessment of online teaching competencies through technological pedagogical content knowledge model." Frontiers in psychology 12 (2021): 736522.
-      \bibitem{ref16} Krusche, Stephan, and Andreas Seitz. "Artemis: An automatic assessment management system for interactive learning." Proceedings of the 49th ACM technical symposium on computer science education. 2018.
-      \bibitem{ref17} Dong, Yu, Jingyang Hou, and Xuesong Lu. "An intelligent online judge system for programming training." Database Systems for Advanced Applications: 25th International Conference, DASFAA 2020, Jeju, South Korea, September 24–27, 2020, Proceedings, Part III 25. Springer International Publishing, 2020.
-      \bibitem{ref18} Delen, Erhan, Jeffrey Liew, and Victor Willson. "Effects of interactivity and instructional scaffolding on learning: Self-regulation in online video-based environments." Computers \& Education 78 (2014): 312-320.
+      %\bibitem{ref8} De Giusti, Armando. "Book review: Policy brief: Education during COVID-19 and beyond." Revista Iberoamericana de Tecnología En Educación y Educación En Tecnología 26 (2020): 110-111.
+      %\bibitem{ref9} Tumwesige, Josephine. "COVID-19 Educational disruption and response: Rethinking e-Learning in Uganda." University of Cambridge (2020).
+      %\bibitem{ref10} Santos, Joseline M., and Rowell DR Castro. "Technological Pedagogical content knowledge (TPACK) in action: Application of learning in the classroom by pre-service teachers (PST)." Social Sciences \& Humanities Open 3.1 (2021): 100110.
+      %\bibitem{ref11} Ratheeswari, K. "Information communication technology in education." Journal of Applied and Advanced research 3.1 (2018): 45-47.
+      %\bibitem{ref13} Ouya, Samuel, et al. "WebRTC platform proposition as a support to the educational system of universities in a limited Internet connection context." 2015 5th World Congress on Information and Communication Technologies (WICT). IEEE, 2015.
+      %\bibitem{ref14} Ibrahim, Mohamed, and Osama Al-Shara. "Impact of interactive learning on knowledge retention." Lecture Notes in Computer Science 4558 (2007): 347.
+      %\bibitem{ref15} Akram, Huma, et al. "Technology integration in higher education during COVID-19: An assessment of online teaching competencies through technological pedagogical content knowledge model." Frontiers in psychology 12 (2021): 736522.
+      %\bibitem{ref16} Krusche, Stephan, and Andreas Seitz. "Artemis: An automatic assessment management system for interactive learning." Proceedings of the 49th ACM technical symposium on computer science education. 2018.
+      %\bibitem{ref17} Dong, Yu, Jingyang Hou, and Xuesong Lu. "An intelligent online judge system for programming training." Database Systems for Advanced Applications: 25th International Conference, DASFAA 2020, Jeju, South Korea, September 24–27, 2020, Proceedings, Part III 25. Springer International Publishing, 2020.
+      %\bibitem{ref18} Delen, Erhan, Jeffrey Liew, and Victor Willson. "Effects of interactivity and instructional scaffolding on learning: Self-regulation in online video-based environments." Computers \& Education 78 (2014): 312-320.
       \bibitem{apiclient} api-client. Available from: https://github.com/online-judge-tools/api-client
       \bibitem{judger1} go-judge. Available from: https://github.com/criyle/go-judge
       \bibitem{judger2} JudgeServer. Available from: https://github.com/helsonxiao/JudgeServer
