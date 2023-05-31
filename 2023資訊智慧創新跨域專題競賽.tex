@@ -150,40 +150,41 @@
     \par 本計畫將依循軟體工程流程與方法進行需求擷取與分析、架構與介面設計。
     \begin{enumerate}
       \setlength{\parindent}{2em}
-      \item 功能性需求：%以itemindent調整縮排，但應該有更好的做法能一同縮排。
-        \begin{enumerate}[itemindent=12pt]
-          \item [A.] 班級與課程功能
-            \begin{enumerate}[itemindent=24pt]
-              \item [A-1.] 教師可新增與查詢自己的課程，並於特定課程中新增章節。
-              \item [A-2.] 教師可於特定章節中查看此章節中，學生的答題統計、問答紀錄。
+      \item 本系統主要的功能性需求：%以itemindent調整縮排，但應該有更好的做法能一同縮排。
+        \begin{enumerate}[itemindent=12pt, label=\Alph*.]
+          % \item 班級與課程功能
+          %   \begin{enumerate}[itemindent=24pt, label=\Alph{enumiii}-\arabic*.]
+          %     \item 教師可新增與查詢自己的課程，並於特定課程中新增章節。
+          %     \item 教師可於特定章節中查看此章節中，學生的答題統計、問答紀錄。
+          %   \end{enumerate}
+          \item 直播投影片功能
+            \begin{enumerate}[itemindent=24pt, label=\Alph{enumiii}-\arabic*.]
+              \item 教師可於特定章節中上傳課程投影片，並在投影片中實時繪畫、操作。
+              \item 教師的所有投影片操作(換頁、繪畫、游標軌跡)和聲音都將實時同步到學生端的介面上，並存儲在直播記錄中。
+              \item 學生可於課後回放老師的直播記錄。
             \end{enumerate}
-          \item [B.] 直播投影片功能
-            \begin{enumerate}[itemindent=24pt]
-              \item [B-1.] 教師可於特定章節中上傳課程投影片。
-              \item [B-2.] 教師可於教學頁面中直播模式，使學生的投影區畫面與教師相同。
-              \item [B-3.] 教師可於教學頁面中
-              \item [B-4.] 學生可於教學頁面中觀看此章節的投影片。
-            \end{enumerate}
-          \item [C.] 講義功能
-            \begin{enumerate}[itemindent=24pt]
-              \item [C-1.] 教師可編輯章節的講義，並於講義中新增與編輯文字、圖形與互動式元件。
-              \item [C-2.] 教師可開啟黑板模式，讓特定學生能在投影片中繪圖寫字。
-              \item [C-3.] 學生可於教學頁面中觀看此章節的投影片，並與互動性元件互動，如勾選方框、按下按鈕等。
-            \end{enumerate}
-          \item [D.] 答題功能
-            \begin{enumerate}[itemindent=24pt]
-              \item [D-1.] 教師可於特定章節中新增題目，並且可以在現有題目系統(如: AtCoder%$\footnote{https://atcoder.jp/}$
-              )直接抓取題目。
-              \item [D-2.] 教師可於特定章節中查看各學生於特定作業的答題情況，內容包含繳交的程式碼與分數。
-              \item [D-3.] 教師可針對答題情況，留下教師建議。
-              \item [D-4.] 學生可於特定章節中查看並解決此章節的課後練習題目。
-            \end{enumerate}
-          \item [E.] 教學頁面功能
-            \begin{enumerate}[itemindent=24pt, label=E-\arabic*.]
+          \item 教學頁面功能
+            \begin{enumerate}[itemindent=24pt, label=\Alph{enumiii}-\arabic*.]
               \item 學生可於投影片區觀看並操作投影片。
               \item 學生可於程式區編輯 JS 程式碼，並且能執行與查看結果。
               \item 教師可查看各學生執行的程式碼與結果。
-              \item 教師可控制黑板模式並使用互動性功能。
+              \item 教師可於直播區進行教學，並將操作同步到所有學生端的介面上。
+              \item 學生可於講義區讀取教師編輯的課程講義，並可進行程式練習。
+              \item 教師可於答題區觀看學生的答題情況，並可針對答題結果給予回饋。
+            \end{enumerate}
+          \item 互動式講義功能
+            \begin{enumerate}[itemindent=24pt, label=\Alph{enumiii}-\arabic*.]
+              \item 教師可使用 Markdown 來編輯和呈現課程講義，並可在講義中嵌入程式練習題。
+              \item 教師可開啟教學跟隨模式，系統會透過淺黃色區塊提示學生，老師當下的教學內容。
+              \item 學生可在講義中直接回答嵌入的程式練習題，並即時得知答案是否正確以及錯誤的原因。
+            \end{enumerate}
+          \item 答題與反饋功能
+            \begin{enumerate}[itemindent=24pt, label=\Alph{enumiii}-\arabic*.]
+              \item 教師可於特定章節中新增題目，並且可以在現有題目系統(如: AtCoder%$\footnote{https://atcoder.jp/}$
+              )直接抓取題目。
+              \item 教師可於特定章節中查看各學生於特定作業的答題情況，內容包含繳交的程式碼與分數。
+              \item 教師可針對答題情況，留下教師建議。
+              \item 學生可於特定章節中查看並解決此章節的課後練習題目。
             \end{enumerate}
           \end{enumerate}
       \item 非功能性需求
@@ -266,14 +267,14 @@
             負責處理與管理使用者資料(User Module)、課程模組(Course Module)、題目模組(Online Judge)。
           
           \par 課程管理服務器(如圖\ref{arc3})
-            包括影音服務器(Video Server)、投影片模組(Code-Slides Module)、練習模組(Exercise Module)。
-            投影片模組將使用 CodeMirror 作為編輯器，並且提供使用 JavaScript 程式碼撰寫投影片。
-            前端呈現如圖\ref{arc5}，學生能夠同時看到教師的畫面及投影片。
+            包括直播服務器(Stream Server)、互動式講義模組(Interactive-book Module)、練習模組(Exercise Module)。
+            投影片模組將使用 CodeMirror 作為編輯器，並且提供使用 Markdown 撰寫互動式講義。
+            前端呈現如圖\ref{arc5}，學生能夠同時看到教師的投影片及操作。
             % 接著使用
           \begin{figure}[H]
             \centering
             \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/student.png}{ 
-              \includegraphics[width=0.5\textwidth]{./img/student.png}
+              \includegraphics[width=0.8\textwidth]{./img/student.png}
             }
             \caption{學生的前端課堂頁面 (點擊可看大圖)}
             \label{arc5}
@@ -346,7 +347,7 @@
     \begin{figure}[H]
       \centering
       \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/feedback.png}{ 
-        \includegraphics[width=0.5\textwidth]{./img/feedback.png}
+        \includegraphics[width=0.55\textwidth]{./img/feedback.png}
       }
       \caption{課後作業系統的教師回饋頁面 (點擊可看大圖)}
       \label{arc14}
@@ -357,7 +358,7 @@
       \begin{subfigure}{0.45\linewidth}
         \centering
         \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/testcode.png}{
-          \includegraphics[width=0.65\textwidth]{./img/testcode.png}
+          \includegraphics[width=1\textwidth]{./img/testcode.png}
         }
         \caption{題目}
         \label{arc10}            
@@ -365,7 +366,7 @@
       \begin{subfigure}{0.45\linewidth}
         \centering
         \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/hw_ac.png}{
-          \includegraphics[width=0.65\textwidth]{./img/hw_ac.png}
+          \includegraphics[width=1\textwidth]{./img/hw_ac.png}
         }
         \caption{ac}
         \label{arc11}
@@ -374,7 +375,7 @@
       \begin{subfigure}{0.45\linewidth}
         \centering
         \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/hw_wa.png}{
-          \includegraphics[width=0.65\textwidth]{./img/hw_wa.png}
+          \includegraphics[width=1\textwidth]{./img/hw_wa.png}
         }
         \caption{wa}
         \label{arc12}
@@ -382,7 +383,7 @@
       \begin{subfigure}{0.45\linewidth}
         \centering
         \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/hw_re.png}{
-          \includegraphics[width=0.65\textwidth]{./img/hw_re.png}
+          \includegraphics[width=1\textwidth]{./img/hw_re.png}
         }
         \caption{re}
         \label{arc13}            
@@ -397,7 +398,7 @@
       \item 增加智能助教系統，自動批改學生作業並提出建議，讓教師能夠快速掌握學生的學習狀況。
       \item 增加互動式講義的功能，讓教師與學生之間有更多互動，將抽象的概念視覺化，讓學生更容易理解並加深印象。
       \end{enumerate}
-    \par 並且以創業與經營為目標，提供教學系統服務給程式教育的教師，
+    \par 並且以創業與經營為目標，提供教學系統服務給程式教育的教師，並以全台灣的高中老師作為主要推廣目標。
 
   \item 參考文獻
     \renewcommand{\section}[2]{}
