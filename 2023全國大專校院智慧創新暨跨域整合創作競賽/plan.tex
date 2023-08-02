@@ -66,10 +66,15 @@
 % \fontsize{14pt}{18pt}\selectfont
 % \author{}
 \date{}
-\usetikzlibrary{automata, positioning, arrows}
+\usetikzlibrary{automata, positioning, arrows, shapes, fit}
 % \maketitle
 \tikzset{every state, accepting/.style={double distance=2pt}}
+\tikzstyle{block} = [rectangle, draw, fill=white, 
+    text centered, rounded corners, minimum height=2em]
+\tikzstyle{container} = [rectangle, draw, dashed, inner sep=2em]
+\tikzstyle{line} = [draw, -latex']
 \captionsetup[figure]{labelfont={bf},name={圖},labelsep=period}
+\setlist[itemize]{itemsep=0pt,parsep=0pt}
 
 \noindent
 \textbf{參賽隊名：} 普羅程式 \\
@@ -198,76 +203,207 @@
           \par 由於 PowerTeacher 具備自動判讀程式碼的能力，就能在課中自動批改課堂習題，並統計作答結果，能即時得到學生的反饋。
         \end{enumerate}
     \end{enumerate}
-  \item 系統架構
-    \begin{enumerate}
-      \item 架構說明
-      \item 「人機介面設計」（UI）與「使用者體驗」（UX）設計
-    \end{enumerate}
-  \item 計劃管理
-    \begin{table}[htb]      
-      \centering
-      \begin{tabular}{|c|c|c|}
-        \hline
-        \thead{工作階段} & \thead{工作日數} & \thead{工作內容} \\ \hline
-        1 &  &  \\ \hline
-      \end{tabular}
-      \caption{計劃管理}
-    \end{table}
-    \begin{figure}[htb]
-      \centering
-      \begin{ganttchart}[
-        y unit title=0.6cm,
-        y unit chart=0.7cm,
-        x unit=0.7cm,
-        vgrid,hgrid, 
-        title height=1,
-        progress label text={},
-        bar height=0.8,
-        bar top shift=0.1,
-        ]{1}{8}
-        %labels
-        \gantttitle{1}{1} 
-        \gantttitle{2}{1} 
-        \gantttitle{3}{1} 
-        \gantttitle{4}{1} 
-        \gantttitle{5}{1}
-        \gantttitle{6}{1}
-        \gantttitle{7}{1}
-        \gantttitle{8}{1} \\
-        
-        %tasks
-        \ganttbar{工作階段 1}{1}{2} \\
-        \ganttbar{工作階段 2}{3}{4} \\
-        \ganttbar{工作階段 3}{5}{6} \\
-        \ganttbar{工作階段  4}{7}{8}
-        % \ganttbar[progress=0]{工作階段  4}{7}{8}
-      
-        %relations 
-        % \ganttlink{elem0}{elem1} 
-      \end{ganttchart}
-      \caption{甘特圖}  
-    \end{figure}
-  \item 修改舊作參賽說明
-    \par 本專案開發之作品未使用團隊成員曾獲競賽獎勵之作品。
-  \item 軟體清單
-    \begin{enumerate}
-      \item 作業系統環境：Windows、Linux
-      \item 主要開發程式語言：Javascript、Golang
-      \item 專案支援語言：中文
-      \item 開發環境：
-        \begin{enumerate}
-          \item Visual Studio Code
-          \item Node.js
-          \item Node Package Manager
-          \item Vue 3 Frontend Framework
-          \item Gin Backend Framework
-          \item Git, Github
-        \end{enumerate}
-      \item 專案成果預定授權條款：
-        \par 本專案開發產品授權條款使用 CC BY-NC 4.0 宣告。
-    \end{enumerate}
-  \item 權力分配
-    \par 依著作權法第 40 條之規定，由參賽學生與指導教授均等共有。
+  \end{enumerate}
+
+\newpage
+\section{系統架構}
+
+\subsection{架構說明}
+
+\subsubsection{前端（Vue.js）}
+使用者界面將採用Vue.js框架來開發，前端主要包括以下幾個部分：
+
+\begin{enumerate}[label=\textbullet, noitemsep]
+  \item 直播界面：提供課程直播及實時跟隨課程進度的功能。
+  \item 互動式講義：教師可編輯，學生可同步學習並完成練習題。
+  \item 作業區（Online Judge）：學生可做題並獲得即時反饋，教師可查看結果及統計。
+\end{enumerate}
+
+\subsubsection{後端（Gin）}
+後端部分我們將採用Golang的Gin框架來開發，後端主要負責以下功能：
+
+\begin{enumerate}[label=\textbullet, noitemsep]
+  \item API 提供：為前端提供RESTful API，如獲取課程列表、課程詳情、新增課程等。
+  \item 課程管理：儲存和管理課程及章節資訊，並回應前端的請求。
+  \item 互動講義管理：處理講義相關的請求，如顯示講義、新增練習題等。
+  \item 題目管理：儲存和管理作業及互動式講義練習題資訊，並與judge系統互動。
+\end{enumerate}
+
+\subsubsection{資料庫（PostgreSQL）}
+我們選擇使用PostgreSQL作為我們的主要資料庫，資料庫將儲存以下資訊：
+
+\begin{enumerate}[label=\textbullet, noitemsep]
+  \item 課程資料：包含課程的基本資訊如課程名稱、課程描述、課程章節等。
+  \item 章節資料：包含每個章節的基本資訊如章節名稱、章節內容、互動題目等。
+  \item 講義資料：包含講義的基本資訊如講義名稱、內容、相關章節、互動性元素等。
+  \item 題目資料：包含練習題和互動題的基本資訊，以及用戶的解答狀態和成績等。
+\end{enumerate}
+
+\subsubsection{直播系統（WebRTC + WebSocket）}
+在我們的平台中，實時課程直播服務將主要聚焦在傳輸老師的聲音以及與學生的互動功能，主要使用以下兩種技術：
+
+\begin{enumerate}[label=\textbullet, noitemsep]
+  \item WebRTC：使用WebRTC技術傳輸老師的聲音，實現網頁間的實時通訊。
+  \item WebSocket：使用WebSocket技術傳輸老師的滑鼠動作和教學講義的同步滾動，提供全雙工的通訊通道，實現服務器和客戶端的即時通訊。
+\end{enumerate}
+
+\subsubsection{judge系統（Judger0）}
+judge系統使用Judger0作為基礎，並提供一個安全的沙盒環境來執行和測試程式碼。它能夠與後端的題目管理互動，使得可以讓學生於前端提交程式碼來解決特定的練習題，教師可以使用此功能來評估學生的程式設計能力和理解程度。\\
+
+\begin{figure}[htb]
+  \centering
+  \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/powerteacherarc.png}{
+    \includegraphics[width=0.5\textwidth]{../img/powerteacherarc.png}
+  }
+  \caption{系統架構圖}
+  \label{arc1}            
+\end{figure}
+
+這樣的架構設計是為了使 PowerTeacher 更加模組化和可擴展性，同時能確保每個部分的功能得到最佳實現。例如，前端和後端的分離使得前後端的開發可以並行進行，大大提高了開發效率。選擇 PostgreSQL 是考慮到其高度的可擴展性和穩定性。直播系統的設計則是為了實現更好的即時教學體驗。這套架構能夠滿足 PowerTeacher 的各種需求，並為未來的擴展打下良好的基礎。
+
+\subsection{「人機介面設計」（UI）與「使用者體驗」（UX）設計}
+
+以下使用 Jakob Nielsen 使用者體驗設計優化原則說明：
+
+\subsubsection{Visibility of system status}
+
+\begin{itemize}
+  \item 所有課程和章節：使用者在開啟或編輯課程或章節時，系統顯示載入或操作進度。
+  \item 投影片上傳：系統在教師上傳教材時顯示上傳進度，並在完成後確認。
+  \item 教學頁面：系統在直播進行時顯示播放進度，並在中斷時立即通知使用者。
+\end{itemize}
+
+\subsubsection{Match between system and the real world}
+
+\begin{itemize}
+  \item 所有課程和章節：課程和章節的結構仿照了真實的教學環境。
+  \item 互動式講義：模仿真實的課堂環境，包括教師講解和學生練習。
+\end{itemize}
+
+\subsubsection{User control and freedom}
+
+\begin{itemize}
+  \item 所有課程和章節：使用者可以自由瀏覽所有參加的課程和已學習的章節，不受限於一定的順序或路徑。
+  \item 教學頁面：在觀看回放錄影，使用者都可以隨時暫停、倒退或快進；可自由查看直播、章節概述和互動式講義。
+\end{itemize}
+
+\subsubsection{Consistency and standards}
+
+使用 Element Plus UI library 實現了這一原則。
+
+\subsubsection{Error prevention}
+
+\begin{itemize}
+  \item 課程與章節管理：系統檢查教師輸入的資訊是否完整和合規，例如確認課程名稱是否已存在，或章節內容是否為空。
+  \item 互動式講義：在使用者提交答案前，系統檢查答案格式並提醒使用者確認，避免意外提交。
+  \item 投影片上傳：系統驗證上傳檔案的格式和大小，並提供取消上傳的選項，避免非預期的上傳。
+\end{itemize}
+
+\subsubsection{Recognition rather than recall}
+
+\begin{itemize}
+  \item 課程與章節管理：使用者可以方便地查看已註冊的課程和已學習的章節，並透過搜尋和篩選功能尋找特定課程或章節，降低記憶負荷。
+  \item 互動式講義：透過高亮協助學生回憶上次的學習位置，降低尋找學習進度的時間。
+  \item 投影片上傳：提供清晰的列表顯示已上傳的投影片或教材，讓教師迅速找到所需的資源，無需記憶與搜尋。
+\end{itemize}
+
+\subsubsection{Flexibility and efficiency of use}
+
+\begin{itemize}
+  \item 課程與章節管理：快速搜尋和過濾功能，使查找課程更有效率；教師的自由新增和編輯功能，增強了管理課程和章節的靈活性。
+  \item 互動式講義：自動儲存學習進度，讓學生能快速回到學習進程；教師可根據課程內容自由編輯講義，提供了教學靈活性。
+  \item 投影片上傳：一鍵上傳和管理投影片或教材的功能；支持多種文件格式的上傳，確保了使用的靈活性。
+  \item 教學頁面：教師可以自由安排直播時間和內容，提供了教學的靈活性。
+\end{itemize}
+
+\subsubsection{Aesthetic and minimalist design}
+
+使用 Element Plus UI library 實現了這一原則。
+
+\subsubsection{Help users recognize, diagnose, and recover from errors}
+
+\begin{itemize}
+  \item 所有課程和所有章節：如果某課程或章節不存在，提供明確錯誤訊息（例如「該課程不存在」或「該章節不存在」），並提供回到上一頁或主頁的選項，讓使用者快速恢復。
+  \item 互動式講義：提交答案不正確時，提供明確反饋（例如「答案錯誤」或「請再試一次」），並提供解答和解釋，幫助使用者理解錯誤原因及正確答案。
+  \item 投影片上傳：如上傳文件格式不支持或文件大小超過限制，提供明確錯誤訊息（例如「不支持的文件格式」或「文件大小超過限制」），並指導如何選擇適合的文件。
+  \item 教學頁面：直播中斷或其他問題發生時，提供明確錯誤訊息（例如「直播已中斷，請稍後再試」），並提供可能的解決方法（例如重新加載頁面或檢查網路連接）。
+\end{itemize}
+
+\subsubsection{Help and documentation}
+
+\begin{itemize}
+  \item 課程與章節管理：課程和章節資訊清晰展示，讓使用者快速了解課程內容和章節進度。提供搜尋和篩選功能，便於找到感興趣的課程或特定章節。
+  \item 互動式講義：提供目錄和標籤功能，讓使用者快速找到查看或復習的內容。確保互動題目的正確答案和解釋清晰展示，便於學生自我檢查和學習。
+  \item 幫助文件：我們會提供幫助文件，紀錄如何使用系統並包含 Q\&A。
+\end{itemize}
+
+\section{計劃管理}
+
+\begin{table}[htb]      
+  \centering
+  \begin{tabular}{|c|c|c|}
+    \hline
+    \thead{工作階段} & \thead{工作日數} & \thead{工作內容} \\ \hline
+    1 &  &  \\ \hline
+  \end{tabular}
+  \caption{計劃管理}
+\end{table}
+\begin{figure}[htb]
+  \centering
+  \begin{ganttchart}[
+    y unit title=0.6cm,
+    y unit chart=0.7cm,
+    x unit=0.7cm,
+    vgrid,hgrid, 
+    title height=1,
+    progress label text={},
+    bar height=0.8,
+    bar top shift=0.1,
+    ]{1}{8}
+    %labels
+    \gantttitle{1}{1} 
+    \gantttitle{2}{1} 
+    \gantttitle{3}{1} 
+    \gantttitle{4}{1} 
+    \gantttitle{5}{1}
+    \gantttitle{6}{1}
+    \gantttitle{7}{1}
+    \gantttitle{8}{1} \\
+    
+    %tasks
+    \ganttbar{工作階段 1}{1}{2} \\
+    \ganttbar{工作階段 2}{3}{4} \\
+    \ganttbar{工作階段 3}{5}{6} \\
+    \ganttbar{工作階段  4}{7}{8}
+    % \ganttbar[progress=0]{工作階段  4}{7}{8}
+  
+    %relations 
+    % \ganttlink{elem0}{elem1} 
+  \end{ganttchart}
+  \caption{甘特圖}  
+\end{figure}
+
+\section{修改舊作參賽說明}
+  本專案開發之作品未使用團隊成員曾獲競賽獎勵之作品。
+\section{軟體清單}
+\begin{itemize}
+  \item 作業系統環境：Windows、Linux
+  \item 主要開發程式語言：Javascript、Golang
+  \item 專案支援語言：中文
+  \item 開發環境：
+  \begin{itemize}
+    \item Visual Studio Code
+    \item Node.js
+    \item Node Package Manager
+    \item Vue 3 Frontend Framework
+    \item Gin Backend Framework
+    \item Git, Github
+  \end{itemize}
+  \item 專案成果預定授權條款：本專案開發產品授權條款使用 CC BY-NC 4.0 宣告。
+\end{itemize}
+
+\section{權力分配}
+依著作權法第 40 條之規定，由參賽學生與指導教授均等共有。
 
   % \begin{figure}[htb]
   %   \centering
@@ -280,5 +416,4 @@
   %     \label{arc1}            
   %   \end{subfigure}
   % \end{figure}
-\end{enumerate}
 \end{document}
