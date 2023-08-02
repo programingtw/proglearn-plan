@@ -74,7 +74,8 @@
 \tikzstyle{container} = [rectangle, draw, dashed, inner sep=2em]
 \tikzstyle{line} = [draw, -latex']
 \captionsetup[figure]{labelfont={bf},name={圖},labelsep=period}
-\setlist[itemize]{itemsep=0pt,parsep=0pt}
+\setlist[itemize]{itemsep=0pt,topsep=0pt,parsep=0pt}
+\setlist[enumerate]{itemsep=0pt,topsep=4pt,parsep=0pt}
 \setlength{\parindent}{2em}
 
 \noindent
@@ -86,22 +87,20 @@
 \subsection{題目：威力導師 PowerTeacher}
 \subsection{實用功能描述}
 在台灣，資訊科技領域備受關注，且程式設計已成為學校必修課程。儘管每年有數百萬學生修習程式課程，但基層教育仍面臨著許多問題：以往的教學方式需頻繁切換畫面給學生練習、課堂上教師無法即時得知學生狀況。所以我們建立一個名為 PowerTeacher 的網頁應用，專注於教師導向的程式教學工具，整合直播、實作、測驗、互動與AI輔助，讓所有人都能進行優質的程式教學。\\
-\par PowerTeacher 是專為教師設計的教學工具，採網頁應用形式，主要提供三種頁面：\\
+\par PowerTeacher 是專為教師設計的教學工具，採網頁應用形式，主要提供三種頁面：
 \begin{enumerate}[label=(\arabic*)]
   \item 學生課堂頁面：學生的課堂頁面有直播區、互動區、功能區（見圖x）。
-  \begin{itemize}
-    \item 直播區：用於顯示章節投影片，會在課中展示與老師相同的投影片畫面，並同步老師的滑鼠軌跡、繪畫等。
-    \item 互動區：用於顯示滾動式的講義，講義可以放文字、圖片、課堂習題，並且在課中具有引導功能，會根據老師目前的上課投影片，用黃色框線在講義中顯示其對應的位置。
-    \item 功能區：用於控制直播區的內容，在課中能夠切換投影片、一鍵回到老師的直播投影片等。在課後能夠拖動時間軸，回放過去的上課直播。
-  \end{itemize}
-
+    \begin{itemize}
+      \item 直播區：用於顯示章節投影片，會在課中展示與老師相同的投影片畫面，並同步老師的滑鼠軌跡、繪畫等。
+      \item 互動區：用於顯示滾動式的講義，講義可以放文字、圖片、課堂習題，並且在課中具有引導功能，會根據老師目前的上課投影片，用黃色框線在講義中顯示其對應的位置。
+      \item 功能區：用於控制直播區的內容，在課中能夠切換投影片、一鍵回到老師的直播投影片等。在課後能夠拖動時間軸，回放過去的上課直播。
+    \end{itemize}
   \item 教師課堂頁面：教師的課堂頁面與學生的課堂頁面相同，同樣有直播區、互動區、功能區，但功能有部分差異（見圖x）。
-  \begin{itemize}
-    \item 直播區：用於顯示章節投影片，在課中會將畫面同步到學生的直播區中。
-    \item 互動區：用於顯示滾動式講義，並能夠預覽課堂習題的作答統計。
-    \item 功能區：用於控制直播功能，能夠開啟與關閉直播，在課中可以切換投影片、切換成畫筆功能等。
-  \end{itemize}
-
+    \begin{itemize}
+      \item 直播區：用於顯示章節投影片，在課中會將畫面同步到學生的直播區中。
+      \item 互動區：用於顯示滾動式講義，並能夠預覽課堂習題的作答統計。
+      \item 功能區：用於控制直播功能，能夠開啟與關閉直播，在課中可以切換投影片、切換成畫筆功能等。
+    \end{itemize}
   \item 教師講義編輯頁面：教師的講義編輯頁面，用於編輯互動區講義的內容。我們將整個講義分為各種不同類型的小區塊，透過將不同類型的區塊做拼接，以完成整個講義。分為編輯區與時間軸（見圖x）：
   \begin{itemize}
     \item 編輯區：在右半部點擊不同類型的講義區塊，如文字、選擇題、程式題，就能夠在左半部編輯其中的內容。
@@ -350,16 +349,46 @@
 
 \section{計劃管理}
 
-\begin{table}[htb]      
+\begin{table}[H]      
   \centering
-  \begin{tabular}{|c|c|c|}
+  \begin{tabular}{|c|c|p{13cm}|}
     \hline
-    \thead{工作階段} & \thead{工作日數} & \thead{工作內容} \\ \hline
-    1 &  &  \\ \hline
+    工作階段 & 工作日數 & 工作內容 \\ \hline
+    第一階段 & 14日 & 創意發想、需求分析與規劃階段：\newline  
+      1. 用戶需求收集及分析、功能需求深度討論、市場分析。\newline
+      2. 根據需求選定技術、設計資料結構及資料庫模型。\newline
+      3. 開發計劃與時間表的制定及製作專案介紹。\\ \hline
+    第二階段 & 14日 & 設計階段：\newline
+      1. 繪製系統架構圖，撰寫技術設計文檔。\newline
+      2. 設計前後端介面。\newline
+      3. 研究直播系統的工作原理、Judge 系統的實現方式。\\ \hline
+    第三階段 & 21日 & 系統開發與文件準備階段：\newline
+      1. 前後端開發：\newline
+      - 前端：實現教師的章節編輯頁及教學頁面的互動式講義等。\newline
+      - 後端：開發API，完成基礎CRUD、websocket，部屬docker。\newline
+      2. 文件與影片製作\newline
+      3. 整理產品的用戶故事和場景。 \\ \hline    
+    第四階段 & 21日 & 功能開發與初步測試階段：\newline
+     1. 前後端功能開發：\newline
+     - 前端：完成互動式講義編輯頁面、教學頁面的工具欄等主要功能。\newline
+     - 後端：完成直播系統、Judge系統的開發，並將系統部署到服務器。\newline
+     2. 初步功能測試及撰寫開發者文件 \\ \hline
+    第五階段 & 21日 & 使用者測試與優化階段：\newline
+     1. 進行使用者測試訪談並收集反饋，了解使用過程中遇到的問題。\newline
+     2. 根據收集的數據與反饋進行分析，找出需要改進的部分。\newline
+     3. 根據分析結果對系統進行優化和調整。 \\ \hline
+    第六階段 & 21日 & 最終測試與優化階段：\newline
+     1. 進行完整系統測試，包括功能、性能、安全等方面。\newline
+     2. 根據測試結果進行系統性能優化。\newline
+     3. 撰寫與記錄測試過程和結果的設計測試文件。 \\ \hline
+    第七階段 & 8日  & 準備決賽階段：\newline
+     1. 撰寫系統使用手冊。\newline
+     2. 準備決賽所需的各種材料和準備工作。 \\ \hline
   \end{tabular}
   \caption{計劃管理}
 \end{table}
-\begin{figure}[htb]
+
+\begin{figure}[H]
   \centering
   \begin{ganttchart}[
     y unit title=0.6cm,
@@ -370,26 +399,18 @@
     progress label text={},
     bar height=0.8,
     bar top shift=0.1,
-    ]{1}{8}
+    ]{1}{18} % 按照您的計劃，我們有約 18 週的時間。
     %labels
-    \gantttitle{1}{1} 
-    \gantttitle{2}{1} 
-    \gantttitle{3}{1} 
-    \gantttitle{4}{1} 
-    \gantttitle{5}{1}
-    \gantttitle{6}{1}
-    \gantttitle{7}{1}
-    \gantttitle{8}{1} \\
+    \gantttitlelist{1,...,18}{1} \\ % 生成 1 到 18 的標籤
     
     %tasks
     \ganttbar{工作階段 1}{1}{2} \\
     \ganttbar{工作階段 2}{3}{4} \\
-    \ganttbar{工作階段 3}{5}{6} \\
-    \ganttbar{工作階段  4}{7}{8}
-    % \ganttbar[progress=0]{工作階段  4}{7}{8}
-  
-    %relations 
-    % \ganttlink{elem0}{elem1} 
+    \ganttbar{工作階段 3}{5}{7} \\
+    \ganttbar{工作階段 4}{8}{10} \\
+    \ganttbar{工作階段 5}{11}{13} \\
+    \ganttbar{工作階段 6}{14}{16} \\
+    \ganttbar{工作階段 7}{17}{18}
   \end{ganttchart}
   \caption{甘特圖}  
 \end{figure}
