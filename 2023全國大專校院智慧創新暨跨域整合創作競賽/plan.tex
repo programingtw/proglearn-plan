@@ -287,72 +287,73 @@ judge系統使用Judger0作為基礎，並提供一個安全的沙盒環境來�
   \item 幫助文件：我們會提供幫助文件，紀錄如何使用系統並包含 Q\&A。
 \end{itemize}
 
-\begin{enumerate}
-  \item 計劃管理
-    \begin{table}[htb]      
-      \centering
-      \begin{tabular}{|c|c|c|}
-        \hline
-        \thead{工作階段} & \thead{工作日數} & \thead{工作內容} \\ \hline
-        1 &  &  \\ \hline
-      \end{tabular}
-      \caption{計劃管理}
-    \end{table}
-    \begin{figure}[htb]
-      \centering
-      \begin{ganttchart}[
-        y unit title=0.6cm,
-        y unit chart=0.7cm,
-        x unit=0.7cm,
-        vgrid,hgrid, 
-        title height=1,
-        progress label text={},
-        bar height=0.8,
-        bar top shift=0.1,
-        ]{1}{8}
-        %labels
-        \gantttitle{1}{1} 
-        \gantttitle{2}{1} 
-        \gantttitle{3}{1} 
-        \gantttitle{4}{1} 
-        \gantttitle{5}{1}
-        \gantttitle{6}{1}
-        \gantttitle{7}{1}
-        \gantttitle{8}{1} \\
-        
-        %tasks
-        \ganttbar{工作階段 1}{1}{2} \\
-        \ganttbar{工作階段 2}{3}{4} \\
-        \ganttbar{工作階段 3}{5}{6} \\
-        \ganttbar{工作階段  4}{7}{8}
-        % \ganttbar[progress=0]{工作階段  4}{7}{8}
-      
-        %relations 
-        % \ganttlink{elem0}{elem1} 
-      \end{ganttchart}
-      \caption{甘特圖}  
-    \end{figure}
-  \item 修改舊作參賽說明
-    \par 本專案開發之作品未使用團隊成員曾獲競賽獎勵之作品。
-  \item 軟體清單
-    \begin{enumerate}
-      \item 作業系統環境：Windows、Linux
-      \item 主要開發程式語言：Javascript、Golang
-      \item 專案支援語言：中文
-      \item 開發環境：
-        \begin{enumerate}
-          \item Visual Studio Code
-          \item Node.js
-          \item Node Package Manager
-          \item Vue 3 Frontend Framework
-          \item Gin Backend Framework
-          \item Git, Github
-        \end{enumerate}
-      \item 專案成果預定授權條款：
-        \par 本專案開發產品授權條款使用 CC BY-NC 4.0 宣告。
-    \end{enumerate}
-  \item 權力分配
-    \par 依著作權法第 40 條之規定，由參賽學生與指導教授均等共有。
+\section{計劃管理}
+
+\begin{table}[htb]      
+  \centering
+  \begin{tabular}{|c|c|c|}
+    \hline
+    \thead{工作階段} & \thead{工作日數} & \thead{工作內容} \\ \hline
+    1 &  &  \\ \hline
+  \end{tabular}
+  \caption{計劃管理}
+\end{table}
+\begin{figure}[htb]
+  \centering
+  \begin{ganttchart}[
+    y unit title=0.6cm,
+    y unit chart=0.7cm,
+    x unit=0.7cm,
+    vgrid,hgrid, 
+    title height=1,
+    progress label text={},
+    bar height=0.8,
+    bar top shift=0.1,
+    ]{1}{8}
+    %labels
+    \gantttitle{1}{1} 
+    \gantttitle{2}{1} 
+    \gantttitle{3}{1} 
+    \gantttitle{4}{1} 
+    \gantttitle{5}{1}
+    \gantttitle{6}{1}
+    \gantttitle{7}{1}
+    \gantttitle{8}{1} \\
+    
+    %tasks
+    \ganttbar{工作階段 1}{1}{2} \\
+    \ganttbar{工作階段 2}{3}{4} \\
+    \ganttbar{工作階段 3}{5}{6} \\
+    \ganttbar{工作階段  4}{7}{8}
+    % \ganttbar[progress=0]{工作階段  4}{7}{8}
+  
+    %relations 
+    % \ganttlink{elem0}{elem1} 
+  \end{ganttchart}
+  \caption{甘特圖}  
+\end{figure}
+
+\section{修改舊作參賽說明}
+  本專案開發之作品未使用團隊成員曾獲競賽獎勵之作品。
+\section{軟體清單}
+\begin{itemize}
+  \item 作業系統環境：Windows、Linux
+  \item 主要開發程式語言：Javascript、Golang
+  \item 專案支援語言：中文
+  \item 開發環境：
+  \begin{itemize}
+    \item Visual Studio Code
+    \item Node.js
+    \item Node Package Manager
+    \item Vue 3 Frontend Framework
+    \item Gin Backend Framework
+    \item Git, Github
+  \end{itemize}
+  \item 專案成果預定授權條款：本專案開發產品授權條款使用 CC BY-NC 4.0 宣告。
+\end{itemize}
+
+\section{權力分配}
+依著作權法第 40 條之規定，由參賽學生與指導教授均等共有。
 
   % \begin{figure}[htb]
   %   \centering
@@ -365,5 +366,4 @@ judge系統使用Judger0作為基礎，並提供一個安全的沙盒環境來�
   %     \label{arc1}            
   %   \end{subfigure}
   % \end{figure}
-\end{enumerate}
 \end{document}
