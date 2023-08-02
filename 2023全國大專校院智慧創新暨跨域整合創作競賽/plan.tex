@@ -89,23 +89,53 @@
 在台灣，資訊科技領域備受關注，且程式設計已成為學校必修課程。儘管每年有數百萬學生修習程式課程，但基層教育仍面臨著許多問題：以往的教學方式需頻繁切換畫面給學生練習、課堂上教師無法即時得知學生狀況。所以我們建立一個名為 PowerTeacher 的網頁應用，專注於教師導向的程式教學工具，整合直播、實作、測驗、互動與AI輔助，讓所有人都能進行優質的程式教學。\\
 \par PowerTeacher 是專為教師設計的教學工具，採網頁應用形式，主要提供三種頁面：
 \begin{enumerate}[label=(\arabic*)]
-  \item 學生課堂頁面：學生的課堂頁面有直播區、互動區、功能區（見圖x）。
+  \item 學生課堂頁面：學生的課堂頁面有直播區、互動區、功能區（見圖1）。
     \begin{itemize}
       \item 直播區：用於顯示章節投影片，會在課中展示與老師相同的投影片畫面，並同步老師的滑鼠軌跡、繪畫等。
       \item 互動區：用於顯示滾動式的講義，講義可以放文字、圖片、課堂習題，並且在課中具有引導功能，會根據老師目前的上課投影片，用黃色框線在講義中顯示其對應的位置。
       \item 功能區：用於控制直播區的內容，在課中能夠切換投影片、一鍵回到老師的直播投影片等。在課後能夠拖動時間軸，回放過去的上課直播。
     \end{itemize}
+
+    \begin{figure}[H]
+      \centering
+      \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/student.png}{
+        \includegraphics[width=0.75\textwidth]{./img/student.png}
+      }
+      \caption{學生課堂頁面 (點擊可看大圖)}
+      \label{arc2}
+    \end{figure}
+  
   \item 教師課堂頁面：教師的課堂頁面與學生的課堂頁面相同，同樣有直播區、互動區、功能區，但功能有部分差異（見圖x）。
     \begin{itemize}
       \item 直播區：用於顯示章節投影片，在課中會將畫面同步到學生的直播區中。
       \item 互動區：用於顯示滾動式講義，並能夠預覽課堂習題的作答統計。
       \item 功能區：用於控制直播功能，能夠開啟與關閉直播，在課中可以切換投影片、切換成畫筆功能等。
     \end{itemize}
+  
+    \begin{figure}[H]
+      \centering
+      \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/teacher.png}{
+        \includegraphics[width=0.75\textwidth]{./img/teacher.png}
+      }
+      \caption{教師課堂頁面 (點擊可看大圖)}
+      \label{arc3}
+    \end{figure}
+  
   \item 教師講義編輯頁面：教師的講義編輯頁面，用於編輯互動區講義的內容。我們將整個講義分為各種不同類型的小區塊，透過將不同類型的區塊做拼接，以完成整個講義。分為編輯區與時間軸（見圖x）：
-  \begin{itemize}
-    \item 編輯區：在右半部點擊不同類型的講義區塊，如文字、選擇題、程式題，就能夠在左半部編輯其中的內容。
-    \item 腳本區：下半部的時間軸，用於擺放不同類型的講義小區塊。時間軸的單位是投影片的頁數，讓投影片能對應到不同的講義區塊，在課中就能根據投影片的頁數在講義上做引導與提示。
-  \end{itemize}
+    \begin{itemize}
+      \item 編輯區：在右半部點擊不同類型的講義區塊，如文字、選擇題、程式題，就能夠在左半部編輯其中的內容。
+      \item 腳本區：下半部的時間軸，用於擺放不同類型的講義小區塊。時間軸的單位是投影片的頁數，讓投影片能對應到不同的講義區塊，在課中就能根據投影片的頁數在講義上做引導與提示。
+    \end{itemize}
+
+    \begin{figure}[H]
+      \centering
+      \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/teacher2.png}{
+        \includegraphics[width=0.75\textwidth]{./img/teacher2.png}
+      }
+      \caption{教師課堂頁面 (點擊可看大圖)}
+      \label{arc4}
+    \end{figure}
+
 \end{enumerate}
 \subsection{作品與市場相關產品差異}
 
@@ -437,15 +467,16 @@
 \section{權力分配}
 依著作權法第 40 條之規定，由參賽學生與指導教授均等共有。
 
-  % \begin{figure}[htb]
-  %   \centering
-  %   \begin{subfigure}{0.45\linewidth}
-  %     \centering
-  %     \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/arc1.jpg}{
-  %       \includegraphics[width=0.65\textwidth]{./img/arc1.jpg}
-  %     }
-  %     \caption{CAPTION}
-  %     \label{arc1}            
-  %   \end{subfigure}
-  % \end{figure}
+  \begin{figure}[htb]
+    \centering
+    \begin{subfigure}{0.45\linewidth}
+      \centering
+      \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/student.png}{
+        \includegraphics[width=0.65\textwidth]{./img/student.png}
+      }
+      \caption{CAPTION}
+      \label{arc10}            
+    \end{subfigure}
+  \end{figure}
+
 \end{document}
