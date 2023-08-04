@@ -91,15 +91,15 @@
 \begin{enumerate}[label=(\arabic*)]
   \item 學生課堂頁面：學生的課堂頁面有直播區、互動區、功能區（見圖1）。
     \begin{itemize}
-      \item 直播區：用於顯示章節投影片，會在課中展示與老師相同的投影片畫面，並同步老師的滑鼠軌跡、繪畫等。
-      \item 互動區：用於顯示滾動式的講義，講義可以放文字、圖片、課堂習題，並且在課中具有引導功能，會根據老師目前的上課投影片，用黃色框線在講義中顯示其對應的位置。
-      \item 功能區：用於控制直播區的內容，在課中能夠切換投影片、一鍵回到老師的直播投影片等。在課後能夠拖動時間軸，回放過去的上課直播。
+      \item 直播區：位於頁面左上用於顯示章節投影片，會在課中展示與老師相同的投影片畫面，並同步老師的滑鼠軌跡、繪畫等。
+      \item 互動區：位於頁面右側用於顯示滾動式的講義，講義可以放文字、圖片、課堂習題，並且在課中具有引導功能，會根據老師目前的上課投影片，用黃色框線在講義中顯示其對應的位置。
+      \item 功能區：位於頁面左下用於控制直播區的內容，在課中能夠切換投影片、一鍵回到老師的直播投影片等（見下圖(a)）。在課後能夠拖動時間軸，回放過去的上課直播（見下圖(b)）。
     \end{itemize}
 
     \begin{figure}[H]
       \begin{subfigure}{0.5\linewidth}
         \centering
-        \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/student2.png}{ 
+        \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/student2.png}{ 
           \includegraphics[width=1\textwidth]{./img/student2.png}
         }
         \caption{課中}
@@ -107,20 +107,20 @@
       \label{arc6}
       \begin{subfigure}{0.5\linewidth}
         \centering
-        \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/student3.png}{ 
+        \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/student3.png}{ 
           \includegraphics[width=1\textwidth]{./img/student3.png}
         }
         \caption{課後}
       \end{subfigure}
       \label{arc7}
-      \caption{學生課堂頁面 (點擊可看大圖)}
+      \caption{學生課堂頁面 (點擊可看大圖)：兩種不同的功能區(紅色框線處)}
     \end{figure}
   
   \item 教師課堂頁面：教師的課堂頁面與學生的課堂頁面相同，同樣有直播區、互動區、功能區，但功能有部分差異（見圖2）。
     \begin{itemize}
-      \item 直播區：用於顯示章節投影片，在課中會將畫面同步到學生的直播區中。
-      \item 互動區：用於顯示滾動式講義，並能夠預覽課堂習題的作答統計。
-      \item 功能區：用於控制直播功能，能夠開啟與關閉直播，在課中可以切換投影片、切換成畫筆功能等。
+      \item 直播區：位於頁面左上用於顯示章節投影片，在課中會將畫面同步到學生的直播區中。
+      \item 互動區：位於頁面右側用於顯示滾動式講義，並能夠預覽課堂習題的作答統計。
+      \item 功能區：位於頁面左下用於控制直播功能，能夠開啟與關閉直播，在課中可以切換投影片、切換成畫筆、開啟或關閉麥克風功能等。
     \end{itemize}
   
     \begin{figure}[H]
@@ -134,7 +134,7 @@
   
   \item 教師講義編輯頁面：教師的講義編輯頁面，用於編輯互動區講義的內容。我們將整個講義分為各種不同類型的小區塊，透過將不同類型的區塊做拼接，以完成整個講義。分為編輯區與時間軸（見圖3）：
     \begin{itemize}
-      \item 編輯區：在右半部點擊不同類型的講義區塊，如文字、選擇題、程式題，就能夠在左半部編輯其中的內容。
+      \item 編輯區：在右上點擊不同類型的講義區塊，如文字、選擇題、程式題，就能夠在左上編輯其中的內容。
       \item 腳本區：下半部的時間軸，用於擺放不同類型的講義小區塊。時間軸的單位是投影片的頁數，讓投影片能對應到不同的講義區塊，在課中就能根據投影片的頁數在講義上做引導與提示。
     \end{itemize}
 
@@ -227,27 +227,28 @@
   \end{itemize}
   \item 加入實作與反饋的功能，以增進師生間的互動：
   \begin{itemize}
-    \item 嵌入式的程式練習題：可以將程式練習題嵌入至講義的內容中，讓學生可以直接作答，並即時得知答案是否正確以及錯誤的原因。此外，教師也能從教學頁中得知學生的作答狀況，以便於調整教學內容。
+    \item 嵌入式的程式練習題：可以將程式練習題嵌入至講義的內容中，讓學生可以直接作答，並即時得知答案是否正確。此外，教師也能從教學頁中得知學生的作答狀況，以便於調整教學內容。
+      
       \begin{figure}[H]
-        \centering
-        \begin{minipage}{0.35\linewidth}
+        \begin{subfigure}{0.5\linewidth}
           \centering
-          \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/problem.png}{
+          \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/problem.png}{
             \includegraphics[width=1\textwidth]{./img/problem.png}
           }
-          \caption{作答前}
-          \label{arc8}
-        \end{minipage}
-        \begin{minipage}{0.35\linewidth}
+          \caption{作答後}
+        \end{subfigure}
+        \label{arc8}
+        \begin{subfigure}{0.5\linewidth}
           \centering
-          \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/problem2.png}{
+          \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/problem2.png}{
             \includegraphics[width=1\textwidth]{./img/problem2.png}
           }
-          \caption{作答後}
-          \label{arc9}
-        \end{minipage}
-        \caption{互動式講義的程式題 (點擊可看大圖)：點擊下方選項後，會自動將選項插入到程式碼中。提交後即時顯示結果。}
+          \caption{課後}
+        \end{subfigure}
+        \label{arc9}
+        \caption{互動式講義的程式題 (點擊可看大圖)：點擊下方選項後，會自動將選項插入到程式碼中(紅色箭頭處)。提交後會以不同的顏色框線即時顯示結果，綠色為作答正確，紅色為作答錯誤。}
       \end{figure}
+
     \item 腳本式編輯功能：將互動式講義的內容拆分成多個積木，讓教師能夠針對每個積木進行單獨編輯與編排順序，從而組成一個完整的講義。
   \end{itemize}
 \end{enumerate}
@@ -471,7 +472,7 @@
     \ganttbar{工作階段 6}{14}{16} \\
     \ganttbar{工作階段 7}{17}{18}
   \end{ganttchart}
-  \caption{甘特圖}  
+  \caption{工作階段的甘特圖}  
 \end{figure}
 
 \section{修改舊作參賽說明}
