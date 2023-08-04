@@ -218,7 +218,7 @@
   \begin{itemize}
     \item 功能整合：在同一頁面中整合直播、實作、課堂習題、講義等功能，讓各種教學元素密切聯繫。這意味著教師能夠在單一平台上完整呈現課程內容，不再需要在不同工具間切換，從而節省了寶貴的教學時間，並使老師跟學生都能專注在課程中。
     \item 互動式講義設計：使用 Markdown 展示課程講義。透過這種滾動式設計，學生在查看講義時不再受到頁面限制，使他們能夠更流暢地瀏覽內容。同時，搭配「引導功能」，透過淺黃色區塊向學生指引出當前投影片對應到講義的哪些部分。這樣的投影片教學方式有助於學生更容易理解並對應到相關的講義內容。\
-    \item 腳本式講義編輯：用於編輯引導功能的連動方式。我們重新設計一種腳本編輯方式，它以投影片頁數作為時間的基準，讓老師只需將講義中的不同區塊輕鬆拖曳到時間軸上，從而建立起講義與投影片的順序與連動關係。
+    \item 腳本式講義編輯：用於編輯引導功能的連動方式。我們重新設計了一種腳本編輯方式，讓教師可以直觀地排列講義內容的順序，同時建立起投影片與講義內容之間的連動關係，有助於提升教師在課前準備上的效率。
   \end{itemize}
   \item 全新的投影片直播方式：
   \begin{itemize}
@@ -236,7 +236,7 @@
           \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/problem.png}{
             \includegraphics[width=1\textwidth]{./img/problem.png}
           }
-          \caption{作答後}
+          \caption{作答前}
         \end{subfigure}
         \label{arc8}
         \begin{subfigure}{0.5\linewidth}
@@ -244,13 +244,12 @@
           \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/problem2.png}{
             \includegraphics[width=1\textwidth]{./img/problem2.png}
           }
-          \caption{課後}
+          \caption{作答後}
         \end{subfigure}
         \label{arc9}
         \caption{互動式講義的程式題 (點擊可看大圖)：點擊下方選項後，會自動將選項插入到程式碼中(紅色箭頭處)。提交後會以不同的顏色框線即時顯示結果，綠色為作答正確，紅色為作答錯誤。}
       \end{figure}
 
-    \item 腳本式編輯功能：將互動式講義的內容拆分成多個積木，讓教師能夠針對每個積木進行單獨編輯與編排順序，從而組成一個完整的講義。
   \end{itemize}
 \end{enumerate}
 
@@ -264,9 +263,19 @@
   我們引入全新的直播方式，利用 WebRTC 和 WebSocket 技術，實現投影片與教師滑鼠軌跡和繪畫等的同步。學生和老師可以自主控制投影片的翻頁，這帶來更流暢的課堂互動體驗。
   \item 腳本式講義編輯功能
   \par 為實現投影片和講義內容的對應關係，我們參考了影片剪輯軟體的設計思路，採用了時間軸的概念。我們將講義分成不同類型的小區塊，並在時間軸上將這些區塊組合成完整的講義內容。這樣的設計使教師能夠針對每個區塊進行單獨編輯，並讓講義能隨著上課的流程安排。
-  這些小區塊包括選擇題、程式題，以及教師透過 Markdown 語法設計的圖文區。在編排講義時，教師可以輕鬆地將這些區塊放置到腳本區中。腳本區的時間軸對應著投影片的頁數，因此講義的不同區塊能夠與投影片緊密連接。在課堂中，當老師切換到特定的頁數時，就能自動在講義中引導學生目前的上課內容。
+  這些小區塊包括選擇題、程式題，以及教師透過 Markdown 語法設計的圖文區。在編排講義時，教師可以輕鬆地將這些區塊放置到腳本區中。腳本區的時間軸對應著投影片的頁數，因此講義的不同區塊能夠與投影片緊密連接（見圖5）。在課堂中，當老師切換到特定的頁數時，就能自動在講義中引導學生目前的上課內容。
+  
+  \begin{figure}[H]
+    \centering
+    \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/timezone.png}{
+      \includegraphics[width=0.60\textwidth]{./img/timezone.png}
+    }
+    \caption{腳本式編輯與互動式講義的關係圖 (點擊可看大圖)}
+    \label{arc10}
+  \end{figure}
+  
   \item 即時程式碼作答反饋
-  \par 由於 PowerTeacher 具備自動判讀程式碼的能力，就能在課中自動批改課堂習題，並統計作答結果，能即時得到學生的反饋。
+  \par 在課堂的程式題中，我們運用 Judger0 完成了自動判讀程式碼的功能，同時利用 Monaco Editor 進行程式碼的插入與編輯。這樣的結合，使我們能夠在課堂內實現自動批改課堂習題，並同時統計學生的作答結果，從而讓教師能即時獲得學生的反饋。
 \end{enumerate}
 
 \section{系統架構}
