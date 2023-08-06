@@ -69,6 +69,7 @@
 % \maketitle
 \tikzset{every state, accepting/.style={double distance=2pt}}
 \captionsetup[figure]{labelfont={bf},name={圖},labelsep=period}
+\renewcommand{\arraystretch}{1.45}
 
 \noindent
 \textbf{參賽隊名：} 普羅程式 \\
@@ -86,7 +87,7 @@
 \section{系統非功能需求}
 \begin{table}[H]
   \centering
-  \begin{tabular}{|c|p{10cm}|}
+  \begin{tabular}{|c|p{14.5cm}|}
     \hline
     \textbf{代號} & \textbf{非功能需求} \\
     \hline
@@ -117,72 +118,39 @@
 
 \section{系統功能需求}
 
-\subsection{功能需求列表}
 \begin{table}[H]
   \centering
-  \begin{tabular}{|c|p{10cm}|}
+  \begin{tabular}{|c|p{15cm}|}
     \hline
     \textbf{代號} & \textbf{功能需求} \\
     \hline
-    FR-001 & 會員系統 \\ 
-    & 使用已註冊的帳號密碼登入系統，可以查看所有課程及其詳細資訊 \\  \hline
-    FR-002 & 使用者個人資料設定 \\ 
-    & 使用者可以設定及修改個人資料和密碼 \\  \hline
-    FR-003 & 所有課程 \\ 
-    & 提供使用者查看目前所有的課程 \\  \hline
-    FR-004 & 新增課程 \\ 
-    & 教師可以新增課程並填寫課程基本內容 \\  \hline
-    FR-005 & 編輯課程 \\ 
-    & 教師可以編輯課程資訊並管理學生 \\  \hline
-    FR-006 & 所有章節 \\ 
-    & 使用者可以查看課程內每個章節的講義、教材和詳細資訊，章節以階層結構顯示 \\  \hline
-    FR-007 & 新增章節 \\ 
-    & 教師可以新增章節，填寫章節內容並上傳投影片 \\  \hline
-    FR-008 & 新增作業 \\ 
-    & 教師可以新增作業，使用練習區的練習題或自己寫題目 \\  \hline
-    FR-009 & 新增公告 \\ 
-    & 教師可以新增公告，設定發送對象 \\  \hline
-    FR-010 & 上傳教材 \\ 
-    & 教師可以上傳教材，選擇上傳檔案類型 \\  \hline
-    FR-011 & 下載教材 \\ 
-    & 學生可以點擊教材進行下載 \\  \hline
-    FR-012 & 互動式講義 \\ 
-    & 使用者可以查看該章節講義的補充說明，練習題目，跟隨老師的上課進度 \\  \hline
-    FR-013 & 編輯互動講義 \\ 
-    & 教師可以編輯互動講義，以積木方式分塊內容，並以時間軸編輯方法控制顯示區段 \\  \hline
-    FR-014 & 引導模式 \\ 
-    & 學生在引導模式下，可以看到以黃色區塊標示的老師當前進度 \\  \hline
-    FR-015 & 練習題目 \\ 
-    & 學生可以進行題目練習並提交查看結果 \\  \hline
+    FR-001 & 會員系統 - 使用已註冊的帳號密碼登入系統，可以查看所有課程及其詳細資訊 \\  \hline
+    FR-002 & 使用者個人資料設定 - 使用者可以設定及修改個人資料和密碼 \\  \hline
+    FR-003 & 所有課程 - 提供使用者查看目前所有的課程 \\  \hline
+    FR-004 & 新增課程 - 教師可以新增課程並填寫課程基本內容 \\  \hline
+    FR-005 & 編輯課程 - 教師可以編輯課程資訊並管理學生 \\  \hline
+    FR-006 & 所有章節 - 使用者可以查看課程內每個章節的講義、教材和詳細資訊，章節以階層結構顯示 \\  \hline
+    FR-007 & 新增章節 - 教師可以新增章節，填寫章節內容並上傳投影片 \\  \hline
+    FR-008 & 新增作業 - 教師可以新增作業，使用練習區的練習題或自己寫題目 \\  \hline
+    FR-009 & 新增公告 - 教師可以新增公告，設定發送對象 \\  \hline
+    FR-010 & 上傳教材 - 教師可以上傳教材，選擇上傳檔案類型 \\  \hline
+    FR-011 & 下載教材 - 學生可以點擊教材進行下載 \\  \hline
+    FR-012 & 互動式講義 - 使用者可以查看該章節講義的補充說明，練習題目，跟隨老師的上課進度 \\  \hline
+    FR-013 & 編輯互動講義 - 教師可以編輯互動講義，以積木方式分塊內容，並以時間軸編輯方法控制顯示區段 \\  \hline
+    FR-014 & 引導模式 - 學生在引導模式下，可以看到以黃色區塊標示的老師當前進度 \\  \hline
+    FR-015 & 練習題目 - 學生可以進行題目練習並提交查看結果 \\  \hline
+    FR-016 & 教學頁面 - 使用者可以查看該堂課程的直播以及記錄檔 \\  \hline
+    FR-017 & 觀看直播、章節概述以及互動式講義 - 學生可以查看直播、章節概述以及互動式講義 \\  \hline
+    FR-018 & 查看講義以及學生作答狀況 - 老師可以查看講義以及學生對於練習題的作答狀況 \\  \hline
+    FR-019 & 開啟同步 - 老師可以開啟同步功能，紀錄上課資訊 \\  \hline
+    FR-020 & 練習題 - 老師與學生可以查看課後作業的練習題列表，並進入單個題目的詳細頁面。\\ \hline
+    FR-021 & 查看題目作答結果 - 學生可以查看自己的題目作答結果。 \\ \hline
+    FR-022 & 查看所有學生的作答結果 - 老師可以查看所有學生繳交的該題目的作答結果。 \\ \hline 
+    FR-023 & 查看作答結果統計 - 老師可以查看所有學生的作答結果統計。 \\ \hline
   \end{tabular}
 \end{table}
 
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|c|p{10cm}|}
-    \hline
-    \textbf{代號} & \textbf{功能需求} \\
-    \hline
-    FR-016 & 教學頁面 \\ 
-    & 使用者可以查看該堂課程的直播以及記錄檔 \\  \hline
-    FR-017 & 觀看直播、章節概述以及互動式講義 \\ 
-    & 學生可以查看直播、章節概述以及互動式講義 \\  \hline
-    FR-018 & 查看講義以及學生作答狀況 \\ 
-    & 老師可以查看講義以及學生對於練習題的作答狀況 \\  \hline
-    FR-019 & 開啟同步 \\ 
-    & 老師可以開啟同步功能，紀錄上課資訊 \\  \hline
-    FR-020 & 練習題 \\ 
-    & 老師與學生可以查看課後作業的練習題列表，並進入單個題目的詳細頁面。\\ \hline
-    FR-021 & 查看題目作答結果 \\ 
-    & 學生可以查看自己的題目作答結果。 \\ \hline
-    FR-022 & 查看所有學生的作答結果 \\ 
-    & 老師可以查看所有學生繳交的該題目的作答結果。 \\ \hline 
-    FR-023 & 查看作答結果統計 \\ 
-    & 老師可以查看所有學生的作答結果統計。 \\ \hline
-  \end{tabular}
-\end{table}
-
-\subsection{Use Case Model}
+\section{Use Case Model}
 
 \begin{table}[H]
   \centering
@@ -309,5 +277,108 @@
   \hline
   \end{tabular}
 \end{table}
+\newpage
+
+\section{操作概念}
+
+\subsection{登入}
+
+使用者進入「威力導師」平台，輸入有效的帳號密碼，點擊登入按鈕，系統驗證身份，進入教學頁面。
+
+\begin{figure}[H]
+  \centering
+  \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/login.png}{
+    \includegraphics[width=0.60\textwidth]{./img/login.png}
+  }
+  \caption{登入頁面 (點擊可看大圖)}
+\end{figure}
+
+\subsection{進入課程}
+登入後，點擊想要進入的課程卡片。
+
+\begin{figure}[H]
+  \centering
+  \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/course.png}{
+    \includegraphics[width=0.60\textwidth]{./img/course.png}
+  }
+  \caption{課程列表頁面 (點擊可看大圖)}
+\end{figure}
+
+\subsection{老師操作}
+
+\subsubsection{新增課程}
+在主畫面點擊新增課程卡片，填入課程相關資訊，點擊儲存按鈕，新課程被創建。
+
+\begin{figure}[H]
+  \centering
+  \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/addCourse.png}{
+    \includegraphics[width=0.60\textwidth]{./img/addCourse.png}
+  }
+  \caption{新增課程頁面 (點擊可看大圖)}
+\end{figure}
+
+\subsubsection{新增章節及教材}
+在課程頁面點擊新增章節按鈕，填入章節名稱並上傳講義，點擊儲存按鈕。
+根據要上傳的教材類型點擊章節下的按鈕，選擇檔案並上傳。
+
+\begin{figure}[H]
+  \centering
+  \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/chapter.png}{
+    \includegraphics[width=0.60\textwidth]{./img/chapter.png}
+  }
+  \caption{章節列表頁面 (點擊可看大圖)}
+\end{figure}
+
+\subsubsection{編輯講義}
+在編輯頁面，以積木方式分塊內容，方塊區選擇添加方塊類型，編輯區編輯內容。
+利用時間軸編輯控制顯示區段，編輯完成後點擊儲存按鈕。
+
+\begin{figure}[H]
+  \centering
+  \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/teacher2.png}{
+    \includegraphics[width=0.60\textwidth]{./img/teacher2.png}
+  }
+  \caption{教師講義編輯頁面 (點擊可看大圖)}
+\end{figure}
+
+\subsubsection{上課及查看學生狀況}
+
+\begin{itemize}
+  \item 點擊「開始授課」按鈕，系統開始記錄。
+  \item 在課堂練習開放後查看學生答題狀況。
+  \item 課程結束點擊「結束授課」按鈕。
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/teacher.png}{
+    \includegraphics[width=0.60\textwidth]{./img/teacher.png}
+  }
+  \caption{教師上課頁面 (點擊可看大圖)}
+\end{figure}
+
+\subsection{學生操作}
+\subsubsection{上課及課堂互動}
+進入課程頁面上課，引導模式查看老師當前進度。
+老師展示練習題時，選擇答案並提交。
+
+\begin{figure}[H]
+  \centering
+  \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/student2.png}{
+    \includegraphics[width=0.60\textwidth]{./img/student2.png}
+  }
+  \caption{學生上課頁面 (點擊可看大圖)}
+\end{figure}
+
+\subsubsection{課後複習}
+回到教學頁面，播放錄影，回答練習題。
+
+\begin{figure}[H]
+  \centering
+  \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/student3.png}{
+    \includegraphics[width=0.60\textwidth]{./img/student3.png}
+  }
+  \caption{學生課後複習頁面 (點擊可看大圖)}
+\end{figure}
   
 \end{document}
