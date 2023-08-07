@@ -78,16 +78,33 @@
 
 \section{系統目的與範圍}
 
-在台灣，資訊科技領域備受關注，且程式設計已成為學校必修課程。
-儘管每年有數百萬學生修習程式課程，但基層教育仍面臨著許多問題：
-以往的教學方式需頻繁切換畫面給學生練習、課堂上教師無法即時得知學生狀況。
-所以我們建立一個名為PowerTeacher的網頁應用，專注於教師導向的程式教學工具，
-整合直播、實作、測驗、互動與AI輔助，讓所有人都能進行優質的程式教學。
+PowerTeacher 的主要目的在於成為一個永續發展的教育解決方案，推動聯合國的17項永續發展目標，特別專注於「SDG 4 優質教育」和「SDG 9 產業、創新與基礎設施」。這個系統旨在解決台灣基層教育中程式教學所面臨的問題，例如傳統教學方式的不足、學生狀況即時追蹤困難以及軟硬體設施使用困難等。PowerTeacher 的範圍涵蓋國高中的基礎程式教學，提供一個全面的教學模組，整合了直播、實作、測驗、互動等元素，並支援多達60種不同的程式語言，以滿足多樣化的教學需求。同時，系統融合了影音剪輯軟體的腳本式設計邏輯，讓講義編輯變得直覺且視覺化，使所有使用者都能輕鬆地進行優質的程式教學。該系統以網頁應用形式呈現，提供三種主要頁面，用以支援教師進行不同的教學活動。
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{0.4\linewidth}
+    \centering
+    \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/E_SDG_PRINT-04.jpg}{ 
+      \includegraphics[width=1\textwidth]{./img/E_SDG_PRINT-04.jpg}
+    }
+    \caption{SDG 4 優質教育：確保包容和公平的優質教育，讓全民享有終身學習的機會}
+  \end{subfigure}
+  \label{arc1}
+  \begin{subfigure}{0.4\linewidth}
+    \centering
+    \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/E_SDG_PRINT-09.jpg}{ 
+      \includegraphics[width=1\textwidth]{./img/E_SDG_PRINT-09.jpg}
+    }
+    \caption{SDG 9 產業、創新與基礎設施：建設具有韌性的基礎設施，促進包容性和永續的工業化}
+  \end{subfigure}
+  \label{arc2}
+  \caption{聯合國永續發展目標 SDGs 目標 (點擊可看大圖)}
+\end{figure}
 
 \section{系統非功能需求}
 \begin{table}[H]
   \centering
-  \begin{tabular}{|c|p{14.5cm}|}
+  \begin{tabular}{|c|p{15cm}|}
     \hline
     \textbf{代號} & \textbf{非功能需求} \\
     \hline
@@ -101,7 +118,7 @@
     & $\bullet$ 使用者的設備限制：所有能瀏覽網頁的設備皆可使用。\\
     \hline
     NFR-003 & 效能需求 \\
-    & $\bullet$ 反應時間：同一課程能讓 100 人同時使用，並在 0.1 秒內回應使用者，以保障使用者的上課體驗。\\
+    & $\bullet$ 反應時間：同一課程能讓 100 人同時使用，並在 0.1 秒內回應使用者。\\
     & $\bullet$ 容量限制：限制每位教師在單一章節中，只能上傳 20MB 以下的投影片。\\
     & $\bullet$ 課堂限制：每位教師的課程需要經過管理員審核後才能開課，並且每位教師以開設 5 門課為限。\\
     & $\bullet$ 課堂人數：同一課程最多只能有 100 位學生。\\
