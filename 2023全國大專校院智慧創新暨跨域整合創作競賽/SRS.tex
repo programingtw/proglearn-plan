@@ -22,6 +22,8 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 
+\usepackage{longtable}
+
 \usepackage[unicode=true,pdfusetitle,
  bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
  breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
@@ -69,7 +71,7 @@
 % \maketitle
 \tikzset{every state, accepting/.style={double distance=2pt}}
 \captionsetup[figure]{labelfont={bf},name={圖},labelsep=period}
-\renewcommand{\arraystretch}{1.45}
+\renewcommand{\arraystretch}{1.25}
 
 \noindent
 \textbf{參賽隊名：} 普羅程式 \\
@@ -85,7 +87,7 @@ PowerTeacher 的主要目的在於成為一個永續發展的教育解決方案�
   \begin{subfigure}{0.4\linewidth}
     \centering
     \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/E_SDG_PRINT-04.jpg}{ 
-      \includegraphics[width=1\textwidth]{./img/E_SDG_PRINT-04.jpg}
+      \includegraphics[width=0.7\textwidth]{./img/E_SDG_PRINT-04.jpg}
     }
     \caption{SDG 4 優質教育：確保包容和公平的優質教育，讓全民享有終身學習的機會}
   \end{subfigure}
@@ -93,7 +95,7 @@ PowerTeacher 的主要目的在於成為一個永續發展的教育解決方案�
   \begin{subfigure}{0.4\linewidth}
     \centering
     \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/2023全國大專校院智慧創新暨跨域整合創作競賽/img/E_SDG_PRINT-09.jpg}{ 
-      \includegraphics[width=1\textwidth]{./img/E_SDG_PRINT-09.jpg}
+      \includegraphics[width=0.7\textwidth]{./img/E_SDG_PRINT-09.jpg}
     }
     \caption{SDG 9 產業、創新與基礎設施：建設具有韌性的基礎設施，促進包容性和永續的工業化}
   \end{subfigure}
@@ -102,76 +104,79 @@ PowerTeacher 的主要目的在於成為一個永續發展的教育解決方案�
 \end{figure}
 
 \section{系統非功能需求}
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|c|p{15cm}|}
-    \hline
-    \textbf{代號} & \textbf{非功能需求} \\
-    \hline
-    NFR-001 & 使用者介面與人為因素 \\ 
-    & $\bullet$ 使用者：程式設計課程的老師、學生 \\
-    & $\bullet$ 使用者的介面設計：簡單並且易上手、高度的功能整合、即時獲得使用者的反饋與資訊。 \\
-    & $\bullet$ 使用者的引導與教學：直觀的 UI 設計並且將編輯功能視覺化。\\
-    \hline
-    NFR-002 & 設備需求 \\
-    & $\bullet$ 使用者的使用設備：使用設備以電腦為主、手持設備為輔，並針對電腦使用最佳化。\\
-    & $\bullet$ 使用者的設備限制：所有能瀏覽網頁的設備皆可使用。\\
-    \hline
-    NFR-003 & 效能需求 \\
-    & $\bullet$ 反應時間：同一課程能讓 100 人同時使用，並在 0.1 秒內回應使用者。\\
-    & $\bullet$ 容量限制：限制每位教師在單一章節中，只能上傳 20MB 以下的投影片。\\
-    & $\bullet$ 課堂限制：每位教師的課程需要經過管理員審核後才能開課，並且每位教師以開設 5 門課為限。\\
-    & $\bullet$ 課堂人數：同一課程最多只能有 100 位學生。\\
-    \hline
-    NFR-004 & 錯誤處理 \\
-    & $\bullet$ 系統遇到不正常的負載：針對大量請求的用戶限制封包的流量。\\
-    & $\bullet$ 系統遇到高負載：使用排隊來限制同時登入人數。\\
-    \hline
-    % 在這裡添加其他非功能需求...
-    % NFR-002, NFR-003, ...
-    % 將其他需求按相同的格式添加到表格中
-  \end{tabular}
-\end{table}
+\begin{longtable}{|c|p{15cm}|}
+  \hline
+  \textbf{代號} & \textbf{非功能需求} \\
+  \hline
+  \endfirsthead % 首頁標頭結束
+  \hline
+  \textbf{代號} & \textbf{非功能需求} \\
+  \hline
+  \endhead % 隨後每頁標頭結束
+  NFR-001 & 使用者介面與人為因素 \\ 
+  & $\bullet$ 使用者：程式設計課程的老師、學生 \\
+  & $\bullet$ 使用者的介面設計：簡單並且易上手、高度的功能整合、即時獲得使用者的反饋與資訊。 \\
+  & $\bullet$ 使用者的引導與教學：直觀的 UI 設計並且將編輯功能視覺化。\\
+  \hline
+  NFR-002 & 設備需求 \\
+  & $\bullet$ 使用者的使用設備：使用設備以電腦為主、手持設備為輔，並針對電腦使用最佳化。\\
+  & $\bullet$ 使用者的設備限制：所有能瀏覽網頁的設備皆可使用。\\
+  \hline
+  NFR-003 & 效能需求 \\
+  & $\bullet$ 反應時間：同一課程能讓 100 人同時使用，並在 0.1 秒內回應使用者。\\
+  & $\bullet$ 容量限制：限制每位教師在單一章節中，只能上傳 20MB 以下的投影片。\\
+  & $\bullet$ 課堂限制：每位教師的課程需要經過管理員審核後才能開課，並且每位教師以開設 5 門課為限。\\
+  & $\bullet$ 課堂人數：同一課程最多只能有 100 位學生。\\
+  \hline
+  NFR-004 & 錯誤處理 \\
+  & $\bullet$ 系統遇到不正常的負載：針對大量請求的用戶限制封包的流量。\\
+  & $\bullet$ 系統遇到高負載：使用排隊來限制同時登入人數。\\
+  \hline
+  % 在這裡添加其他非功能需求...
+  % NFR-002, NFR-003, ...
+  % 將其他需求按相同的格式添加到表格中
+\end{longtable}
 
 \section{系統功能需求}
 
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|c|p{15cm}|}
-    \hline
-    \textbf{代號} & \textbf{功能需求} \\
-    \hline
-    FR-001 & 會員系統 - 使用已註冊的帳號密碼登入系統，可以查看所有課程及其詳細資訊 \\  \hline
-    FR-002 & 使用者個人資料設定 - 使用者可以設定及修改個人資料和密碼 \\  \hline
-    FR-003 & 所有課程 - 提供使用者查看目前所有的課程 \\  \hline
-    FR-004 & 新增課程 - 教師可以新增課程並填寫課程基本內容 \\  \hline
-    FR-005 & 編輯課程 - 教師可以編輯課程資訊並管理學生 \\  \hline
-    FR-006 & 所有章節 - 使用者可以查看課程內每個章節的講義、教材和詳細資訊，章節以階層結構顯示 \\  \hline
-    FR-007 & 新增章節 - 教師可以新增章節，填寫章節內容並上傳投影片 \\  \hline
-    FR-008 & 新增作業 - 教師可以新增作業，使用練習區的練習題或自己寫題目 \\  \hline
-    FR-009 & 新增公告 - 教師可以新增公告，設定發送對象 \\  \hline
-    FR-010 & 上傳教材 - 教師可以上傳教材，選擇上傳檔案類型 \\  \hline
-    FR-011 & 下載教材 - 學生可以點擊教材進行下載 \\  \hline
-    FR-012 & 互動式講義 - 使用者可以查看該章節講義的補充說明，練習題目，跟隨老師的上課進度 \\  \hline
-    FR-013 & 編輯互動講義 - 教師可以編輯互動講義，以積木方式分塊內容，並以時間軸編輯方法控制顯示區段 \\  \hline
-    FR-014 & 引導模式 - 學生在引導模式下，可以看到以黃色區塊標示的老師當前進度 \\  \hline
-    FR-015 & 練習題目 - 學生可以進行題目練習並提交查看結果 \\  \hline
-    FR-016 & 教學頁面 - 使用者可以查看該堂課程的直播以及記錄檔 \\  \hline
-    FR-017 & 觀看直播、章節概述以及互動式講義 - 學生可以查看直播、章節概述以及互動式講義 \\  \hline
-    FR-018 & 查看講義以及學生作答狀況 - 老師可以查看講義以及學生對於練習題的作答狀況 \\  \hline
-    FR-019 & 開啟同步 - 老師可以開啟同步功能，紀錄上課資訊 \\  \hline
-    FR-020 & 練習題 - 老師與學生可以查看課後作業的練習題列表，並進入單個題目的詳細頁面。\\ \hline
-    FR-021 & 查看題目作答結果 - 學生可以查看自己的題目作答結果。 \\ \hline
-    FR-022 & 查看所有學生的作答結果 - 老師可以查看所有學生繳交的該題目的作答結果。 \\ \hline 
-    FR-023 & 查看作答結果統計 - 老師可以查看所有學生的作答結果統計。 \\ \hline
-  \end{tabular}
-\end{table}
+\begin{longtable}{|c|p{15cm}|}
+  \hline
+  \textbf{代號} & \textbf{功能需求} \\
+  \hline
+  \endfirsthead % 首頁標頭結束
+  \hline
+  \textbf{代號} & \textbf{功能需求} \\
+  \hline
+  \endhead % 隨後每頁標頭結束
+  FR-001 & 會員系統 - 使用已註冊的帳號密碼登入系統，可以查看所有課程及其詳細資訊 \\  \hline
+  FR-002 & 使用者個人資料設定 - 使用者可以設定及修改個人資料和密碼 \\  \hline
+  FR-003 & 所有課程 - 提供使用者查看目前所有的課程 \\  \hline
+  FR-004 & 新增課程 - 教師可以新增課程並填寫課程基本內容 \\  \hline
+  FR-005 & 編輯課程 - 教師可以編輯課程資訊並管理學生 \\  \hline
+  FR-006 & 所有章節 - 使用者可以查看課程內每個章節的講義、教材和詳細資訊，章節以階層結構顯示 \\  \hline
+  FR-007 & 新增章節 - 教師可以新增章節，填寫章節內容並上傳投影片 \\  \hline
+  FR-008 & 新增作業 - 教師可以新增作業，使用練習區的練習題或自己寫題目 \\  \hline
+  FR-009 & 新增公告 - 教師可以新增公告，設定發送對象 \\  \hline
+  FR-010 & 上傳教材 - 教師可以上傳教材，選擇上傳檔案類型 \\  \hline
+  FR-011 & 下載教材 - 學生可以點擊教材進行下載 \\  \hline
+  FR-012 & 互動式講義 - 使用者可以查看該章節講義的補充說明，練習題目，跟隨老師的上課進度 \\  \hline
+  FR-013 & 編輯互動講義 - 教師可以編輯互動講義，以積木方式分塊內容，並以時間軸編輯方法控制顯示區段 \\  \hline
+  FR-014 & 引導模式 - 學生在引導模式下，可以看到以黃色區塊標示的老師當前進度 \\  \hline
+  FR-015 & 練習題目 - 學生可以進行題目練習並提交查看結果 \\  \hline
+  FR-016 & 教學頁面 - 使用者可以查看該堂課程的直播以及記錄檔 \\  \hline
+  FR-017 & 觀看直播、章節概述以及互動式講義 - 學生可以查看直播、章節概述以及互動式講義 \\  \hline
+  FR-018 & 查看講義以及學生作答狀況 - 老師可以查看講義以及學生對於練習題的作答狀況 \\  \hline
+  FR-019 & 開啟同步 - 老師可以開啟同步功能，紀錄上課資訊 \\  \hline
+  FR-020 & 練習題 - 老師與學生可以查看課後作業的練習題列表，並進入單個題目的詳細頁面。\\ \hline
+  FR-021 & 查看題目作答結果 - 學生可以查看自己的題目作答結果。 \\ \hline
+  FR-022 & 查看所有學生的作答結果 - 老師可以查看所有學生繳交的該題目的作答結果。 \\ \hline 
+  FR-023 & 查看作答結果統計 - 老師可以查看所有學生的作答結果統計。 \\ \hline
+\end{longtable}
 
+\newpage
 \section{Use Case Model}
 
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|l|p{14cm}|}
+\begin{longtable}{|l|p{14cm}|}
   \hline
   \textbf{使用案例名稱} & 老師編輯講義 \\ 
   \hline
@@ -199,12 +204,9 @@ PowerTeacher 的主要目的在於成為一個永續發展的教育解決方案�
   \hline
   \textbf{後置條件} & 王大明完成講義的編輯，並且成功保存了他的變更。學生可以看到更新後的講義並進行學習。 \\
   \hline
-  \end{tabular}
-\end{table}
+\end{longtable}
 
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|l|p{14cm}|}
+\begin{longtable}{|l|p{14cm}|}
   \hline
   \textbf{使用案例名稱} & 老師上課 \\ 
   \hline
@@ -230,12 +232,9 @@ PowerTeacher 的主要目的在於成為一個永續發展的教育解決方案�
   \textbf{後置條件} 
   & 王大明成功完成一次授課，課程狀態已改為非同步。系統記錄並儲存此次授課的所有活動和學生的學習狀況。 \\
   \hline
-  \end{tabular}
-\end{table}
+\end{longtable}
 
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|l|p{14cm}|}
+\begin{longtable}{|l|p{14cm}|}
   \hline
   \textbf{使用案例名稱} & 學生上課 \\ 
   \hline
@@ -261,12 +260,9 @@ PowerTeacher 的主要目的在於成為一個永續發展的教育解決方案�
   \textbf{後置條件} 
   & 王小明成功參加並完成了課程的學習，包括了練習題的回答。系統記錄並儲存他此次學習的所有活動和練習題答案。 \\
   \hline
-  \end{tabular}
-\end{table}
+\end{longtable}
 
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|l|p{14cm}|}
+\begin{longtable}{|l|p{14cm}|}
   \hline
   \textbf{使用案例名稱} & 學生課後複習 \\ 
   \hline
@@ -292,10 +288,9 @@ PowerTeacher 的主要目的在於成為一個永續發展的教育解決方案�
   \textbf{後置條件} 
   & 王小明成功回放並複習課程，系統記錄並儲存他此次複習的所有活動。 \\
   \hline
-  \end{tabular}
-\end{table}
-\newpage
+\end{longtable}
 
+\newpage
 \section{操作概念}
 
 \subsection{登入}
@@ -397,5 +392,19 @@ PowerTeacher 的主要目的在於成為一個永續發展的教育解決方案�
   }
   \caption{學生課後複習頁面 (點擊可看大圖)}
 \end{figure}
+
+\section{威力導師平台解決痛點}
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+ 
+  \item \textbf{使用過多工具的問題}：
+  「威力導師」整合了直播、作業和教材設計等功能，減少了多工具的複雜性和學習成本。
+  \item \textbf{直播與控制問題}：
+  平台允許同步教學和互動，降低延遲，並提供統一的控制界面，使教學更流暢。
+   \item \textbf{缺乏即時學習狀況反饋}：
+  透過即時反饋和靈活調整教學，以及課後複習支援，老師可以更精準地了解和滿足學生的需求。
+\end{enumerate}
+
+「威力導師」通過這些設計，有效解決了教學中的主要痛點，提供了更高效和個性化的教學體驗。
   
 \end{document}
