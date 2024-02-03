@@ -1,0 +1,114 @@
+\documentclass[12pt]{article}
+
+% 頁面設置
+\usepackage[right=20mm, bottom=30mm, left=20mm]{geometry} % 頁面邊界
+% \usepackage{multicol} % 頁面分欄
+% \setlength{\columnsep}{1pt} % 欄間距
+\usepackage{float} % 浮動物件 (圖表 H)
+
+% 字體設定
+\usepackage{type1cm} % 設定字體大小
+\usepackage{xeCJK} % 中文字體
+\def \nosystemfont {} % 關閉系統字型
+
+% \setCJKmainfont{Noto Sans TC}
+\ifdefined\nosystemfont
+  \setCJKmainfont[
+    Path=../font/,
+    UprightFont={kaiu.ttf},
+  ]{標楷體}
+\else
+  \setCJKmainfont{標楷體} % 標楷體
+\fi
+
+% 設定首行縮排
+\newlength{\fullwidthspace}
+\setlength{\fullwidthspace}{2em}  % 定義兩個全形空白的長度為2em
+\setlength{\parindent}{\fullwidthspace}  % 設定段落首行縮排為兩個全形空白
+
+\setlength{\parskip}{4pt} % 設定段落間距
+
+% 套件區
+\usepackage{enumitem} % 列表 (enumerate, itemize)
+\usepackage{array} % 表格
+\usepackage{makecell} % 表格換行
+
+\usepackage{longtable} % 長表格
+\usepackage{indentfirst} % 自動首行縮排
+\usepackage{fancyhdr} % 頁首頁尾
+\usepackage{lastpage} % 最後一頁的頁數
+\renewcommand{\arraystretch}{1.45} % 表格行高
+\usepackage{collcell}
+\usepackage{colortbl} % 表格顏色
+\usepackage{xcolor} % 表格顏色
+\usepackage{multirow} % 表格合併儲存格
+\usepackage{multicol} % 表格合併儲存格
+\usepackage{etoolbox} % 用 gappto 累積一個指令
+\usepackage{keyval} % 參數的 key-value 對
+
+\usepackage{graphicx} % 圖片
+\usepackage{caption} % 圖片標題
+\usepackage{subcaption} % 圖片子標題
+\usepackage{subfloat} % 子圖片
+\captionsetup[figure]{name={圖},labelsep=period}
+
+% 使用 hyperref 並設定
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 0},backref=true,colorlinks=false]
+ {hyperref}
+
+% \usepackage{amssymb} % 數學符號
+% \usepackage[fleqn]{amsmath} % 數學排版, fleqn 選項讓數學式靠左對齊
+% \usepackage{tikz} % 繪圖
+% \usepackage{pgfplots} % 圖表
+% \usepackage{subfig} % 圖表子圖
+
+% tikz 設定
+% \tikzset{every state, accepting/.style={double distance=2pt}}
+% \usetikzlibrary{automata, positioning, arrows}
+
+% fancyhdr 設定
+\pagestyle{fancy}
+\renewcommand{\footnotesize}{\normalsize} % 設定腳註字型大小
+\renewcommand{\headrulewidth}{0pt} % 不要有頁首橫線
+\renewcommand{\footrulewidth}{0pt} % 不要有頁尾橫線
+\lhead{}
+\chead{113 年度「U-start創新創業計畫」創業營運計畫書}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{ 共 \pageref{LastPage} 頁 第 \thepage 頁} 
+
+% \input{autolabel.tex}
+
+\begin{document}
+
+\tableofcontents % 目錄
+\newpage
+
+% 標題
+% \title{}
+% \author{}
+% \date{}
+% \maketitle
+
+% 創業機會與構想 
+\input{Idea/idea.tex}
+
+% 產品服務與內容
+\input{Product/product.tex}
+
+% 市場競爭與分析
+\input{Market/market.tex}
+
+% 行銷策略
+\input{Strategies/strategies.tex}
+
+% 財務計畫
+\input{Financial/financial.tex}
+
+% 結論與投資效益
+\input{Conclusion/conclusion.tex}
+
+\end{document}
