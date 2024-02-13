@@ -1,6 +1,7 @@
-\contentsline {section}{\numberline {1}創業機會與構想}{2}{section.1}%
-\contentsline {section}{\numberline {2}產品服務與內容}{2}{section.2}%
-\contentsline {section}{\numberline {3}市場競爭與分析}{2}{section.3}%
-\contentsline {section}{\numberline {4}行銷策略}{2}{section.4}%
-\contentsline {section}{\numberline {5}財務計畫}{2}{section.5}%
-\contentsline {section}{\numberline {6}結論與投資效益}{2}{section.6}%
+\contentsline {section}{摘要}{3}{section*.2}%
+\contentsline {section}{\numberline {1}創業機會與構想}{6}{section.1}%
+\contentsline {section}{\numberline {2}產品服務與內容}{6}{section.2}%
+\contentsline {section}{\numberline {3}市場競爭與分析}{6}{section.3}%
+\contentsline {section}{\numberline {4}行銷策略}{6}{section.4}%
+\contentsline {section}{\numberline {5}財務計畫}{6}{section.5}%
+\contentsline {section}{\numberline {6}結論與投資效益}{6}{section.6}%

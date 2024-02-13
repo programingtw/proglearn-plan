@@ -84,14 +84,43 @@
 
 \begin{document}
 
-\tableofcontents % 目錄
+% 標題
+\title{113 年度「U-start創新創業計畫」創業營運計畫書\\
+  \vspace{0.5cm}
+  \large ProgLearn程式教學系統}
+% \author{}
+\date{}
+
+% 封面
+\maketitle % 標題
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.3\textwidth]{images/LOGO.png}
+\end{figure}
+\begin{center}
+  \vspace{1cm}
+  \textbf{團隊名稱：普羅程式} \\
+  \vspace{1cm}
+  \textbf{指導老師：何立德、馬尚彬} \\
+  \vspace{1cm}
+  \textbf{學生姓名：簡蔚驊、林一、王裕傑} \\
+\end{center}
+\thispagestyle{empty} % 取消頁碼
 \newpage
 
-% 標題
-% \title{}
-% \author{}
-% \date{}
-% \maketitle
+% 摘要
+\input{Abstract/abstract.tex}
+\thispagestyle{empty}
+\newpage
+
+% 目錄
+\addcontentsline{toc}{section}{摘要} % 加入摘要至目錄
+\tableofcontents % 目錄
+\newpage
+\listoffigures % 圖表目錄
+\newpage
+\listoftables % 表格目錄
+\newpage
 
 % 創業機會與構想 
 \input{Idea/idea.tex}
