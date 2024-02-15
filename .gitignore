@@ -3,5 +3,7 @@
 *.out
 *.synctex.gz
 *.swp
+*.lof
+*.lot
 
 .DS_Store
