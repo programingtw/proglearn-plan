@@ -45,6 +45,7 @@
 \usepackage{multicol} % 表格合併儲存格
 \usepackage{etoolbox} % 用 gappto 累積一個指令
 \usepackage{keyval} % 參數的 key-value 對
+\usepackage{amssymb} % 數學符號
 
 \usepackage{graphicx} % 圖片
 \usepackage{caption} % 圖片標題
@@ -73,6 +74,10 @@
 \renewcommand{\footnotesize}{\normalsize} % 設定腳註字型大小
 \renewcommand{\headrulewidth}{0pt} % 不要有頁首橫線
 \renewcommand{\footrulewidth}{0pt} % 不要有頁尾橫線
+\renewcommand{\contentsname}{\centering 目錄} % 目錄名稱
+\renewcommand{\listfigurename}{\centering 圖目錄} % 圖目錄名稱
+\renewcommand{\listtablename}{\centering 表目錄} % 表格目錄名稱
+\renewcommand{\refname}{\centering 參考文獻} % 參考文獻名稱
 \lhead{}
 \chead{113 年度「U-start創新創業計畫」創業營運計畫書}
 \rhead{}
@@ -109,35 +114,55 @@
 \newpage
 
 % 摘要
+\addcontentsline{toc}{section}{摘要}
 \input{Abstract/abstract.tex}
 \thispagestyle{empty}
 \newpage
 
-% 目錄
-\addcontentsline{toc}{section}{摘要} % 加入摘要至目錄
+% 所有目錄
 \tableofcontents % 目錄
+\addcontentsline{toc}{section}{目錄} 
 \newpage
-\listoffigures % 圖表目錄
+
+\listoffigures % 圖目錄
+\addcontentsline{toc}{section}{圖目錄} 
 \newpage
-\listoftables % 表格目錄
+
+\listoftables % 表目錄
+\addcontentsline{toc}{section}{表目錄} 
 \newpage
 
 % 創業機會與構想 
 \input{Idea/idea.tex}
+\newpage
 
 % 產品服務與內容
 \input{Product/product.tex}
+\newpage
 
 % 市場競爭與分析
 \input{Market/market.tex}
+\newpage
 
 % 行銷策略
 \input{Strategies/strategies.tex}
+\newpage
 
 % 財務計畫
 \input{Financial/financial.tex}
+\newpage
 
 % 結論與投資效益
 \input{Conclusion/conclusion.tex}
+\newpage
+
+% 附件
+\addcontentsline{toc}{section}{附件} 
+\input{Appendix/appendix.tex}
+\newpage
+
+% 參考文獻
+\addcontentsline{toc}{section}{參考文獻} 
+\input{Reference/reference.tex}
 
 \end{document}
