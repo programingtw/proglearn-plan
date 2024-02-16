@@ -33,4 +33,4 @@ docker:
 	@docker run --rm -it -v .:/data niuzhenyong/xelatex make
 
 clean:
-	@rm -f *.log *.aux *.dvi *.ps *.blg *.bbl *.out *.bcf *.run.xml
+	@rm -f *.log *.aux *.dvi *.ps *.blg *.bbl *.out *.bcf *.run.xml *.toc *.lof *.lot *.synctex.gz
