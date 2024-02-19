@@ -54,6 +54,8 @@
 \usepackage{subcaption} % 圖片子標題
 \usepackage{subfloat} % 子圖片
 \captionsetup[figure]{name={圖},labelsep=period}
+\captionsetup[table]{name={表},labelsep=period}
+\captionsetup{justification=centering} % 圖表置中
 
 % 使用 hyperref 並設定
 \usepackage[unicode=true,pdfusetitle,
@@ -63,8 +65,9 @@
 
 % \usepackage{amssymb} % 數學符號
 % \usepackage[fleqn]{amsmath} % 數學排版, fleqn 選項讓數學式靠左對齊
-% \usepackage{tikz} % 繪圖
-% \usepackage{pgfplots} % 圖表
+\usepackage{tikz} % 繪圖
+\usepackage{pgfplots} % 圖表
+\usepgfplotslibrary{groupplots} % Group 圖表
 % \usepackage{subfig} % 圖表子圖
 
 % tikz 設定
