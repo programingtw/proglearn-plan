@@ -256,14 +256,14 @@ ProgLearn程式教學系統，以程式教師為中心設計，強調師生間�
   \begin{subfigure}{0.5\linewidth}
     \centering
     %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/list.png}{ 
-    \includegraphics[width=1\textwidth]{images/chapter.png}
+    \includegraphics[width=0.75\textwidth]{images/chapter.png}
     %   }
     \caption{課程章節}
   \end{subfigure}
   \begin{subfigure}{0.5\linewidth}
     \centering
     %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/course.png}{ 
-    \includegraphics[width=1\textwidth]{images/course.png}
+    \includegraphics[width=0.75\textwidth]{images/course.png}
     %   }
     \caption{課程清單}
   \end{subfigure}
@@ -275,14 +275,14 @@ ProgLearn程式教學系統，以程式教師為中心設計，強調師生間�
   \begin{subfigure}{0.5\linewidth}
     \centering
     %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/list.png}{ 
-    \includegraphics[width=1\textwidth]{images/homework.png}
+    \includegraphics[width=0.75\textwidth]{images/homework.png}
     %   }
     \caption{作業作答}
   \end{subfigure}
   \begin{subfigure}{0.5\linewidth}
     \centering
     %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/course.png}{ 
-    \includegraphics[width=1\textwidth]{images/feedback.png}
+    \includegraphics[width=0.75\textwidth]{images/feedback.png}
     %   }
     \caption{作業反饋}
   \end{subfigure}
@@ -290,73 +290,8 @@ ProgLearn程式教學系統，以程式教師為中心設計，強調師生間�
   \label{fig:homework}
 \end{figure}
 
-
-\subsection{產品競爭優勢}
-
-經過與大學與高中程式教師的實地訪談，我們整理出以下三個時間段的教學流程：
-
-\begin{enumerate}
-  \setlength{\parindent}{2em}
-  \item 課前：準備教材
-    \par 在教學前，教師會準備課堂所需的講義與投影片。市場上的講義編輯功能通常是基於文件編輯器或投影片的形式，例如 Microsoft Word 、Power Point。然而這些工具的功能較為單一，沒辦法嵌入程式執行區、互動習題等與教學相關的功能。我們的系統提供滾動式講義，搭配程式執行、引導、互動習題等功能，使講義內容與課堂做連結。並使用教師講義編輯頁面，使講義更為直觀、易於操作和修改。
-  \item 課中：互動教學
-  \begin{itemize}
-    \setlength{\parindent}{2em}
-    \item 直播功能
-      \par 實現直播教學的方式，能大致分為硬體與軟體，硬體上常見的有廣播與管理系統，能夠強制控制學生的畫面。軟體上則有 Zoom、Google Meet 等以視訊為主的會議平台或專為學校開發的遠端控制系統，透過網路分享教師的語音與畫面。這些工具分別有幾項問題：前者是強制控制學生電腦，無法讓學生在課堂中與老師同步實作，也無法用電腦查詢資料、觀看講義等。後者是直播的影音可能有延遲，會導致老師的教學與控制不流暢。我們的特色是讓學生能夠在課堂中，操控投影片回顧上課內容，還能同時觀看補充講義、實作程式碼、回答習題等，讓學生就算在課堂中也能回顧與實作，並以更低延遲的直播投影片取代影像直播，使學習更為流暢。
-    \item 引導功能
-      \par 如何讓學生在課堂中更有參與感並且理解教學內容。市場上的一般教學軟體或平台通常缺乏對於學生學習的引導功能。我們的平台嘗試解決這個問題，透過互動區的黃色框線，在講義中顯示對應的位置，讓學生能夠清楚知道老師目前講解的內容與講義之間的對應。這樣的引導功能可以讓學生更容易理解並隨著教學進度進行，同時也能在回顧時更加方便。
-  \end{itemize}
-  \item 課後：課程回顧
-  \par 在市場上，許多教學平台提供課後回放功能，讓學生能夠在課程結束後回顧老師的教學內容。我們的平台也提供了這樣的功能，讓學生能夠在課後拖動時間軸，回放過去的上課直播，以便進一步學習和復習。不過，我們的特色在於，課後回放不僅僅限於觀看直播畫面，還能夠觀看補充講義、實作程式碼等，並搭配引導功能，讓學生在回顧時更為全面與深入。\\
-\end{enumerate}
-
-\par 綜合以上幾點，我們整理了老師上課時可能會用到的工具並做比較：
-\begin{table}[htbp]      
-  \centering
-  \begin{tabular}{|c|c|c|c|c|c|}
-    \hline
-    \thead{功能} & \thead{本系統} & \thead{Google Meet} & \thead{遠端控制系統} & \thead{CodingBar}  & \thead{廣播與管理系統}\\ 
-    \hline
-    直播延遲 & 低 & 高 & 高 & 高 & 低 \\ 
-    \hline
-    教學方式 & 線上與實體皆可 & 線上 & 實體 & 線上 & 實體 \\ 
-    \hline
-    電腦控制 &  &  & 遠端控制 &  & 完全控制 \\ 
-    \hline
-    課後回顧 & \checkmark &  &  & \checkmark &  \\ 
-    \hline
-    線上練習 & \checkmark &  &  & \checkmark &\\ 
-    \hline
-    教學功能整合 & \checkmark &  &  & \checkmark &\\ 
-    \hline
-  \end{tabular}
-  \caption{上課工具比較表}
-\end{table}
-本系統在直播延遲、教學方式、課後回顧、線上練習以及教學功能整合方面表現出色，並減少對學生電腦的控制，提供了較佳的教學彈性和互動。
-
 \newpage
 \subsection{營運模式}
-
-\subsubsection{合作模式} % 關鍵合作夥伴
-
-針對不同的合作夥伴有不同的合作模式：
-
-\begin{enumerate}
-  \setlength{\parindent}{2em}
-  
-  \item 國高中學校
-  \par 每年教育部舉辦兩次校園數位內容與教學軟體的公開徵求活動，我們將以此為目標瞭解學校的需求，並提供必要的技術支援和服務。
-  \par 在基層教育環境中驗證產品的可行性，並根據使用者的反饋進行調整。目前，我們已與臺中市立東山高級中學的資訊科技教師建立了良好的合作關係，深入了解國中和高中教師在教學上遇到的問題和需求。並針對ProgLearn進行了初步測試與改進。
-  \par 我們將與機構進行試點合作，在實際教學中應用ProgLearn，對其進行教學效果的驗證。當其具備良好的教學效果後，將以此作為我們的合作案例，進一步推廣至其他學校。
-  \item 補教業者
-  \par 新課綱納程式設計，程式設計補教業的詢問量約增加3成\cite{ref:補教業者}。並且在智慧學習業者銷售客戶類型的占比中，資訊補習班佔補教機構的比例大幅提升，從民國110年的1.3\%提升至111年的10\%\cite{ref:110產業產值調查報告}\cite{ref:111產業產值調查報告}。顯示其市場需求的增加。
-  \par 大型補教業者如三貝德、卓越、學習王科技等，皆積極拓展B2B業務。透過ProgLearn針對互動式教學、即時反饋的特色，可針對補習班的需求進行部分功能的系統整合與模組設計，提供技術支援與服務。
-  \par 此外，線上教學具有較高的彈性，對於實體補習班以及大型補教業者，能夠減少教室空間的限制以及教師的通勤成本，並提供更高的教學人數上限。這對於補教業者而言，能夠提高教學效率，並且降低成本。
-  \item 個體教師
-  \par 2019年的新聞表示，新學期開始有高達54.4\%的學生有擔任家教的規劃\cite{ref:家教}。並且在家教市場中，程式設計的時薪可以高達2000元以上\cite{ref:學生數量}，對於大學生而言，是一個不錯的兼職選擇。此外，截自2024年2月16日為止，AmazingTalker線上家教平台有9028名程式家教\footnote{https://tw.amazingtalker.com/tutor-price/programming}、1111家教網有2476筆程式教學履歷\footnote{https://tutor.1111.com.tw/}、PRO360達人網有2003名程式家教\footnote{https://www.pro360.com.tw/category/programming\_course}，具有相當可觀的教師數量。
-  \par 透過ProgLearn，能為個體教師提供完整的教學系統，也降低了成為教師所需的技術門檻與教學的準備成本。並且比起傳統的家教方式，線上教學具有更高的彈性，能減少通勤成本與教學空間的限制。而如果是在Hahow好學校\footnote{https://hahow.in/}、HiSKIO等線上教學平台上教學\footnote{https://hiskio.com/}，不但具有較高的開課與教學門檻，平台上販售的課程還需抽取50\%的分潤，對於教師都是高昂的成本與負擔。
-\end{enumerate}
 
 
 \subsection{營收模式} % 收益流
