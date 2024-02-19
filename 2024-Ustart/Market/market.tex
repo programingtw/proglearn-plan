@@ -8,16 +8,16 @@
 
 軟體系統分為整合性平台和工具系統兩大類，旨在提升教育品質與效率。整合性平台如學習管理系統(LMS、LCMS)、直播平台、媒合平台及社群平台等，為學習者、教師和教育機構提供全面的教學支持。而工具系統則包括教學內容的數位化工具、平臺架設系統、大數據分析等，這些工具系統強調了技術在教學創新中的應用。
 
-隨著混合式學習平台需求的增加，特別強調線上與實體教學模式的結合，這種模式允許教育活動同時在實體空間和線上進行，從而提高學習的靈活性和可及性。這一趨勢不僅顯示了科技在推動教育創新方面的潛力，也為企業和創業者提供了豐富的市場機會，促使教育方法向更加個性化和高效的方向發展。
+隨著混合式學習平台需求的增加，特別強調線上與實體教學模式的結合，希望教育活動同時在實體空間和線上進行，從而提高學習的靈活性和可及性。這一趨勢不僅顯示了科技在推動教育創新方面的潛力，也為企業和創業者提供了豐富的市場機會，促使教育方法向更加個性化和高效的方向發展。
 
-\begin{table}[H]
+\begin{figure}[H]
   \begin{tikzpicture}
     \begin{groupplot}[
       group style={
         group size=2 by 1, % 2列1行
-        horizontal sep=80pt, % 水平間距
+        horizontal sep=70pt, % 水平間距
       },
-      width=0.43\textwidth, % 每個圖的寬度
+      width=0.45\textwidth, % 每個圖的寬度
     ]
 
     \nextgroupplot[
@@ -44,8 +44,10 @@
     \nextgroupplot[
       title={主要客群市場份額 (2022)},
       xlabel={客群類型},
+      xlabel style={yshift=-2em}, % x軸標籤下移
       ylabel={市場份額 (\%)},
-      symbolic x coords={企業,學校,個人},
+      symbolic x coords={企業,學校,個人, 補教機構, 政府機關},
+      xticklabel style={rotate=30, anchor=east}, % 旋轉x軸標籤
       xtick=data,
       ymin=0, ymax=40,
       ybar,
@@ -59,13 +61,13 @@
       fill=red,
     ]
     coordinates {
-      (企業,33)(學校,28)(個人,23)
+      (企業,33)(學校,28)(個人,23)(補教機構, 8)(政府機關, 7)
     };
 
     \end{groupplot}
   \end{tikzpicture}
   \caption[台灣教學軟體系統市場規模與客群份額]{台灣教學軟體系統市場規模與客群份額 \\ (資料來源：2022 年台灣智慧學習報告)}
-\end{table}
+\end{figure}
 
 % \subsection{市場區隔}
 
