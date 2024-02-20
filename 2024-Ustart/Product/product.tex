@@ -2,7 +2,9 @@
 
 \subsection{產品與服務內容}
 
-ProgLearn程式教學系統，以程式教師為中心設計，強調師生間的即時互動，提供0延遲直播、課程與作業管理，以及具有即時反饋功能的數位儀表板、講義視覺化編輯、智慧引導和自動批改等多功能（圖\ref{fig:Classroom}）。
+普羅程式將提供程式教學工具的開發與服務，以及產品ProgLearn程式教學系統。
+
+ProgLearn程式教學系統，以程式教師為中心設計，強調師生間的即時互動，提供低延遲直播、課程與作業管理，以及具有即時反饋功能的數位儀表板、講義視覺化編輯、智慧引導和自動批改等多功能（圖\ref{fig:Classroom}）。
 
 \begin{figure}[H]
   \begin{subfigure}{0.5\linewidth}
@@ -23,20 +25,127 @@ ProgLearn程式教學系統，以程式教師為中心設計，強調師生間�
   \label{fig:Classroom}
 \end{figure}
 
+\subsubsection{產品的主要介面}
+
+\begin{enumerate}
+  \setlength{\parindent}{2em}
+
+  \item 學生課堂頁面：學生的課堂頁面有直播區、互動區、功能區
+  \begin{itemize}
+    \item 直播區：位於頁面左上用於顯示章節投影片，會在課中展示與老師相同的投影片畫面，並同步老師的滑鼠軌跡、繪畫等。
+    \item 互動區：位於頁面右側用於顯示滾動式的講義，講義可以放文字、圖片、課堂習題，並且在課中具有引導功能，會根據老師目前的上課投影片，用黃色框線在講義中顯示其對應的位置。
+    \item 功能區：位於頁面左下用於控制直播區的內容，在課中能夠切換投影片、一鍵回到老師的直播投影片等（圖\ref{fig:student-inClass}紅色框線處）。在課後能夠拖動時間軸，回放過去的上課直播（圖\ref{fig:student-review}紅色框線處）。
+  \end{itemize}
+
+  \begin{figure}[H]
+    \begin{subfigure}{0.5\linewidth}
+      \centering
+      %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/student.png}{ 
+      \includegraphics[width=1\textwidth]{images/student-In class.png}
+      %   }
+      \caption{學生課堂中}
+      \label{fig:student-inClass}
+    \end{subfigure}
+    \begin{subfigure}{0.5\linewidth}
+      \centering
+      %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/teacher.png}{ 
+      \includegraphics[width=1\textwidth]{images/review.png}
+      %   }
+      \caption{學生課後回放}
+      \label{fig:student-review}
+    \end{subfigure}
+    \caption{學生課堂頁面}
+  \end{figure}
+
+  \item 教師課堂頁面：教師的課堂頁面與學生的課堂頁面相同，同樣有直播區、互動區、功能區，但功能有部分差異。
+  \begin{itemize}
+    \item 直播區：位於頁面左上用於顯示章節投影片，在課中會將畫面同步到學生的直播區中。
+    \item 互動區：位於頁面右側用於顯示滾動式講義，並能夠預覽課堂習題的作答統計。
+    \item 功能區：位於頁面左下用於控制直播功能，能夠開啟與關閉直播，在課中可以切換投影片、切換成畫筆、開啟或關閉麥克風功能等。
+  \end{itemize}
+
+  \begin{figure}[H]
+    \centering
+    %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/teacher.png}{ 
+    \includegraphics[width=0.7\textwidth]{images/teacher.png}
+    %   }
+    \caption{教師課堂頁面}
+  \end{figure}
+
+  \item 講義編輯頁面：教師可以在該頁面編輯講義的內容，並且將講義的不同部分組合成完整的講義內容（圖\ref{fig:edit-flowchart}）。
+  \begin{itemize}
+    \item 編輯區：在右上點擊不同類型的講義區塊，如文字、選擇題、程式題，就能夠在左上編輯其中的內容。
+    \item 腳本區：下半部的時間軸，用於擺放不同類型的講義小區塊。時間軸的單位是投影片的頁數，讓投影片能對應到不同的講義區塊，在課中就能根據投影片的頁數在講義上做引導與提示。
+  \end{itemize}
+  \begin{figure}[H]
+    \centering
+    %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/course.png}{ 
+    \includegraphics[width=0.7\textwidth]{images/edit.png}
+    %   }
+    \caption{講義編輯頁面}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[node distance=4cm]
+  
+      \node (start) [startstop] {點擊加號新增互動式方塊};
+      \node (pro1) [process, right of=start, xshift=2cm] {點擊互動式方塊};
+      \node (pro2) [process, right of=pro1] {編輯方塊內容};
+      \node (pro3) [process, below of=pro2] {儲存變更};
+      \node (pro4) [process, left of=pro3] {拖曳方塊到投影片};
+      \node (pro5) [process, left of=pro4] {調整方塊長度};
+      \node (stop) [startstop, left of=pro5] {完成講義編輯};
+  
+      \draw [arrow] (start) -- (pro1);
+      \draw [arrow] (pro1) -- (pro2);
+      \draw [arrow] (pro2) -- (pro3);
+      \draw [arrow] (pro3) -- (pro4);
+      \draw [arrow] (pro4) -- (pro5);
+      \draw [arrow] (pro5) -- (stop);
+  
+    \end{tikzpicture}
+    \caption{講義編輯的使用流程圖}
+    \label{fig:edit-flowchart}
+  \end{figure}
+
+\end{enumerate}
+
 \subsubsection{直播功能}
 
 \begin{figure}[H]
   \centering
   %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/live.png}{ 
-  \includegraphics[width=0.5\textwidth]{images/streaming.png}
+  \includegraphics[width=0.7\textwidth]{images/streaming.png}
   %   }
   \caption{直播功能區}
 \end{figure}
 
-直播功能區位在課堂介面的左半部。此直播功能不同於往常的影像傳輸，而是記錄教師在投影片上的所有操作。包含換頁、繪畫、游標軌跡和聲音實時同步到學生端的介面上，然後存儲在直播記錄中，方便回顧與學習。
+直播功能區位在課堂介面的左半部。此直播功能不同於往常的影像傳輸，而是記錄教師在投影片上的所有操作，包含換頁、繪畫、游標軌跡和聲音實時同步到學生端的介面上，然後存儲在直播記錄中，方便回顧與學習（圖\ref{fig:streaming-flowchart}）。
 因此相比於Zoom、Meet等視訊會議工具，具有更低的網路延遲與頻寬需求，並且更加穩定。
 
-在實體教學中可以作為教學的輔助工具。在線上與偏鄉教學中，其更低的硬體需求，可以作為主要的教學工具。
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[node distance=4cm]
+
+    \node (start) [startstop] {教師移動滑鼠游標};
+    \node (pro1) [process, right of=start, xshift=1cm] {將滑鼠移動資訊傳到伺服器};
+    \node (pro2) [process, right of=pro1, xshift=2cm] {伺服器儲存至直播記錄};
+    \node (pro3) [process, below of=pro2] {伺服器將資訊傳到學生端};
+    \node (stop) [process, left of=pro3, xshift=-2cm] {學生端顯示滑鼠游標軌跡};
+    \draw [arrow] (start) -- (pro1);
+    \draw [arrow] (pro1) -- (pro2);
+    \draw [arrow] (pro2) -- (pro3);
+    \draw [arrow] (pro3) -- (stop);
+
+  \end{tikzpicture}
+  \caption{直播的傳輸流程圖}
+  \label{fig:streaming-flowchart}
+\end{figure}
+
+由於其低延遲的特性，可以讓教師在即時的課堂環境中使用，作為教學的輔助工具。在線上與偏鄉教學中，其更低的硬體需求，可以作為主要的教學工具。
+
+此外，該直播系統是基於投影片的直播，因此學生可以在課堂中自由地回顧投影片的內容，並且可以在課後自由地拖動時間軸，回放過去的上課直播。
 
 \subsubsection{互動式講義}
 
@@ -72,8 +181,28 @@ ProgLearn程式教學系統，以程式教師為中心設計，強調師生間�
   \par 為教師提供學生的課堂作答情況，即時了解學生的學習狀況（圖\ref{fig:teacher}）。
 
   \item 自動批改
-  \par 為學生提供課堂上的程式作答功能，透過AI即時批改課堂習題。其技術也應用於作業管理中（圖\ref{fig:problem}）。
+  \par 為學生提供課堂上的程式作答功能，其使用流程可參考圖\ref{fig:problem-flowchart}。該功能可以自動並即時批改課堂習題（圖\ref{fig:problem}），並且在教師的數位儀表板上顯示學生的作答情況（圖\ref{fig:teacher}）。其技術也應用於作業管理中（圖\ref{fig:course}、圖\ref{fig:homework}）。
   
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[node distance=4cm]
+  
+      \node (start) [startstop] {學生撰寫程式習題};
+      \node (pro1) [process, right of=start] {學生點擊submit};
+      \node (pro2) [process, right of=pro1, xshift=1cm] {顯示作答結果（圖\ref{fig:problem}）};
+      \node (pro3) [process, below of=pro2] {教師課堂頁面更新};
+      \node (stop) [process, left of=pro3, xshift=-2cm] {數位儀表板顯示作答統計（圖\ref{fig:teacher}）};
+  
+      \draw [arrow] (start) -- (pro1);
+      \draw [arrow] (pro1) -- (pro2);
+      \draw [arrow] (pro2) -- (pro3);
+      \draw [arrow] (pro3) -- (stop);
+  
+    \end{tikzpicture}
+    \caption{程式作答的使用流程圖}
+    \label{fig:problem-flowchart}
+  \end{figure}
+
   \begin{figure}[H]
     \begin{subfigure}{0.5\linewidth}
       \centering
@@ -127,14 +256,14 @@ ProgLearn程式教學系統，以程式教師為中心設計，強調師生間�
   \begin{subfigure}{0.5\linewidth}
     \centering
     %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/list.png}{ 
-    \includegraphics[width=1\textwidth]{images/chapter.png}
+    \includegraphics[width=0.75\textwidth]{images/chapter.png}
     %   }
     \caption{課程章節}
   \end{subfigure}
   \begin{subfigure}{0.5\linewidth}
     \centering
     %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/course.png}{ 
-    \includegraphics[width=1\textwidth]{images/course.png}
+    \includegraphics[width=0.75\textwidth]{images/course.png}
     %   }
     \caption{課程清單}
   \end{subfigure}
@@ -146,14 +275,14 @@ ProgLearn程式教學系統，以程式教師為中心設計，強調師生間�
   \begin{subfigure}{0.5\linewidth}
     \centering
     %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/list.png}{ 
-    \includegraphics[width=1\textwidth]{images/homework.png}
+    \includegraphics[width=0.75\textwidth]{images/homework.png}
     %   }
     \caption{作業作答}
   \end{subfigure}
   \begin{subfigure}{0.5\linewidth}
     \centering
     %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/course.png}{ 
-    \includegraphics[width=1\textwidth]{images/feedback.png}
+    \includegraphics[width=0.75\textwidth]{images/feedback.png}
     %   }
     \caption{作業反饋}
   \end{subfigure}
@@ -161,82 +290,68 @@ ProgLearn程式教學系統，以程式教師為中心設計，強調師生間�
   \label{fig:homework}
 \end{figure}
 
+\newpage
+\subsection{營運模式}
 
-\subsection{產品競爭優勢}
+% 以下是計畫三階段進程規劃：
+% 自辦階段
+%   \par 在自辦階段，我們正面臨著起步階段的挑戰，其中包括尚未建立起與學校之間的信任與合作關係，以及我們的系統缺乏實際的使用案例。為了應對這些挑戰，我們計劃利用proglearn程式教學系統，以我們的團隊成員作為第一批教師，舉辦各種活動以接觸基層的國高中教師與學生，例如小型營隊、課程、研討會或線上課程等。
+%   \par 這些活動將由開發人員進行教學，這樣我們便能夠即時修正系統問題，並且得到第一線教學的反饋。實施的具體方式是由學校提供場地和學生，而我們則提供課程內容、教師和教材，以建立與學校的初步合作關係。
+%   \par 這種方式對學校的成本較低，且風險相對較小，因此非常適合作為推廣的初期階段。透過這樣的合作模式，我們有望減少與學校合作過程中可能出現的摩擦，同時為我們的系統提供實際的應用場景，進一步提升市場接受度和使用者體驗。
+% 種子輔導階段
+%   \par 在當前階段，我們已經與少數學校建立了合作關係。接下來的重點是培育和輔導那些有意願參與的國高中教師，讓他們成為我們合作的種子教師。我們的具體做法是讓這些種子教師將我們的教學工具融入到他們日常的教學實踐中。
+%   \par 透過這種方式，我們可以收集學生和教師的實際反饋，並進行使用案例和教學成效的數據分析與評估。這一階段的主要目標是建立更多的使用案例，同時不斷對系統進行優化和改進。我們期望能夠提供潛在投資人可靠的參考依據，並使我們的系統更加完善。
+% 專案執行階段
+%   \par 在專案執行階段，我們在已建立合作關係的學校與教師基礎上進行了進一步的洽談。這些種子教師已經具有我們系統的使用經驗，並且發現在教學中難以或無法脫離我們系統的輔助。在這個階段，我們透過這些教師與學校進行合作協商，希望以軟體專案或校園採購案的形式，在校內架設起學校專屬的程式教學系統，並與學校建立起B2B的商業關係。
+%   \par 同時，我們也將走訪其他學校和資訊補習班，向他們展示我們在先前階段建立的使用案例，探索與他們建立合作關係的可能性。透過這種方式擴大我們的合作規模，尋找新的潛在投資人和合作夥伴。
+%   \par 這一階段的目的，在於鞏固我們與學校和教師之間的合作關係，並擴大我們的市場範圍和影響力。通過與更多的教育機構建立合作夥伴關係，我們將更有效地推廣我們的產品。未來，我們的目標是參與教育部校園數位內容與教學軟體的公開徵求活動。
 
-經過與大學與高中程式教師的實地訪談，我們整理出以下三個時間段的教學流程：
+普羅程式將透過\ref{sec:plan}節（實施方式、時程規劃及預期成效）所提及的自辦、種子輔導、專案執行三個階段的營運模式，逐步建立起完善的系統服務與客戶群。
+
+% 流程圖：與學校建立合作關係 -> 增加使用案例 -> 與學校建立B2B商業關係
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}[node distance=4cm]
+  
+      % 第一排
+      \node (start) [startstop] {自辦階段};
+      \node (pro1) [process, right of=start, xshift=2cm] {種子輔導階段};
+      \node (stop) [process, right of=pro1, xshift=2cm] {專案執行階段};
+  
+      % 第二排
+      \node (start2) [startstop, below of=start, yshift=2cm] {與學校建立合作關係};
+      \node (pro12) [process, right of=start2, xshift=2cm] {增加使用案例};
+      \node (stop2) [process, right of=pro12, xshift=2cm] {與學校、教師建立起交易關係};
+  
+      % 箭頭
+      \draw [arrow] (start) -- (pro1);
+      \draw [arrow] (pro1) -- (stop);
+  
+      \draw [arrow] (start2) -- (pro12);
+      \draw [arrow] (pro12) -- (stop2);
+  
+  \end{tikzpicture}
+  \caption{營運模式的流程圖}
+\end{figure}
+
 
 \begin{enumerate}
   \setlength{\parindent}{2em}
-  \item 課前：準備教材
-    \par 在教學前，教師會準備課堂所需的講義與投影片。市場上的講義編輯功能通常是基於文件編輯器或投影片的形式，例如 Microsoft Word 、Power Point。然而這些工具的功能較為單一，沒辦法嵌入程式執行區、互動習題等與教學相關的功能。我們的系統提供滾動式講義，搭配程式執行、引導、互動習題等功能，使講義內容與課堂做連結。並使用教師講義編輯頁面，使講義更為直觀、易於操作和修改。
-  \item 課中：互動教學
-  \begin{itemize}
-    \setlength{\parindent}{2em}
-    \item 直播功能
-      \par 實現直播教學的方式，能大致分為硬體與軟體，硬體上常見的有廣播與管理系統，能夠強制控制學生的畫面。軟體上則有 Zoom、Google Meet 等以視訊為主的會議平台或專為學校開發的遠端控制系統，透過網路分享教師的語音與畫面。這些工具分別有幾項問題：前者是強制控制學生電腦，無法讓學生在課堂中與老師同步實作，也無法用電腦查詢資料、觀看講義等。後者是直播的影音可能有延遲，會導致老師的教學與控制不流暢。我們的特色是讓學生能夠在課堂中，操控投影片回顧上課內容，還能同時觀看補充講義、實作程式碼、回答習題等，讓學生就算在課堂中也能回顧與實作，並以更低延遲的直播投影片取代影像直播，使學習更為流暢。
-    \item 引導功能
-      \par 如何讓學生在課堂中更有參與感並且理解教學內容。市場上的一般教學軟體或平台通常缺乏對於學生學習的引導功能。我們的平台嘗試解決這個問題，透過互動區的黃色框線，在講義中顯示對應的位置，讓學生能夠清楚知道老師目前講解的內容與講義之間的對應。這樣的引導功能可以讓學生更容易理解並隨著教學進度進行，同時也能在回顧時更加方便。
-  \end{itemize}
-  \item 課後：課程回顧
-  \par 在市場上，許多教學平台提供課後回放功能，讓學生能夠在課程結束後回顧老師的教學內容。我們的平台也提供了這樣的功能，讓學生能夠在課後拖動時間軸，回放過去的上課直播，以便進一步學習和復習。不過，我們的特色在於，課後回放不僅僅限於觀看直播畫面，還能夠觀看補充講義、實作程式碼等，並搭配引導功能，讓學生在回顧時更為全面與深入。\\
+  \item 自辦階段：由開發人員自辦教學活動，以建立與學校的初步合作關係。
+  \item 種子輔導階段：培育有意願參與的國高中教師，讓他們成為我們合作的種子教師，並建立更多使用案例。
+  \item 專案執行階段：在已建立合作關係的學校與教師的基礎上，與他們進行軟體專案的洽談，並以當前的使用案例為參考，尋找新的潛在投資人和合作夥伴。
 \end{enumerate}
 
-\par 綜合以上幾點，我們整理了老師上課時可能會用到的工具並做比較：
-\begin{table}[htbp]      
-  \centering
-  \begin{tabular}{|c|c|c|c|c|c|}
-    \hline
-    \thead{功能} & \thead{本系統} & \thead{Google Meet} & \thead{遠端控制系統} & \thead{CodingBar}  & \thead{廣播與管理系統}\\ 
-    \hline
-    直播延遲 & 低 & 高 & 高 & 高 & 低 \\ 
-    \hline
-    教學方式 & 線上與實體皆可 & 線上 & 實體 & 線上 & 實體 \\ 
-    \hline
-    電腦控制 &  &  & 遠端控制 &  & 完全控制 \\ 
-    \hline
-    課後回顧 & \checkmark &  &  & \checkmark &  \\ 
-    \hline
-    線上練習 & \checkmark &  &  & \checkmark &\\ 
-    \hline
-    教學功能整合 & \checkmark &  &  & \checkmark &\\ 
-    \hline
-  \end{tabular}
-  \caption{上課工具比較表}
-\end{table}
-本系統在直播延遲、教學方式、課後回顧、線上練習以及教學功能整合方面表現出色，並減少對學生電腦的控制，提供了較佳的教學彈性和互動。
+自辦階段與種子輔導階段的主要目的，是建立起與目標群眾（國高中教師及其學校）的信任與合作關係，以進入教育市場。接著，在專案執行階段，建立起與學校、教師間的交易關係，分別以B2B\footnote{B2B：Business to Business，指企業對企業的商業模式。}與B2C\footnote{B2C：Business to Consumer，指企業對消費者的商業模式。}的商業模式進行收費（詳見\ref{sec:revenue}營收模式）。
 
-\newpage
-\subsection{商業模式}
-
-\subsubsection{獲利模式} % 收益流
-
-針對不同用戶有不同的收費模式，分為B2B\footnote{B2B：Business to Business，指企業對企業的商業模式。}（學校端）與B2C\footnote{B2C：Business to Consumer，指企業對消費者的商業模式。}（教師端）兩種收費模式：
+\subsection{營收模式} % 收益流
+\label{sec:revenue}
+針對不同種類的用戶實行不同的收費模式，分為B2B（學校端）與B2C（教師端）兩種收費模式：
 
 \begin{enumerate}
   \setlength{\parindent}{2em}
   \item B2B（學校端）
-  \par 針對學校、補教業者、企業等機構提供專案設計與教學系統建置的服務。協助機構架設教學系統於自家伺服器上，並提供技術支援。收費模式為一次性專案設計費用與年度授權費用，其專案設計費用依據機構規模與使用人數而定，年度授權費用應收取所有教師及其課程10\%的收益。
+  \par 針對學校、補教業者等機構提供專案設計與程式教學系統建置的服務。協助機構架設教學系統於自家伺服器上，並提供技術支援。收費模式為一次性專案設計費用與年度授權費用，其專案設計費用依據機構規模與使用人數而定，年度授權費用應收取所有教師及其課程10\%的收益。
   \item B2C（教師端）
   \par 針對個體教師提供教學系統的服務。在我們建置的線上教學系統上，提供教師月訂閱制的付費帳號，並提供技術支援。收費模式為月訂閱制費用，其費用是抽取該教師所有課程5\%的收益。
-\end{enumerate}
-
-\subsubsection{合作模式} % 關鍵合作夥伴
-
-針對不同的合作夥伴有不同的合作模式：
-
-\begin{enumerate}
-  \setlength{\parindent}{2em}
-  
-  \item 國高中學校
-  \par 每年教育部舉辦兩次校園數位內容與教學軟體的公開徵求活動，我們將以此為目標瞭解學校的需求，並提供必要的技術支援和服務。
-  \par 在基層教育環境中驗證產品的可行性，並根據使用者的反饋進行調整。目前，我們已與臺中市立東山高級中學的資訊科技教師建立了良好的合作關係，深入了解國中和高中教師在教學上遇到的問題和需求。並針對ProgLearn進行了初步測試與改進。
-  \par 我們將與機構進行試點合作，在實際教學中應用ProgLearn，對其進行教學效果的驗證。當其具備良好的教學效果後，將以此作為我們的合作案例，進一步推廣至其他學校。
-  \item 補教業者
-  \par 新課綱納程式設計，程式設計補教業的詢問量約增加3成\cite{ref:補教業者}。並且在智慧學習業者銷售客戶類型的占比中，資訊補習班佔補教機構的比例大幅提升，從民國110年的1.3\%提升至111年的10\%\cite{ref:110產業產值調查報告}\cite{ref:111產業產值調查報告}。顯示其市場需求的增加。
-  \par 大型補教業者如三貝德、卓越、學習王科技等，皆積極拓展B2B業務。透過ProgLearn針對互動式教學、即時反饋的特色，可針對補習班的需求進行部分功能的系統整合與模組設計，提供技術支援與服務。
-  \par 此外，線上教學具有較高的彈性，對於實體補習班以及大型補教業者，能夠減少教室空間的限制以及教師的通勤成本，並提供更高的教學人數上限。這對於補教業者而言，能夠提高教學效率，並且降低成本。
-  \item 個體教師
-  \par 2019年的新聞表示，新學期開始有高達54.4\%的學生有擔任家教的規劃\cite{ref:家教}。並且在家教市場中，程式設計的時薪可以高達2000元以上\cite{ref:學生數量}，對於大學生而言，是一個不錯的兼職選擇。此外，截自2024年2月16日為止，AmazingTalker線上家教平台有9028名程式家教\footnote{https://tw.amazingtalker.com/tutor-price/programming}、1111家教網有2476筆程式教學履歷\footnote{https://tutor.1111.com.tw/}、PRO360達人網有2003名程式家教\footnote{https://www.pro360.com.tw/category/programming\_course}，具有相當可觀的教師數量。
-  \par 透過ProgLearn，能為個體教師提供完整的教學系統，也降低了成為教師所需的技術門檻與教學的準備成本。並且比起傳統的家教方式，線上教學具有更高的彈性，能減少通勤成本與教學空間的限制。而如果是在Hahow好學校\footnote{https://hahow.in/}、HiSKIO等線上教學平台上教學\footnote{https://hiskio.com/}，不但具有較高的開課與教學門檻，平台上販售的課程還需抽取50\%的分潤，對於教師都是高昂的成本與負擔。
 \end{enumerate}
