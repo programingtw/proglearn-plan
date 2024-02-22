@@ -91,6 +91,7 @@
 \renewcommand{\listfigurename}{\centering 圖目錄} % 圖目錄名稱
 \renewcommand{\listtablename}{\centering 表目錄} % 表格目錄名稱
 \renewcommand{\refname}{\centering 參考文獻} % 參考文獻名稱
+\renewcommand{\appendixname}{\centering 附件} % 附件名稱
 \lhead{}
 \chead{113 年度「U-start創新創業計畫」創業營運計畫書}
 \rhead{}
@@ -176,15 +177,17 @@
 \input{Conclusion/conclusion.tex}
 \newpage
 
-% 附件
-\pagenumbering{roman}
-\setcounter{page}{6}
-\addcontentsline{toc}{section}{附件} 
-\input{Appendix/appendix.tex}
-\newpage
-
 % 參考文獻
 \addcontentsline{toc}{section}{參考文獻} 
+\pagenumbering{roman}
+\setcounter{page}{6}
 \input{Reference/reference.tex}
+\newpage
+
+% 附件
+\addcontentsline{toc}{section}{附件} 
+\appendix
+\input{Appendix/appendix.tex}
+\newpage
 
 \end{document}
