@@ -96,7 +96,8 @@
 \rhead{}
 \lfoot{}
 \cfoot{}
-\rfoot{ 共 \pageref{LastPage} 頁 第 \thepage 頁} 
+% \rfoot{ 共 \pageref{LastPage} 頁 第 \thepage 頁} 
+\rfoot{第 \thepage 頁}
 
 % \input{autolabel.tex}
 
@@ -127,6 +128,7 @@
 \newpage
 
 % 摘要
+\pagenumbering{roman}
 \addcontentsline{toc}{section}{摘要}
 \input{Abstract/abstract.tex}
 \thispagestyle{empty}
@@ -135,17 +137,22 @@
 % 所有目錄
 \tableofcontents % 目錄
 \addcontentsline{toc}{section}{目錄} 
+\thispagestyle{empty}
 \newpage
 
 \listoffigures % 圖目錄
 \addcontentsline{toc}{section}{圖目錄} 
+\thispagestyle{empty}
 \newpage
 
 \listoftables % 表目錄
 \addcontentsline{toc}{section}{表目錄} 
+\thispagestyle{empty}
 \newpage
 
 % 創業機會與構想 
+\pagenumbering{arabic}
+\setcounter{page}{1}
 \input{Idea/idea.tex}
 \newpage
 
@@ -170,6 +177,8 @@
 \newpage
 
 % 附件
+\pagenumbering{roman}
+\setcounter{page}{6}
 \addcontentsline{toc}{section}{附件} 
 \input{Appendix/appendix.tex}
 \newpage
