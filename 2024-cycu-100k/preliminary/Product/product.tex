@@ -109,37 +109,37 @@ ProgLearn程式教學系統，以程式教師為中心設計，強調師生間�
 
 % \end{enumerate}
 
-\subsection{直播功能}
+\subsection{直播功能（低延遲串流）}
 
 \begin{figure}[H]
   \centering
   %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/live.png}{ 
-  \includegraphics[width=0.4\textwidth]{images/streaming.png}
+  \includegraphics[width=0.5\textwidth]{images/streaming.png}
   %   }
   \caption{直播功能區}
 \end{figure}
 
-直播功能區位在課堂介面的左半部。此直播功能不同於往常的影像傳輸，而是記錄教師在投影片上的所有操作，包含換頁、繪畫、游標軌跡和聲音實時同步到學生端的介面上，然後存儲在直播記錄中，方便回顧與學習（圖\ref{fig:streaming-flowchart}）。
+直播功能區位在課堂介面的左半部。此直播功能不同於往常的影像傳輸，而是記錄教師在投影片上的所有操作，包含換頁、繪畫、游標軌跡和聲音實時同步到學生端的介面上，然後存儲在直播記錄中，方便回顧與學習。
 因此相比於Zoom、Meet等視訊會議工具，具有更低的網路延遲與頻寬需求，並且更加穩定。
 
-\begin{figure}[H]
-  \centering
-  \begin{tikzpicture}[node distance=4cm]
+% \begin{figure}[H]
+%   \centering
+%   \begin{tikzpicture}[node distance=4cm]
 
-    \node (start) [startstop] {教師移動滑鼠游標};
-    \node (pro1) [process, right of=start, xshift=1cm] {將滑鼠移動資訊傳到伺服器};
-    \node (pro2) [process, right of=pro1, xshift=2cm] {伺服器儲存至直播記錄};
-    \node (pro3) [process, below of=pro2, yshift=2cm] {伺服器將資訊傳到學生端};
-    \node (stop) [process, left of=pro3, xshift=-2cm] {學生端顯示滑鼠游標軌跡};
-    \draw [arrow] (start) -- (pro1);
-    \draw [arrow] (pro1) -- (pro2);
-    \draw [arrow] (pro2) -- (pro3);
-    \draw [arrow] (pro3) -- (stop);
+%     \node (start) [startstop] {教師移動滑鼠游標};
+%     \node (pro1) [process, right of=start, xshift=1cm] {將滑鼠移動資訊傳到伺服器};
+%     \node (pro2) [process, right of=pro1, xshift=2cm] {伺服器儲存至直播記錄};
+%     \node (pro3) [process, below of=pro2, yshift=2cm] {伺服器將資訊傳到學生端};
+%     \node (stop) [process, left of=pro3, xshift=-2cm] {學生端顯示滑鼠游標軌跡};
+%     \draw [arrow] (start) -- (pro1);
+%     \draw [arrow] (pro1) -- (pro2);
+%     \draw [arrow] (pro2) -- (pro3);
+%     \draw [arrow] (pro3) -- (stop);
 
-  \end{tikzpicture}
-  \caption{直播的傳輸流程圖}
-  \label{fig:streaming-flowchart}
-\end{figure}
+%   \end{tikzpicture}
+%   \caption{直播的傳輸流程圖}
+%   \label{fig:streaming-flowchart}
+% \end{figure}
 
 % 由於其低延遲的特性，可以讓教師在即時的課堂環境中使用，作為教學的輔助工具。在線上與偏鄉教學中，其更低的硬體需求，可以作為主要的教學工具。
 
@@ -151,7 +151,7 @@ ProgLearn程式教學系統，以程式教師為中心設計，強調師生間�
   \begin{subfigure}{0.5\linewidth}
     \centering
     %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/student.png}{ 
-    \includegraphics[width=0.5\textwidth]{images/side-s.png}
+    \includegraphics[width=0.6\textwidth]{images/side-s.png}
     %   }
     \caption{學生講義頁面}
     \label{fig:student}
@@ -159,7 +159,7 @@ ProgLearn程式教學系統，以程式教師為中心設計，強調師生間�
   \begin{subfigure}{0.5\linewidth}
     \centering
         % \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/teacher.png}{ 
-    \includegraphics[width=0.4\textwidth]{images/side-t.png}
+    \includegraphics[width=0.45\textwidth]{images/side-t.png}
         % }
     \caption{教師講義頁面}
     \label{fig:teacher}
@@ -173,13 +173,13 @@ ProgLearn程式教學系統，以程式教師為中心設計，強調師生間�
   \setlength{\parindent}{2em}
 
   \item 智慧引導
-  \par 透過淺黃色區塊，向學生指引出當前直播對應到講義上的哪些部分（圖\ref{fig:student}）。
+  \par 透過淺黃色區塊，向學生指引出當前的投影片對應到講義上的哪些部分（圖\ref{fig:student}）。
   
   \item 即時反饋（數位儀表板）
-  \par 為教師提供學生的課堂作答情況，即時了解學生的學習狀況（圖\ref{fig:teacher}）。
+  \par 為教師提供學生的課堂作答情況，即時了解學生的學習狀況（圖\ref{fig:teacher}下半部）。
 
   \item 自動批改
-  \par 為學生提供課堂上的程式作答功能，其使用流程可參考圖\ref{fig:problem-flowchart}。該功能可以自動並即時批改課堂習題，並且在教師的數位儀表板上顯示學生的作答情況（圖\ref{fig:teacher}）。其技術也應用於作業管理中（圖\ref{fig:course}、圖\ref{fig:homework}）。
+  \par 為學生提供課堂上的程式作答功能，其使用流程可參考圖\ref{fig:problem-flowchart}。該功能可以自動並即時批改課堂習題，並且在教師的數位儀表板上顯示學生的作答情況（圖\ref{fig:teacher}）。其技術也應用於作業管理中（\ref{sec:course-assignment}節）。
   
   \begin{figure}[H]
     \centering
@@ -202,71 +202,103 @@ ProgLearn程式教學系統，以程式教師為中心設計，強調師生間�
   \end{figure}
 
   \item 講義視覺化編輯
-  \par 講義編輯頁面為教師提供編輯講義的功能（圖\ref{fig:edit}）。在編排講義時，教師可以對不同的講義物件做編輯，包括選擇題方塊、補充方塊等，然後將該物件拖曳到時間軸中，組合成一個完整的講義（圖\ref{fig:textbook}）。而在時間軸中將一一對應著投影片的頁數，因此在課堂中，當老師切換到特定的頁數時，就能在講義中標示出對應的上課內容。
+  \par 講義編輯頁面為教師提供編輯講義的功能（圖\ref{fig:edit}）。在編排講義時，教師可以對不同的講義物件做編輯，包括選擇題方塊、補充方塊等，然後將該物件拖曳到時間軸中，組合成一個完整的講義（圖\ref{fig:edit}右半部）。而在時間軸中將一一對應著投影片的頁數，因此在課堂中，當老師切換到特定的頁數時，就能在講義中標示出對應的上課內容。
+
+  % \begin{figure}[H]
+  %   \begin{subfigure}{0.5\linewidth}
+  %     \centering
+  %     %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/course.png}{ 
+  %     \includegraphics[width=1\textwidth]{images/edit.png}
+  %     %   }
+  %     \caption{講義編輯頁面}
+  %     \label{fig:edit}
+  %   \end{subfigure}
+  %   \begin{subfigure}{0.5\linewidth}
+  %     \centering
+  %     %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/list.png}{ 
+  %     \includegraphics[width=0.5\textwidth]{images/side-s.png}
+  %     %   }
+  %     \caption{顯示的講義}
+  %     \label{fig:textbook}
+  %   \end{subfigure}
+  %   \caption{講義編輯功能}
+  % \end{figure}
 
   \begin{figure}[H]
-    \begin{subfigure}{0.5\linewidth}
-      \centering
-      %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/course.png}{ 
-      \includegraphics[width=1\textwidth]{images/edit.png}
-      %   }
-      \caption{講義編輯頁面}
-      \label{fig:edit}
-    \end{subfigure}
-    \begin{subfigure}{0.5\linewidth}
-      \centering
-      %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/list.png}{ 
-      \includegraphics[width=0.5\textwidth]{images/side-s.png}
-      %   }
-      \caption{顯示的講義}
-      \label{fig:textbook}
-    \end{subfigure}
-    \caption{講義編輯功能}
+    \centering
+    %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/live.png}{ 
+    \includegraphics[width=0.8\textwidth]{images/timezone.png}
+    %   }
+    \caption{講義編輯的示意圖}
+    \label{fig:edit}
   \end{figure}
 
 \end{enumerate}
 
 \subsection{課程與作業管理}
+\label{sec:course-assignment}
 
-該系統在課堂外，提供了課程與作業管理的功能（圖\ref{fig:course}、圖\ref{fig:homework}）。教師可以在此設定課程章節、作業、測驗、考試與查看學生作答狀況。學生可以在此查看課程資訊、撰寫作業並得到即時批改。
-
-\begin{figure}[H]
-  \begin{subfigure}{0.5\linewidth}
-    \centering
-    %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/list.png}{ 
-    \includegraphics[width=0.75\textwidth]{images/chapter.png}
-    %   }
-    \caption{課程章節}
-  \end{subfigure}
-  \begin{subfigure}{0.5\linewidth}
-    \centering
-    %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/course.png}{ 
-    \includegraphics[width=0.75\textwidth]{images/course.png}
-    %   }
-    \caption{課程清單}
-  \end{subfigure}
-  \caption{課程相關頁面}
-  \label{fig:course}
-\end{figure}
+該系統在課堂外，提供了課程與作業管理的功能。教師可以在此設定課程章節、作業、測驗、考試與查看學生作答狀況。學生可以在此查看課程資訊、撰寫作業並得到即時批改。
 
 \begin{figure}[H]
-  \begin{subfigure}{0.5\linewidth}
     \centering
-    %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/list.png}{ 
-    \includegraphics[width=0.75\textwidth]{images/homework.png}
-    %   }
-    \caption{作業作答}
-  \end{subfigure}
-  \begin{subfigure}{0.5\linewidth}
-    \centering
-    %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/course.png}{ 
-    \includegraphics[width=0.75\textwidth]{images/feedback.png}
-    %   }
-    \caption{作業反饋}
-  \end{subfigure}
-  \caption{作業相關頁面}
-  \label{fig:homework}
+    \begin{tikzpicture}[node distance=2cm, auto]
+
+      \node (start) [startstop] {教師設定課程作業};
+      \node (pro1) [process, right of=start, xshift=3cm] {學生查看作業資訊};
+      \node (pro2) [process, right of=pro1, xshift=3cm] {學生撰寫作業並送出};
+      \node (pro3) [process, below of=pro2] {系統自動批改};
+      \node (pro4) [process, left of=pro3, xshift=-3cm] {學生查看批改結果};
+      \node (stop) [process, left of=pro4, xshift=-3cm] {教師查看作答統計};
+
+      \draw [arrow] (start) -- (pro1);
+      \draw [arrow] (pro1) -- (pro2);
+      \draw [arrow] (pro2) -- (pro3);
+      \draw [arrow] (pro3) -- (pro4);
+      \draw [arrow] (pro4) -- (stop);
+
+    \end{tikzpicture}
+    \caption{作業管理系統流程圖}
+    \label{fig:course-assignment-flowchart}
 \end{figure}
+
+% \begin{figure}[H]
+%   \begin{subfigure}{0.5\linewidth}
+%     \centering
+%     %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/list.png}{ 
+%     \includegraphics[width=0.75\textwidth]{images/chapter.png}
+%     %   }
+%     \caption{課程章節}
+%   \end{subfigure}
+%   \begin{subfigure}{0.5\linewidth}
+%     \centering
+%     %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/course.png}{ 
+%     \includegraphics[width=0.75\textwidth]{images/course.png}
+%     %   }
+%     \caption{課程清單}
+%   \end{subfigure}
+%   \caption{課程相關頁面}
+%   \label{fig:course}
+% \end{figure}
+
+% \begin{figure}[H]
+%   \begin{subfigure}{0.5\linewidth}
+%     \centering
+%     %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/list.png}{ 
+%     \includegraphics[width=0.75\textwidth]{images/homework.png}
+%     %   }
+%     \caption{作業作答}
+%   \end{subfigure}
+%   \begin{subfigure}{0.5\linewidth}
+%     \centering
+%     %   \href{https://raw.githubusercontent.com/programingtw/proglearn-plan/main/img/course.png}{ 
+%     \includegraphics[width=0.75\textwidth]{images/feedback.png}
+%     %   }
+%     \caption{作業反饋}
+%   \end{subfigure}
+%   \caption{作業相關頁面}
+%   \label{fig:homework}
+% \end{figure}
 
 \newpage
 % \subsection{營運模式}
