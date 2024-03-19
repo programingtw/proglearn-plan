@@ -2,10 +2,11 @@ name: Release Compiled PDF
 on:
   push:
     branches: [ main ]
-    tags:
-      - 'v*'
   pull_request:
     branches: [ main ]
+
+permissions:
+  contents: write
 
 jobs:
   build_release_latex:
@@ -17,17 +18,22 @@ jobs:
         uses: xu-cheng/latex-action@3.2.0
         with:
           root_file: |
-            2023資訊智慧創新跨域專題競賽/2023資訊智慧創新跨域專題競賽.tex
             2024-Ustart/2024-Ustart.tex
             2024-cycu-100k/preliminary/2024-cycu-100k-preliminary.tex
-          extra_fonts: |
-            ./fonts/*.ttf
+          extra_fonts:
+            ./proglearn-plan/fonts/*.ttf
           latexmk_use_xelatex: true
-      - name: GH Release
+      - name: Generate release time tag
+        id: tag
+        run: |
+          echo "::set-output name=release_tag::Test_$(TZ=Asia/Taipei date +"%Y.%m.%d_%H-%M")"
+      - name: Github Release
         uses: softprops/action-gh-release@v2.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          tag_name: ${{ steps.tag.outputs.release_tag }}
           files: |
-            2023資訊智慧創新跨域專題競賽.pdf
             2024-Ustart.pdf
             2024-cycu-100k-preliminary.pdf
             
