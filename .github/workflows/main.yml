@@ -13,6 +13,10 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v4.1.1
+      - name: Download font files
+        run: |
+          mkdir fonts
+          cp fonts/*.ttf fonts/
       - name: Compile LaTex document
         uses: xu-cheng/latex-action@3.2.0
         with:
