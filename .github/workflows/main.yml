@@ -21,11 +21,7 @@ jobs:
             2024-Ustart/2024-Ustart.tex
             2024-cycu-100k/preliminary/2024-cycu-100k-preliminary.tex
           extra_fonts: |
-            ./fonts/KAIU.TTF
-            ./fonts/times.ttf
-            ./fonts/timesbd.ttf
-            ./fonts/timesbi.ttf
-            ./fonts/timesi.ttf
+            ./fonts/*.ttf
           latexmk_use_xelatex: true
       - name: GH Release
         uses: softprops/action-gh-release@v2.0.2
