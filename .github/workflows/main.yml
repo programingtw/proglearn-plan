@@ -17,7 +17,6 @@ jobs:
         uses: xu-cheng/latex-action@3.2.0
         with:
           root_file: |
-            2023資訊智慧創新跨域專題競賽/2023資訊智慧創新跨域專題競賽.tex
             2024-Ustart/2024-Ustart.tex
             2024-cycu-100k/preliminary/2024-cycu-100k-preliminary.tex
           extra_fonts:
@@ -27,7 +26,6 @@ jobs:
         uses: softprops/action-gh-release@v2.0.2
         with:
           files: |
-            2023資訊智慧創新跨域專題競賽.pdf
             2024-Ustart.pdf
             2024-cycu-100k-preliminary.pdf
             
