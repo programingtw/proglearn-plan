@@ -19,9 +19,8 @@ jobs:
         with:
           root_file: |
             2024-Ustart/2024-Ustart.tex
-            2024-cycu-100k/preliminary/2024-cycu-100k-preliminary.tex
           extra_fonts:
-            ./proglearn-plan/fonts/*.ttf
+            ./fonts/*.ttf
           latexmk_use_xelatex: true
       - name: Generate release time tag
         id: tag
@@ -35,6 +34,3 @@ jobs:
           tag_name: ${{ steps.tag.outputs.release_tag }}
           files: |
             2024-Ustart.pdf
-            2024-cycu-100k-preliminary.pdf
-            
-            
