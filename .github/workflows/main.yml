@@ -22,6 +22,8 @@ jobs:
           extra_fonts:
             ./fonts/*.ttf
           latexmk_use_xelatex: true
+      - name: List contents of data directory
+        run: ls -R data
       - name: Generate release time tag
         id: tag
         run: |
