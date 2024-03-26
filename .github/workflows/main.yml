@@ -15,7 +15,7 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v4.1.1
       - name: List contents of data directory
-        run: ls -R data
+        run: ls -R proglearn-plan
       - name: Compile LaTex document
         uses: xu-cheng/latex-action@3.2.0
         with:
