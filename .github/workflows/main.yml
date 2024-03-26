@@ -20,10 +20,8 @@ jobs:
           root_file: |
             2024-Ustart/2024-Ustart.tex
           extra_fonts:
-            ./fonts/*.ttf
+            /github/workspace/font/*.ttf
           latexmk_use_xelatex: true
-      - name: List contents of data directory
-        run: ls -R data
       - name: Generate release time tag
         id: tag
         run: |
