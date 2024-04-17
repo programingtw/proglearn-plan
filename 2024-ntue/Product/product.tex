@@ -500,14 +500,58 @@ ProgLearn程式教學系統（以下簡稱為本系統），以程式教師為�
 % 自辦階段與種子輔導階段的主要目的，是建立起與目標群眾（國高中教師及其學校）的信任與合作關係，以進入教育市場。接著，在專案執行階段，建立起與學校、教師間的交易關係，分別以B2B\footnote{B2B：Business to Business，指企業對企業的商業模式。}與B2C\footnote{B2C：Business to Consumer，指企業對消費者的商業模式。}的商業模式進行收費（詳見\ref{sec:revenue}營收模式）。
 
 \subsection{營收模式} % 收益流
-% \label{sec:revenue}
-% 針對不同種類的用戶實行不同的收費模式，分為B2B（學校端）與B2C（教師端）兩種收費模式：
 
-% \begin{enumerate}
-%   \setlength{\parindent}{2em}
-%   \item B2B（學校端）
-%   \par 針對學校、補教業者等機構提供專案設計與程式教學系統建置的服務。協助機構架設教學系統於自家伺服器上，並提供技術支援。收費模式為一次性專案設計費用與年度授權費用，其費用依據機構規模與教師使用人數而定。
-%   \item B2C（教師端）
-%   \par 針對個體教師提供教學系統的服務。在我們建置的線上教學系統上，提供教師月訂閱制的付費帳號，並提供技術支援。收費模式為月訂閱制費用，其費用依據學生使用人數而定。
-% \end{enumerate}
+營收模式配合不同階段的營運模式，分為試辦階段、種子培訓階段與專案執行階段三個階段，針對不同的營運目標與用戶群，實行不同的收益方式：
+
+\label{sec:revenue}
+\begin{enumerate}
+  \setlength{\parindent}{2em}
+  \item 試辦階段
+  \par 試辦階段主要以創業競賽、各大學孵化器輔助等方式獲得資金，並提供免費的試用服務，以建立與目標群眾的信任關係。
+  \item 種子培訓階段
+  \par 種子培訓階段主要以貸款、創業競賽、天使投資、插件商店等方式獲得資金。插件商店會將一些特殊功能、新功能或是更多的學生使用人數等方式進行收費，達成使用者付費的目的。
+  \item 專案執行階段
+  \par 在專案執行階段，主要資金來源來自於個體教師、線上教師、補習班、教育培訓機構等教學單位。針對不同種類的用戶實行不同的收費模式，分為B2B（學校端）與B2C（教師端）兩種收費模式：
+  \begin{enumerate}
+    \setlength{\parindent}{2em}
+    \item B2B（學校端）
+    \par 針對學校、補教業者等機構提供教學軟體專案與程式教學系統建置的服務。協助機構架設教學系統於自家伺服器上，並提供技術支援。收費模式為一次性專案設計費用與年度授權費用，其費用依據機構規模與教師使用人數而定。
+    \item B2C（教師端）
+    \par 針對個體教師提供教學系統的服務。在我們建置的線上教學系統上，提供教師月訂閱制的付費帳號，並提供技術支援。收費模式為月訂閱制費用，其費用依據學生使用人數而定。此外，我們也提供教師自定義教學的功能，以插件商店，讓教師自行選購所需的功能。
+  \end{enumerate}
+\end{enumerate}
+
+% 畫營收模式圖或表
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[node distance=1.9cm, auto]
+    % Place nodes
+    \node [startstop] (start) {試辦階段};
+    \node [process, below of=start] (pro1) {創業競賽、孵化器輔助};
+    \node [startstop, below of=pro1] (pro2) {免費試用};
+    \node [startstop, right of=pro2, xshift=3cm] (pro3) {種子培訓階段};
+    \node [process, below of=pro3] (pro4) {貸款、創業競賽、天使投資、插件商店};
+    \node [startstop, below of=pro4] (pro5) {插件商店收費};
+    \node [startstop, right of=pro5, xshift=3cm] (pro6) {專案執行階段};
+    \node [process, below of=pro5] (pro7) {B2C（教師端）};
+    \node [startstop, below right of=pro6, xshift=2cm, yshift=-0.56cm] (pro8) {教學軟體專案};
+    \node [startstop, below of=pro6] (pro9) {系統訂閱服務};
+    \node [process, below of=pro8] (pro10) {B2B（學校端）};
+    \node [process, below of=pro9] (pro11) {B2C（教師端）};
+
+    % Draw edges
+    \draw [arrow] (start) -- (pro1);
+    \draw [arrow] (pro1) -- (pro2);
+    \draw [arrow] (pro2) -- (pro3);
+    \draw [arrow] (pro3) -- (pro4);
+    \draw [arrow] (pro4) -- (pro5);
+    \draw [arrow] (pro5) -- (pro6);
+    \draw [arrow] (pro5) -- (pro7);
+    \draw [arrow] (pro6) -| (pro8);
+    \draw [arrow] (pro6) -- (pro9);
+    \draw [arrow] (pro8) -- (pro10);
+    \draw [arrow] (pro9) -- (pro11);
+  \end{tikzpicture}
+  \caption{營收模式流程圖}
+\end{figure}
 
