@@ -12,6 +12,28 @@
 
 普羅程式作為教學用軟體的服務供應商，將致力於協助教師開發程式教學工具，以解決教育者在數位化學習的潮流下所遇到的問題。
 除了為教師與學校提供專案設計的服務外，我們將提供整合性的proglearn程式教學系統作為我們的主要產品，可適用於多種場景，如線上與線下課程、非同步與同步課程中。
+\\ \par \noindent
+% 畫圖
+% 普羅程式---軟體服務--->教學單位---解決--->數位化學習/教學障礙等問題
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[node distance=2cm,>=latex]
+
+        % Nodes
+        \node[startstop, align=center] (pro) {普羅程式};
+        \node[process, right of=pro, node distance=5cm, align=center] (service) {軟體服務};
+        \node[process, right of=service, node distance=5cm, align=center] (unit) {教學單位};
+        \node[process, right of=unit, node distance=5cm, align=center] (issue) {數位化學習、\\教學障礙等問題};
+        
+        % Arrows
+        \draw[->] (pro) -- node[above] {提供} (service);
+        \draw[->] (service) -- node[above] {幫助} (unit);
+        \draw[->] (unit) -- node[above] {解決} (issue);
+        
+    \end{tikzpicture}
+    \caption{普羅程式的服務模式}
+    \label{fig:service}
+\end{figure}
 
 % \subsection{實施方式、時程規劃及預期成效}
 % \label{sec:plan}
