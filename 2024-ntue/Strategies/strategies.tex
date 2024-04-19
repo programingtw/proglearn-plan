@@ -114,5 +114,34 @@
   	\par 以熟識的老師作為第一批試用目標，目前與我們有合作的高中有東山高中、丹鳳高中、鳳山高中。我們將積極收集老師與學生的回饋，包括他們對工具的使用感受、意見和建議。我們會與這些老師建立密切的合作關係，並請他們分享他們的使用經驗與推廣，以便建立我們的口碑。
   	\par 在增加功能及知名度後，我們計劃在線上透過社群媒體分享示範課程的短影片、教師使用心得等等，在線下透過實地訪談，並提供過去的使用者紀錄及成效，並且透過熟識老師們的口碑推薦，加強我們在目標客戶群體中的知名度，並吸引更多的潛在客戶。
   \item 未來的行銷規劃
-  	\par 在完善功能與建立一定知名度後，我們計畫與個人教師合作，如：試用並分享心得、推薦給其他使用者並獲得優惠、擔任合作教師並錄製課程供宣傳、教育機構建立合作夥伴關係等等，提供定制化的解決方案和支持服務。透過與個人教師和教育機構的合作，我們可以更好地了解客戶需求，並持續改進產品功能，同時擴大市場覆蓋範圍。我們也將持續投資於市場營銷和品牌宣傳，提升產品知名度和品牌價值，以吸引更多的客戶和合作夥伴加入我們的生態系統。
+  	\par 在完善功能與建立一定知名度後，我們計畫與個人教師合作，如：試用並分享心得、推薦給其他使用者並獲得優惠、擔任合作教師並錄製課程供宣傳、教育機構建立合作夥伴關係等等，提供定制化的解決方案和支持服務。透過與個人教師和教育機構的合作，我們可以更好地了解客戶需求，並持續改進產品功能，同時擴大市場覆蓋範圍。我們也將持續投資於市場營銷和品牌宣傳，提升產品知名度和品牌價值，並提供給客戶優質的產品，同時聆聽客戶的反饋，保持與客戶的互動，提高我們的品牌價值，以吸引更多的客戶和合作夥伴加入我們的生態系統。
 \end{enumerate}
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[node distance=1.9cm, auto]
+    % Place nodes
+    \node [startstop] (start) {過去的成果};
+    \node [process, below of=start] (pro1) {建立社群媒體、推廣科普文章、舉辦營隊};
+    \node [startstop, below right of=pro1, xshift=1.5cm, yshift=-0.5cm] (pro2) {目前的規劃};
+    \node [process, below of=pro2] (pro3) {教師合作試用、分享與推廣};
+    \node [startstop, below of=pro3] (pro4) {分享課程短影音、線下訪談};
+    \node [startstop, right of=pro4, xshift=3cm] (pro5) {未來的規劃};
+    \node [startstop, below right of=pro5, xshift=2cm, yshift=-0.5cm] (pro6) {提升品牌價值};
+    \node [startstop, below left of=pro5, xshift=-2cm, yshift=-0.5cm] (pro7) {增加合作夥伴};
+    \node [process, below of=pro6] (pro8) {提供優質產品、聆聽回饋、保持互動};
+    \node [process, below of=pro7] (pro9) {提供優惠、成為合作教師};
+
+    % Draw edges
+    \draw [arrow] (start) -- (pro1);
+    \draw [arrow] (pro1) |- (pro2);
+    \draw [arrow] (pro2) -- (pro3);
+    \draw [arrow] (pro3) -- (pro4);
+    \draw [arrow] (pro4) -- (pro5);
+    \draw [arrow] (pro5) |- (pro6);
+    \draw [arrow] (pro5) |- (pro7);
+    \draw [arrow] (pro6) -- (pro8);
+    \draw [arrow] (pro7) -- (pro9);
+  \end{tikzpicture}
+  \caption{行銷策略流程圖}
+\end{figure}
